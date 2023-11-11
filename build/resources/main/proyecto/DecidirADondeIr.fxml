@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:controller="proyecto.Pepito" fx:id="anchorPaneDecidirAQuePaneIr" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="180.0" minWidth="330.0" prefHeight="181.0" prefWidth="330.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="57.0" layoutY="54.0" text="A donde desea ingresar?" textAlignment="CENTER" textFill="#0d2673">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Button fx:id="buttonCargarPaginaDeEmpresa" layoutX="36.0" layoutY="103.0" mnemonicParsing="false" text="Pagina Empresas" />
+      <Button fx:id="buttonCargarPaginaUsuarios" layoutX="181.0" layoutY="103.0" mnemonicParsing="false" text="Pagina Usuarios" />
+   </children>
+</AnchorPane>

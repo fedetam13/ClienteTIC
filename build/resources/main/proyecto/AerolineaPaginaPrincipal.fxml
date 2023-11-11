@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane fx:id="borderPaneAerolineaPaginaPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.Controllers.AerolineaController">
+   <top>
+      <MenuBar fx:id="menuBarAerolineaPaginaPrincipal" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu fx:id="menuCollumAerolineaPaginaPrincipal_Account" mnemonicParsing="false" text="Account">
+            <items>
+              <MenuItem fx:id="menuItemAccountAerolineaPaginaPrincipal_ChangePassword" mnemonicParsing="false" onAction="#changePassword" text="Change Password" />
+                  <MenuItem fx:id="menuItemAccountAerolineaPaginaPrincipal_Exit" mnemonicParsing="false" onAction="#volverAlLogIn" text="Sign Out" />
+            </items>
+          </Menu>
+          <Menu fx:id="menuCollunAerolineaPaginaPrincipal_Employee" mnemonicParsing="false" text="Employee">
+            <items>
+                  <MenuItem fx:id="menuItemEmployeeAerolineaPaginaPrincipal_AddEmployee" mnemonicParsing="false" text="New Employee" />
+                  <MenuItem fx:id="menuItemEmployeeAerolineaPaginaPrincipal_FireEmployee" mnemonicParsing="false" text="Fire Employee" />
+              <MenuItem fx:id="menuItemEmployeeAerolineaPaginaPrincipal_CambiarArea" mnemonicParsing="false" text="Change Area" />
+            </items>
+          </Menu>
+          <Menu fx:id="menuCollunAerolineaPaginaPrincipal_Flights" mnemonicParsing="false" text="Flights">
+            <items>
+              <MenuItem fx:id="menuItemFlightAerolineaPaginaPrincipal_AddFlight" mnemonicParsing="false" onAction="#addFlightWindow" text="Add Flight" />
+                  <MenuItem fx:id="menuItemFlightAerolineaPaginaPrincipal_UpdateFlight" mnemonicParsing="false" text="Update Flight" />
+                  <MenuItem fx:id="menuItemFlightAerolineaPaginaPrincipal_DeleteFlight" mnemonicParsing="false" text="Delete Flight" />
+                  <MenuItem fx:id="menuItemFlightAerolineaPaginaPrincipal_AddPlane" mnemonicParsing="false" onAction="#addPlaneWindow" text="Add Airplane" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>

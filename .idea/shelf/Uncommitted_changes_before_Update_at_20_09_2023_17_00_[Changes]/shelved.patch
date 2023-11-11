@@ -1,0 +1,1974 @@
+Index: src/main/java/proyecto/ClasesMER/Usuarios.java
+===================================================================
+diff --git a/src/main/java/proyecto/ClasesMER/Usuarios.java b/src/main/java/proyecto/ClasesMER/Usuarios.java
+deleted file mode 100644
+--- a/src/main/java/proyecto/ClasesMER/Usuarios.java	(revision 79c8ae90e92526b968feca4e07e63a0c459519df)
++++ /dev/null	(revision 79c8ae90e92526b968feca4e07e63a0c459519df)
+@@ -1,44 +0,0 @@
+-package proyecto.ClasesMER;
+-
+-import proyecto.ClasesMER.Aeropuerto.Aeropuerto;
+-
+-public class Usuarios {
+-    private int id_usuario;
+-    private String username;
+-    private String password;
+-    private String nombre;
+-
+-    public Usuarios(int id_usuario, String username, String password, String nombre) {
+-        this.id_usuario = id_usuario;
+-        this.username = username;
+-        this.password = password;
+-        this.nombre = nombre;
+-    }
+-
+-    public int getId_usuario() {
+-        return id_usuario;
+-    }
+-
+-    public String getUsername() {
+-        return username;
+-    }
+-
+-    public String getPassword() {
+-        return password;
+-    }
+-
+-    //se tiene que editar para que se pueda cambiar
+-    public void setPassword(String password) {
+-        this.password = password;
+-    }
+-
+-    public String getNombre() {
+-        return nombre;
+-    }
+-
+-    public void setNombre(String nombre) {
+-        this.nombre = nombre;
+-    }
+-
+-    public void hacerCheckIn (Aeropuerto aerop, Vuelos vuelo){}
+-}
+Index: src/main/java/proyecto/ClasesMER/EmpAeropuerto.java
+===================================================================
+diff --git a/src/main/java/proyecto/ClasesMER/EmpAeropuerto.java b/src/main/java/proyecto/ClasesMER/EmpAeropuerto.java
+deleted file mode 100644
+--- a/src/main/java/proyecto/ClasesMER/EmpAeropuerto.java	(revision 79c8ae90e92526b968feca4e07e63a0c459519df)
++++ /dev/null	(revision 79c8ae90e92526b968feca4e07e63a0c459519df)
+@@ -1,11 +0,0 @@
+-package proyecto.ClasesMER;
+-
+-import proyecto.ClasesMER.Aeropuerto.Aeropuerto;
+-
+-public class EmpAeropuerto extends Usuarios{
+-    private Aeropuerto aeropuerto;
+-    public EmpAeropuerto(int id_usuario, String username, String password, String nombre, Aeropuerto aeropuerto) {
+-        super(id_usuario, username, password, nombre);
+-        this.aeropuerto=aeropuerto;
+-    }
+-}
+Index: src/main/java/proyecto/ClasesMER/Sucursal.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/proyecto/ClasesMER/Sucursal.java b/src/main/java/proyecto/ClasesMER/Sucursal.java
+deleted file mode 100644
+--- a/src/main/java/proyecto/ClasesMER/Sucursal.java	(revision 79c8ae90e92526b968feca4e07e63a0c459519df)
++++ /dev/null	(revision 79c8ae90e92526b968feca4e07e63a0c459519df)
+@@ -1,33 +0,0 @@
+-package proyecto.ClasesMER;
+-
+-import proyecto.ClasesMER.Aeropuerto.Aeropuerto;
+-
+-public class Sucursal {
+-    private Aeropuerto aeropuerto;
+-    private int numeroDeSucursal;
+-    private Empresa empresa;
+-    private int cantidadDeEmpleados;
+-
+-    public Sucursal(Aeropuerto aeropuerto, Empresa empresa, int cantidadDeEmpleados, int numeroDeSucursal) {
+-        this.aeropuerto = aeropuerto;
+-        this.empresa = empresa;
+-        this.cantidadDeEmpleados = cantidadDeEmpleados;
+-        this.numeroDeSucursal = numeroDeSucursal;
+-    }
+-
+-    public Aeropuerto getAeropuerto() {
+-        return aeropuerto;
+-    }
+-
+-    public Empresa getEmpresa() {
+-        return empresa;
+-    }
+-
+-    public int getCantidadDeEmpleados() {
+-        return cantidadDeEmpleados;
+-    }
+-
+-    public void setCantidadDeEmpleados(int cantidadDeEmpleados) {
+-        this.cantidadDeEmpleados = cantidadDeEmpleados;
+-    }
+-}
+Index: src/main/java/proyecto/ClasesMER/Pasajeros.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/proyecto/ClasesMER/Pasajeros.java b/src/main/java/proyecto/ClasesMER/Pasajeros.java
+deleted file mode 100644
+--- a/src/main/java/proyecto/ClasesMER/Pasajeros.java	(revision 79c8ae90e92526b968feca4e07e63a0c459519df)
++++ /dev/null	(revision 79c8ae90e92526b968feca4e07e63a0c459519df)
+@@ -1,10 +0,0 @@
+-package proyecto.ClasesMER;
+-
+-public class Pasajeros extends Usuarios{
+-    public Pasajeros(int id_usuario, String username, String password, String nombre) {
+-        super(id_usuario, username, password, nombre);
+-    }
+-    public void agendarPasaje(int id_vuelo, String aciento, String clase, int c){
+-        Pasaje pasaje = new Pasaje(id_vuelo, this.getId_usuario(), aciento,clase, c);
+-    }
+-}
+Index: src/main/java/proyecto/ClasesMER/Empresa.java
+===================================================================
+diff --git a/src/main/java/proyecto/ClasesMER/Empresa.java b/src/main/java/proyecto/ClasesMER/Empresa.java
+deleted file mode 100644
+--- a/src/main/java/proyecto/ClasesMER/Empresa.java	(revision 79c8ae90e92526b968feca4e07e63a0c459519df)
++++ /dev/null	(revision 79c8ae90e92526b968feca4e07e63a0c459519df)
+@@ -1,26 +0,0 @@
+-package proyecto.ClasesMER;
+-
+-public class Empresa {
+-    private int id_empresa;
+-    private String nombre;
+-
+-    public Empresa(int id_empresa, String nombre) {
+-        this.id_empresa = id_empresa;
+-        this.nombre = nombre;
+-    }
+-
+-    public int getId_empresa() {
+-        return id_empresa;
+-    }
+-
+-    public String getNombre() {
+-        return nombre;
+-    }
+-    public void registrarEmpleado (int id_usuario, String username, String password, String nombre){
+-        // faltan checkeos
+-        EmpEmpresa empleado = new EmpEmpresa(id_usuario,username,password,nombre,this.id_empresa);
+-    }
+-    public void darDeBajaEmpleado (int id_usuario){
+-
+-    }
+-}
+Index: src/main/java/proyecto/ClasesMER/Vuelos.java
+===================================================================
+diff --git a/src/main/java/proyecto/ClasesMER/Vuelos.java b/src/main/java/proyecto/ClasesMER/Vuelos.java
+deleted file mode 100644
+--- a/src/main/java/proyecto/ClasesMER/Vuelos.java	(revision 79c8ae90e92526b968feca4e07e63a0c459519df)
++++ /dev/null	(revision 79c8ae90e92526b968feca4e07e63a0c459519df)
+@@ -1,98 +0,0 @@
+-package proyecto.ClasesMER;
+-import proyecto.ClasesMER.Aerolinea.Aerolinea;
+-import proyecto.ClasesMER.Aeropuerto.Aeropuerto;
+-import proyecto.ClasesMER.Avion.Avion;
+-
+-import java.time.LocalDate;
+-
+-public class Vuelos {
+-    private int id_vuelo;
+-    private Aerolinea aerolinea;
+-    private Avion avion;
+-    private Aeropuerto aeropuertoDePartida;
+-    private Aeropuerto aeropuertoDeArribo;
+-    private LocalDate horaDePartida;
+-    private LocalDate horaDePartidaEstimada;
+-    private LocalDate horaDeArribo;
+-    private LocalDate horaDeArriboEstimada;
+-    private boolean estaAtrasado;
+-    private int pueretaDeEmbarque;
+-    private int puertaDeArribo;
+-
+-    public Vuelos(int id_vuelo, Aerolinea aerolinea, Avion avion, Aeropuerto aeropuertoDePartida, Aeropuerto aeropuertoDeArribo, LocalDate horaDePartidaEstimada, LocalDate horaDeArriboEstimada, int puertaDeEmbarque, int pueretaarribo) {
+-        this.id_vuelo = id_vuelo;
+-        this.aerolinea = aerolinea;
+-        this.avion = avion;
+-        this.aeropuertoDePartida = aeropuertoDePartida;
+-        this.aeropuertoDeArribo = aeropuertoDeArribo;
+-        this.horaDePartidaEstimada = horaDePartidaEstimada;
+-        this.horaDeArriboEstimada = horaDeArriboEstimada;
+-        this.estaAtrasado=false;
+-        this.pueretaDeEmbarque=puertaDeEmbarque;
+-        this.puertaDeArribo=pueretaarribo;
+-    }
+-
+-    public int getId_vuelo() {
+-        return id_vuelo;
+-    }
+-
+-    public Aerolinea getAerolinea() {
+-        return aerolinea;
+-    }
+-
+-    public Avion getAvion() {
+-        return avion;
+-    }
+-
+-    public Aeropuerto getAeropuertoDePartida() {
+-        return aeropuertoDePartida;
+-    }
+-
+-    public Aeropuerto getAeropuertoDeArribo() {
+-        return aeropuertoDeArribo;
+-    }
+-
+-    public LocalDate getHoraDePartida() {
+-        return horaDePartida;
+-    }
+-
+-    public LocalDate getHoraDePartidaEstimada() {
+-        return horaDePartidaEstimada;
+-    }
+-
+-    public LocalDate getHoraDeArribo() {
+-        return horaDeArribo;
+-    }
+-
+-    public LocalDate getHoraDeArriboEstimada() {
+-        return horaDeArriboEstimada;
+-    }
+-
+-    public boolean isEstaAtrasado() {
+-        return estaAtrasado;
+-    }
+-
+-    public void setAvion(Avion avion) {
+-        this.avion = avion;
+-    }
+-
+-    public void setHoraDePartida(LocalDate horaDePartida) {
+-        this.horaDePartida = horaDePartida;
+-    }
+-
+-    public void setHoraDePartidaEstimada(LocalDate horaDePartidaEstimada) {
+-        this.horaDePartidaEstimada = horaDePartidaEstimada;
+-    }
+-
+-    public void setHoraDeArribo(LocalDate horaDeArribo) {
+-        this.horaDeArribo = horaDeArribo;
+-    }
+-
+-    public void setHoraDeArriboEstimada(LocalDate horaDeArriboEstimada) {
+-        this.horaDeArriboEstimada = horaDeArriboEstimada;
+-    }
+-
+-    public void setEstaAtrasado(boolean estaAtrasado) {
+-        this.estaAtrasado = estaAtrasado;
+-    }
+-}
+Index: src/main/java/proyecto/ClasesMER/Pasaje.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/proyecto/ClasesMER/Pasaje.java b/src/main/java/proyecto/ClasesMER/Pasaje.java
+deleted file mode 100644
+--- a/src/main/java/proyecto/ClasesMER/Pasaje.java	(revision 79c8ae90e92526b968feca4e07e63a0c459519df)
++++ /dev/null	(revision 79c8ae90e92526b968feca4e07e63a0c459519df)
+@@ -1,37 +0,0 @@
+-package proyecto.ClasesMER;
+-
+-public class Pasaje {
+-    private int id_vuelo;
+-    private int id_usuario;
+-    private String aciento;
+-    private String clase;
+-    private int costo;
+-
+-    public Pasaje(int id_vuelo, int id_usuario, String aciento, String clase, int costo) {
+-        this.id_vuelo = id_vuelo;
+-        this.id_usuario = id_usuario;
+-        this.aciento = aciento;
+-        this.clase = clase;
+-        this.costo=costo;
+-    }
+-
+-    public int getId_vuelo() {
+-        return id_vuelo;
+-    }
+-
+-    public int getId_usuario() {
+-        return id_usuario;
+-    }
+-
+-    public String getAciento() {
+-        return aciento;
+-    }
+-
+-    public String getClase() {
+-        return clase;
+-    }
+-
+-    public void setId_vuelo(int id_vuelo) {
+-        this.id_vuelo = id_vuelo;
+-    }
+-}
+Index: src/main/java/proyecto/ClasesMER/EmpEmpresa.java
+===================================================================
+diff --git a/src/main/java/proyecto/ClasesMER/EmpEmpresa.java b/src/main/java/proyecto/ClasesMER/EmpEmpresa.java
+deleted file mode 100644
+--- a/src/main/java/proyecto/ClasesMER/EmpEmpresa.java	(revision 79c8ae90e92526b968feca4e07e63a0c459519df)
++++ /dev/null	(revision 79c8ae90e92526b968feca4e07e63a0c459519df)
+@@ -1,9 +0,0 @@
+-package proyecto.ClasesMER;
+-
+-public class EmpEmpresa extends Usuarios{
+-    private int empresa;
+-    public EmpEmpresa(int id_usuario, String username, String password, String nombre, int empresa) {
+-        super(id_usuario, username, password, nombre);
+-        this.empresa=empresa;
+-    }
+-}
+Index: src/main/java/proyecto/ClasesMER/EmpAerolinea.java
+===================================================================
+diff --git a/src/main/java/proyecto/ClasesMER/EmpAerolinea.java b/src/main/java/proyecto/ClasesMER/EmpAerolinea.java
+deleted file mode 100644
+--- a/src/main/java/proyecto/ClasesMER/EmpAerolinea.java	(revision 79c8ae90e92526b968feca4e07e63a0c459519df)
++++ /dev/null	(revision 79c8ae90e92526b968feca4e07e63a0c459519df)
+@@ -1,9 +0,0 @@
+-package proyecto.ClasesMER;
+-
+-public class EmpAerolinea extends Usuarios{
+-    private int aerolinea;
+-    public EmpAerolinea(int id_usuario, String username, String password, String nombre, int aerolinea) {
+-        super(id_usuario, username, password, nombre);
+-        this.aerolinea=aerolinea;
+-    }
+-}
+Index: src/main/java/proyecto/ClasesMER/Usuarios/EmpAeropuerto.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/proyecto/ClasesMER/Usuarios/EmpAeropuerto.java b/src/main/java/proyecto/ClasesMER/Usuarios/EmpAeropuerto.java
+new file mode 100644
+--- /dev/null	(date 1695237541959)
++++ b/src/main/java/proyecto/ClasesMER/Usuarios/EmpAeropuerto.java	(date 1695237541959)
+@@ -0,0 +1,27 @@
++package proyecto.ClasesMER.Usuarios;
++
++import jakarta.persistence.*;
++import lombok.AllArgsConstructor;
++import lombok.Getter;
++import lombok.NoArgsConstructor;
++import lombok.Setter;
++import org.springframework.stereotype.Component;
++import proyecto.ClasesMER.Aeropuerto.Aeropuerto;
++
++@AllArgsConstructor
++@NoArgsConstructor
++@Getter
++@Setter
++@Entity
++@Table(name = "EmpAeropuerto")
++@Component
++public class EmpAeropuerto{
++    @Id
++    @OneToOne
++    @JoinColumn(name = "id_usuario")
++    private Usuario usuario;
++
++    @ManyToOne
++    @JoinColumn(name = "aeropuerto_de_trabajo")
++    private Aeropuerto aeropuertoDeTrabajo;
++}
+Index: src/main/java/proyecto/ClasesMER/Usuarios/EmpAerolinea.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/proyecto/ClasesMER/Usuarios/EmpAerolinea.java b/src/main/java/proyecto/ClasesMER/Usuarios/EmpAerolinea.java
+new file mode 100644
+--- /dev/null	(date 1695237541957)
++++ b/src/main/java/proyecto/ClasesMER/Usuarios/EmpAerolinea.java	(date 1695237541957)
+@@ -0,0 +1,27 @@
++package proyecto.ClasesMER.Usuarios;
++
++import jakarta.persistence.*;
++import lombok.AllArgsConstructor;
++import lombok.Getter;
++import lombok.NoArgsConstructor;
++import lombok.Setter;
++import org.springframework.stereotype.Component;
++import proyecto.ClasesMER.Aerolinea.Aerolinea;
++
++@AllArgsConstructor
++@NoArgsConstructor
++@Getter
++@Setter
++@Entity
++@Table(name = "EmpAerolinea")
++@Component
++public class EmpAerolinea{
++    @Id
++    @OneToOne
++    @JoinColumn(name = "id_usuario")
++    private Usuario usuario;
++
++    @ManyToOne
++    @JoinColumn(name = "aerolinea_de_trabajo")
++    private Aerolinea aerolineaDeTrabajo;
++}
+Index: src/main/java/proyecto/ClasesMER/Empresa/Empresa.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/proyecto/ClasesMER/Empresa/Empresa.java b/src/main/java/proyecto/ClasesMER/Empresa/Empresa.java
+new file mode 100644
+--- /dev/null	(date 1695237541949)
++++ b/src/main/java/proyecto/ClasesMER/Empresa/Empresa.java	(date 1695237541949)
+@@ -0,0 +1,30 @@
++package proyecto.ClasesMER.Empresa;
++
++import jakarta.persistence.*;
++import lombok.AllArgsConstructor;
++import lombok.Getter;
++import lombok.NoArgsConstructor;
++import lombok.Setter;
++import org.springframework.stereotype.Component;
++import proyecto.ClasesMER.Sucursal.Sucursal;
++
++import java.util.ArrayList;
++import java.util.List;
++
++@AllArgsConstructor
++@NoArgsConstructor
++@Getter
++@Setter
++@Entity
++@Table(name = "Empresa")
++@Component
++public class Empresa {
++    @Id
++    @GeneratedValue(strategy = GenerationType.SEQUENCE)
++    private int idEmpresa;
++    private String nombre;
++
++    @OneToMany
++    @JoinColumn(name="id_empresa")
++    private List<Sucursal> sucursales = new ArrayList<>();
++}
+Index: src/main/java/proyecto/ClasesMER/Aerolinea/Aerolinea.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package proyecto.ClasesMER.Aerolinea;\r\n\r\nimport jakarta.persistence.*;\r\nimport lombok.AllArgsConstructor;\r\nimport lombok.Getter;\r\nimport lombok.NoArgsConstructor;\r\nimport lombok.Setter;\r\nimport org.springframework.stereotype.Component;\r\nimport proyecto.ClasesMER.AerolineasPresentes;\r\nimport proyecto.ClasesMER.Servicio.Servicio;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.LinkedList;\r\nimport java.util.List;\r\n\r\n@AllArgsConstructor\r\n@NoArgsConstructor\r\n@Getter\r\n@Setter\r\n@Entity\r\n@Component\r\n@Table(name=\"Aerolinea\")\r\npublic class Aerolinea {\r\n    @Id\r\n    private String nombre;\r\n    private int id_aerolinea;\r\n\r\n\r\n    @OneToMany\r\n    @JoinColumn(name=\"nombre\")\r\n    private List<AerolineasPresentes> aerolineasPresentes = new ArrayList<>();\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/proyecto/ClasesMER/Aerolinea/Aerolinea.java b/src/main/java/proyecto/ClasesMER/Aerolinea/Aerolinea.java
+--- a/src/main/java/proyecto/ClasesMER/Aerolinea/Aerolinea.java	(revision 79c8ae90e92526b968feca4e07e63a0c459519df)
++++ b/src/main/java/proyecto/ClasesMER/Aerolinea/Aerolinea.java	(date 1695237541939)
+@@ -6,11 +6,10 @@
+ import lombok.NoArgsConstructor;
+ import lombok.Setter;
+ import org.springframework.stereotype.Component;
+-import proyecto.ClasesMER.AerolineasPresentes;
+-import proyecto.ClasesMER.Servicio.Servicio;
++import proyecto.ClasesMER.AerolineasPresentes.AerolineasPresentes;
++import proyecto.ClasesMER.Avion.Avion;
+ 
+ import java.util.ArrayList;
+-import java.util.LinkedList;
+ import java.util.List;
+ 
+ @AllArgsConstructor
+@@ -30,4 +29,10 @@
+     @JoinColumn(name="nombre")
+     private List<AerolineasPresentes> aerolineasPresentes = new ArrayList<>();
+ 
++    @OneToMany
++    @JoinColumn(name="nombre")
++    private List<Avion> aviones = new ArrayList<>();
++
++
++
+ }
+Index: src/main/java/proyecto/ClasesMER/AerolineasPresentes.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/proyecto/ClasesMER/AerolineasPresentes.java b/src/main/java/proyecto/ClasesMER/AerolineasPresentes/AerolineasPresentes.java
+rename from src/main/java/proyecto/ClasesMER/AerolineasPresentes.java
+rename to src/main/java/proyecto/ClasesMER/AerolineasPresentes/AerolineasPresentes.java
+--- a/src/main/java/proyecto/ClasesMER/AerolineasPresentes.java	(revision 79c8ae90e92526b968feca4e07e63a0c459519df)
++++ b/src/main/java/proyecto/ClasesMER/AerolineasPresentes/AerolineasPresentes.java	(date 1695237541942)
+@@ -1,8 +1,6 @@
+-package proyecto.ClasesMER;
++package proyecto.ClasesMER.AerolineasPresentes;
+ 
+-import jakarta.persistence.Entity;
+-import jakarta.persistence.Id;
+-import jakarta.persistence.Table;
++import jakarta.persistence.*;
+ import lombok.AllArgsConstructor;
+ import lombok.Getter;
+ import lombok.NoArgsConstructor;
+@@ -18,6 +16,7 @@
+ @Table(name = "AerolineasPresentes")
+ public class AerolineasPresentes {
+     @Id
+-    private String hola;
++    @GeneratedValue(strategy = GenerationType.SEQUENCE)
++    private int id;
+ }
+ 
+Index: src/main/java/proyecto/ClasesMER/Usuarios/Usuario.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/proyecto/ClasesMER/Usuarios/Usuario.java b/src/main/java/proyecto/ClasesMER/Usuarios/Usuario.java
+new file mode 100644
+--- /dev/null	(date 1695237541965)
++++ b/src/main/java/proyecto/ClasesMER/Usuarios/Usuario.java	(date 1695237541965)
+@@ -0,0 +1,25 @@
++package proyecto.ClasesMER.Usuarios;
++
++import jakarta.persistence.*;
++import lombok.AllArgsConstructor;
++import lombok.Getter;
++import lombok.NoArgsConstructor;
++import lombok.Setter;
++import org.springframework.stereotype.Component;
++
++@AllArgsConstructor
++@NoArgsConstructor
++@Getter
++@Setter
++@Entity
++@Table(name = "Usuario")
++@Component
++
++public class Usuario {
++    @Id
++    @GeneratedValue(strategy = GenerationType.SEQUENCE)
++    private int idUsuario;
++    private String username;
++    private String password;
++    private String nombre;
++}
+Index: src/main/java/proyecto/DBController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package proyecto;\r\n\r\nimport java.sql.Connection;\r\nimport java.sql.DriverManager;\r\nimport java.sql.SQLException;\r\n\r\npublic class DBController {\r\n\r\n    public String URL;\r\n    public Connection conn;\r\n    public DBController(){\r\n        URL = \"jdbc:hsqldb:hsql://localhost/\";\r\n        try{\r\n            Class.forName(\"org.hsqldb.jdbc.JDBCDriver\");\r\n            start();\r\n        } catch (Exception e){\r\n            throw new RuntimeException(e);\r\n        }\r\n    }\r\n    public void start() throws SQLException {\r\n        conn = DriverManager.getConnection(URL,\"SA\",\"\");\r\n    }\r\n\r\n    public void agregarAeropuerto(int idAeropuerto, String nombre, String localidad, int cantPuertas, int cantPistas, int cantCheckIn) throws SQLException {\r\n        String orden = \"id_aeropuerto,nombre,localidad,cantidad_de_puertas,cantidad_de_pistas,cantidad_de_checkin\";\r\n        conn.createStatement().executeQuery(\"INSERT INTO Aeropuerto(\" + orden + \") VALUES ('\" + idAeropuerto + \"','\" + nombre + \"','\" + localidad + \"','\" + cantPuertas + \"','\" + cantPistas + \"','\" + cantCheckIn + \"')\");\r\n    }\r\n\r\n    public void agregarServicio(String nombre, int idAeropuerto, String sucursal, int costo, int cantCupos) throws SQLException {\r\n        String orden = \"nombre,id_aeropuerto,sucursal,costo,cantidad_de_cupos\";\r\n        conn.createStatement().executeQuery(\"INSERT INTO Servicio(\" + orden + \") VALUES ('\" + nombre + \"','\" + idAeropuerto + \"','\" + sucursal + \"','\" + costo + \"','\" + cantCupos + \"')\");\r\n    }\r\n\r\n    public void agregarEmpresa(int idEmpresa, String nombreEmpresa) throws SQLException {\r\n        String orden = \"id_empresa,nombre_empresa\";\r\n        conn.createStatement().executeQuery(\"INSERT INTO Empresa(\" + orden + \") VALUES ('\" + idEmpresa + \"','\" + nombreEmpresa + \"')\");\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/proyecto/DBController.java b/src/main/java/proyecto/DBController.java
+--- a/src/main/java/proyecto/DBController.java	(revision 79c8ae90e92526b968feca4e07e63a0c459519df)
++++ b/src/main/java/proyecto/DBController.java	(date 1695237541973)
+@@ -4,6 +4,8 @@
+ import java.sql.DriverManager;
+ import java.sql.SQLException;
+ 
++
++//NO VA MAS ESTO
+ public class DBController {
+ 
+     public String URL;
+Index: src/main/java/proyecto/ClasesMER/Usuarios/Pasajeros.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/proyecto/ClasesMER/Usuarios/Pasajeros.java b/src/main/java/proyecto/ClasesMER/Usuarios/Pasajeros.java
+new file mode 100644
+--- /dev/null	(date 1695237541962)
++++ b/src/main/java/proyecto/ClasesMER/Usuarios/Pasajeros.java	(date 1695237541962)
+@@ -0,0 +1,23 @@
++package proyecto.ClasesMER.Usuarios;
++
++
++import jakarta.persistence.*;
++import lombok.AllArgsConstructor;
++import lombok.Getter;
++import lombok.NoArgsConstructor;
++import lombok.Setter;
++import org.springframework.stereotype.Component;
++
++@AllArgsConstructor
++@NoArgsConstructor
++@Getter
++@Setter
++@Entity
++@Table(name = "Pasajero")
++@Component
++public class Pasajeros{
++    @Id
++    @OneToOne
++    @JoinColumn(name = "id_usuario")
++    private Usuario usuario;
++}
+Index: src/main/java/proyecto/ClasesMER/Usuarios/EmpEmpresa.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/proyecto/ClasesMER/Usuarios/EmpEmpresa.java b/src/main/java/proyecto/ClasesMER/Usuarios/EmpEmpresa.java
+new file mode 100644
+--- /dev/null	(date 1695237541960)
++++ b/src/main/java/proyecto/ClasesMER/Usuarios/EmpEmpresa.java	(date 1695237541960)
+@@ -0,0 +1,27 @@
++package proyecto.ClasesMER.Usuarios;
++
++import jakarta.persistence.*;
++import lombok.AllArgsConstructor;
++import lombok.Getter;
++import lombok.NoArgsConstructor;
++import lombok.Setter;
++import org.springframework.stereotype.Component;
++import proyecto.ClasesMER.Empresa.Empresa;
++
++@AllArgsConstructor
++@NoArgsConstructor
++@Getter
++@Setter
++@Entity
++@Table(name = "EmpEmpresa")
++@Component
++public class EmpEmpresa{
++    @Id
++    @OneToOne
++    @JoinColumn(name = "id_usuario")
++    private Usuario usuario;
++
++    @ManyToOne
++    @JoinColumn(name = "Empresa_de_trabajo")
++    private Empresa empresaDeTrabajo;
++}
+Index: src/main/java/proyecto/DB.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package proyecto;\r\n\r\nimport javax.swing.plaf.nimbus.State;\r\nimport java.sql.*;\r\n\r\npublic class DB {\r\n    static final String URL = \"jdbc:hsqldb:hsql://localhost/\";\r\n\r\n    public static void main(String[] args) {\r\n        try{\r\n            Class.forName(\"org.hsqldb.jdbc.JDBCDriver\");\r\n            test();\r\n        } catch (Exception e){\r\n            throw new RuntimeException(e);\r\n        }\r\n    }\r\n\r\n    private static void test() throws SQLException{\r\n        Connection conn = DriverManager.getConnection(URL,\"SA\",\"\");\r\n\r\n        Statement stm = conn.createStatement();\r\n        ResultSet rs = stm.executeQuery(\"SELECT * FROM Persona\");\r\n\r\n        //stm.executeQuery(\"UPDATE Persona SET nombre='Juan Felix' WHERE cedula=420420\");\r\n\r\n        while(rs.next()){\r\n            System.out.println(\"Persona: \" + rs.getString(\"Nombre\") + \" \" + rs.getString(\"Apellido\") +\". Cedula: \" + rs.getString(\"Cedula\"));\r\n        }\r\n    }\r\n\r\n    public static void agregarPersona(Statement stm, String nombre, String apellido, int Cedula) throws SQLException {\r\n        stm.executeQuery(\"INSERT INTO Persona VALUES ('\"+nombre+\"','\"+apellido+\"','\"+Cedula+\"')\");\r\n        System.out.println(\"Añadido!\");\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/proyecto/DB.java b/src/main/java/proyecto/DB.java
+--- a/src/main/java/proyecto/DB.java	(revision 79c8ae90e92526b968feca4e07e63a0c459519df)
++++ b/src/main/java/proyecto/DB.java	(date 1695237541971)
+@@ -3,6 +3,8 @@
+ import javax.swing.plaf.nimbus.State;
+ import java.sql.*;
+ 
++
++//NO VA MAS ESTO
+ public class DB {
+     static final String URL = "jdbc:hsqldb:hsql://localhost/";
+ 
+Index: src/main/java/proyecto/ClasesMER/Vuelo/Vuelo.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/proyecto/ClasesMER/Vuelo/Vuelo.java b/src/main/java/proyecto/ClasesMER/Vuelo/Vuelo.java
+new file mode 100644
+--- /dev/null	(date 1695237541968)
++++ b/src/main/java/proyecto/ClasesMER/Vuelo/Vuelo.java	(date 1695237541968)
+@@ -0,0 +1,50 @@
++package proyecto.ClasesMER.Vuelo;
++import jakarta.persistence.*;
++import lombok.AllArgsConstructor;
++import lombok.Getter;
++import lombok.NoArgsConstructor;
++import lombok.Setter;
++import org.springframework.stereotype.Component;
++import proyecto.ClasesMER.Aerolinea.Aerolinea;
++import proyecto.ClasesMER.Aeropuerto.Aeropuerto;
++import proyecto.ClasesMER.Avion.Avion;
++
++import java.time.LocalDate;
++
++@AllArgsConstructor
++@NoArgsConstructor
++@Getter
++@Setter
++@Entity
++@Table(name = "Vuelo")
++@Component
++public class Vuelo {
++    @Id
++    @GeneratedValue(strategy = GenerationType.SEQUENCE)
++    private int id_vuelo;
++    //private Avion avion;
++    private LocalDate horaDePartida;
++    private LocalDate horaDePartidaEstimada;
++    private LocalDate horaDeArribo;
++    private LocalDate horaDeArriboEstimada;
++    private boolean estaAtrasado;
++    private int pueretaDeEmbarque;
++    private int puertaDeArribo;
++
++    @ManyToOne
++    @JoinColumn(name = "aeropuerto_de_partida")
++    private Aeropuerto aeropuertoPartida;
++
++    @ManyToOne
++    @JoinColumn(name = "aeropuerto_de_arribo")
++    private Aeropuerto aeropuertoArribo;
++
++    @ManyToOne
++    @JoinColumn(name = "aerolinea")
++    private Aerolinea aerolinea;
++
++    @ManyToOne
++    @JoinColumn(name = "avion")
++    private Avion avion;
++
++}
+Index: src/main/java/proyecto/ClasesMER/Sucursal/Sucursal.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/proyecto/ClasesMER/Sucursal/Sucursal.java b/src/main/java/proyecto/ClasesMER/Sucursal/Sucursal.java
+new file mode 100644
+--- /dev/null	(date 1695237541954)
++++ b/src/main/java/proyecto/ClasesMER/Sucursal/Sucursal.java	(date 1695237541954)
+@@ -0,0 +1,24 @@
++package proyecto.ClasesMER.Sucursal;
++
++import jakarta.persistence.*;
++import lombok.AllArgsConstructor;
++import lombok.Getter;
++import lombok.NoArgsConstructor;
++import lombok.Setter;
++import org.springframework.stereotype.Component;
++import proyecto.ClasesMER.Aeropuerto.Aeropuerto;
++
++
++@AllArgsConstructor
++@NoArgsConstructor
++@Getter
++@Setter
++@Entity
++@Table(name = "Sucursal")
++@Component
++public class Sucursal {
++    @Id
++    @GeneratedValue(strategy = GenerationType.SEQUENCE)
++    private int idSucursal;
++    private int cantidadDeEmpleados;
++}
+Index: src/main/java/proyecto/ClasesMER/Pasaje/Pasaje.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/proyecto/ClasesMER/Pasaje/Pasaje.java b/src/main/java/proyecto/ClasesMER/Pasaje/Pasaje.java
+new file mode 100644
+--- /dev/null	(date 1695237541951)
++++ b/src/main/java/proyecto/ClasesMER/Pasaje/Pasaje.java	(date 1695237541951)
+@@ -0,0 +1,33 @@
++package proyecto.ClasesMER.Pasaje;
++
++import jakarta.persistence.*;
++import lombok.AllArgsConstructor;
++import lombok.Getter;
++import lombok.NoArgsConstructor;
++import lombok.Setter;
++import org.springframework.stereotype.Component;
++import proyecto.ClasesMER.Usuarios.Usuario;
++import proyecto.ClasesMER.Vuelo.Vuelo;
++
++@AllArgsConstructor
++@NoArgsConstructor
++@Getter
++@Setter
++@Entity
++@Table(name = "Pasaje")
++@Component
++public class Pasaje {
++    @Id
++    @GeneratedValue(strategy = GenerationType.SEQUENCE)
++    private int idPasaje;
++    private String asiento;
++    private String clase;
++
++    @ManyToOne
++    @JoinColumn(name = "id_vuelo")
++    private Vuelo vuelo;
++
++    @ManyToOne
++    @JoinColumn(name = "id_usuario")
++    private Usuario usuario;
++}
+Index: src/main/resources/proyecto/Main.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.scene.control.Button?>\r\n<?import javafx.scene.layout.AnchorPane?>\r\n\r\n\r\n<AnchorPane prefHeight=\"400.0\" prefWidth=\"600.0\" xmlns=\"http://javafx.com/javafx/20.0.1\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"proyecto.Main\">\r\n   <children>\r\n      <Button layoutX=\"489.0\" layoutY=\"41.0\" mnemonicParsing=\"false\" text=\"Log In\" />\r\n   </children>\r\n</AnchorPane>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/proyecto/Main.fxml b/src/main/resources/proyecto/Main.fxml
+--- a/src/main/resources/proyecto/Main.fxml	(revision 79c8ae90e92526b968feca4e07e63a0c459519df)
++++ b/src/main/resources/proyecto/Main.fxml	(date 1695240012754)
+@@ -1,11 +1,18 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ 
+ <?import javafx.scene.control.Button?>
++<?import javafx.scene.control.Label?>
+ <?import javafx.scene.layout.AnchorPane?>
++<?import javafx.scene.text.Font?>
+ 
+-
+-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.Main">
++<fx:root fx:id="scenePrincipal" prefHeight="400.0" prefWidth="600.0" type="AnchorPane" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.Main">
+    <children>
+-      <Button layoutX="489.0" layoutY="41.0" mnemonicParsing="false" text="Log In" />
++      <Button fx:id="botonDeLogInPrincipal" layoutX="390.0" layoutY="244.0" mnemonicParsing="false" text="Log In" />
++      <Button fx:id="botonDeSingInPrincipal" layoutX="160.0" layoutY="244.0" mnemonicParsing="false" text="Sign In" />
++      <Label contentDisplay="CENTER" layoutX="169.0" layoutY="103.0" prefHeight="66.0" prefWidth="262.0" text="WELCOME" textAlignment="CENTER" textFill="#0e1126" textOverrun="CLIP">
++         <font>
++            <Font name="System Bold Italic" size="41.0" />
++         </font>
++      </Label>
+    </children>
+-</AnchorPane>
++</fx:root>
+Index: src/main/java/proyecto/Pepito.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package proyecto;\r\n\r\nimport javafx.application.Application;\r\nimport javafx.geometry.Insets;\r\nimport javafx.scene.Scene;\r\nimport javafx.scene.control.Button;\r\nimport javafx.scene.control.Label;\r\nimport javafx.scene.control.PasswordField;\r\nimport javafx.scene.control.TextField;\r\nimport javafx.scene.layout.GridPane;\r\nimport javafx.stage.Stage;\r\nimport proyecto.ClasesMER.*;\r\n\r\npublic class Pepito extends Application {\r\n    Button botonDeLogIn,botondeSingIn,volverAlMenu,irARegistroDeUsuario,botonDeGuardar,siguienteSinInScene,salir;\r\n    Scene sceneInicio, sceneRegistoUsuario, sceneSingIn1, sceneSingIn2, scenePasajeroPrincipal, sceneAerolineaPrincipal,sceneAeropuertoPrincipal, saceneEmpresaPrincipal;\r\n    Stage prymaryStage;\r\n    TextField usuario;\r\n    GridPane gridRegistrarUsuario,gridInicio,gridSingIn,gridSingIn1, gridPasajeroPrincipal,gridAerolineaPrincipal, gridAeropuertoPrincipal, gridEmproesaPrincipal;\r\n    Label nombre,contrasenia;\r\n    PasswordField contraseniaInput;\r\n\r\n    @Override\r\n    public void start(Stage prymaryStage) throws Exception { // aca se escribe todo lo que querramos tener\r\n\r\n        // config de boton de Log in\r\n        botonDeGuardar = new Button();\r\n        botonDeGuardar.setText(\"Log in\");\r\n        GridPane.setConstraints(botonDeGuardar,1,2);\r\n        botonDeGuardar.setOnAction(e -> VentanaAlerta.Error(\"Usuario\",\"Se produjoo un error al querer entrar\"));\r\n\r\n        // config del boton de ir a Sing in\r\n        irARegistroDeUsuario = new Button(\"Sign in\");\r\n        botonDeLogIn = new Button();\r\n        botonDeLogIn.setText(\"Log in\");\r\n        GridPane.setConstraints(botonDeLogIn,2,0);\r\n        botonDeLogIn.setOnAction(e->{\r\n            if (usuario.getParent()!=gridRegistrarUsuario){\r\n                gridSingIn.getChildren().removeAll(nombre,usuario,contrasenia,contraseniaInput,volverAlMenu);\r\n                if (contrasenia.getParent()!=gridRegistrarUsuario){\r\n                    gridSingIn1.getChildren().removeAll(contrasenia,contraseniaInput,volverAlMenu);\r\n                }\r\n                gridRegistrarUsuario.getChildren().addAll(nombre,usuario,contrasenia,contraseniaInput,volverAlMenu);\r\n            }\r\n            prymaryStage.setScene(sceneRegistoUsuario);\r\n        });\r\n\r\n        // confi botonSingIn\r\n        botondeSingIn=new Button();\r\n        botondeSingIn.setText(\"Sing in\");\r\n        GridPane.setConstraints(botonDeLogIn,3,0);\r\n        botondeSingIn.setOnAction(e->{\r\n            if (usuario.getParent()!=gridSingIn){\r\n                gridRegistrarUsuario.getChildren().removeAll(nombre,usuario,contrasenia,contraseniaInput,volverAlMenu);\r\n                gridSingIn.getChildren().addAll(nombre,usuario,volverAlMenu);\r\n            }\r\n            prymaryStage.setScene(sceneSingIn1);\r\n        });\r\n\r\n\r\n        // confg gridRegistrar usuarios\r\n        gridRegistrarUsuario = new GridPane();\r\n        gridRegistrarUsuario.setPadding(new Insets(10,10,10,10));\r\n        gridRegistrarUsuario.setHgap(8);\r\n        gridRegistrarUsuario.setVgap(10);\r\n\r\n        // config grid inicio\r\n        gridInicio = new GridPane();\r\n        gridInicio.setPadding(new Insets(10,10,10,10));\r\n        gridInicio.setHgap(8);\r\n        gridInicio.setVgap(10);\r\n\r\n\r\n        //labela\r\n        nombre = new Label(\"Ususario:\");\r\n        GridPane.setConstraints(nombre,0,0);\r\n        contrasenia = new Label(\"Contrasenia:\");\r\n        GridPane.setConstraints(contrasenia,0,1);\r\n\r\n        //Lugar para escribir\r\n        usuario = new TextField();\r\n        usuario.setPromptText(\"usuario\");\r\n        GridPane.setConstraints(usuario,1,0);\r\n        contraseniaInput = new PasswordField();\r\n        contraseniaInput.setPromptText(\"contrasenia\");\r\n        GridPane.setConstraints(contraseniaInput,1,1);\r\n\r\n        // config boton de vuelva\r\n        volverAlMenu = new Button(\"Volver al inicio\");\r\n        volverAlMenu.setOnAction(e-> prymaryStage.setScene(sceneInicio));\r\n        GridPane.setConstraints(volverAlMenu,2,3);\r\n        gridInicio.getChildren().addAll(botonDeLogIn,botondeSingIn);\r\n        sceneInicio = new Scene(gridInicio,350,200);\r\n\r\n        // agregar todo a la grila de log in\r\n        gridRegistrarUsuario.getChildren().addAll(nombre,usuario,contrasenia,contraseniaInput,botonDeGuardar,volverAlMenu);\r\n        sceneRegistoUsuario = new Scene(gridRegistrarUsuario, 400,400);\r\n\r\n        // Crear usuario\r\n        siguienteSinInScene=new Button();\r\n        siguienteSinInScene.setText(\"siguiente\");\r\n        GridPane.setConstraints(siguienteSinInScene,1,3);\r\n        siguienteSinInScene.setOnAction(e->{\r\n                /*if vericicacion(usuario)== true{\r\n                    prymaryStage.setScene(sceneSingIn2);\r\n                }*/\r\n        });\r\n        Label nombreReal = new Label(\"Nombre completo:\");\r\n        GridPane.setConstraints(nombreReal,0,0);\r\n        TextField nombreRea = new TextField();\r\n        nombreRea.setPromptText(\"nombre\");\r\n        GridPane.setConstraints(nombreRea,1,0);\r\n        Label contrasenia1 = new Label(\"Repetir contrasenia:\");\r\n        GridPane.setConstraints(contrasenia,0,2);\r\n        PasswordField contraseniaInput1 = new PasswordField();\r\n        contraseniaInput.setPromptText(\"contrasenia\");\r\n        GridPane.setConstraints(contraseniaInput,1,2);\r\n        // scene de sing in\r\n        gridSingIn = new GridPane();\r\n        gridSingIn.setPadding(new Insets(10,10,10,10));\r\n        gridSingIn.setHgap(8);\r\n        gridSingIn.setVgap(10);\r\n        gridSingIn.getChildren().addAll(nombre,usuario,volverAlMenu,siguienteSinInScene);\r\n        sceneSingIn1 = new Scene(gridSingIn,300,200);\r\n        gridSingIn1 = new GridPane();\r\n        gridSingIn1.setPadding(new Insets(10,10,10,10));\r\n        gridSingIn1.setHgap(8);\r\n        gridSingIn1.setVgap(10);\r\n        gridSingIn1.getChildren().addAll(nombreReal,nombreRea,contrasenia,contraseniaInput,contrasenia1,contraseniaInput1);\r\n        sceneSingIn2 = new Scene(gridSingIn1,300,200);\r\n\r\n        //\r\n        salir = new Button(\"cerrar programa\");\r\n        salir.setOnAction(e->cerrarPrograma());\r\n\r\n\r\n        // config de la primera scene\r\n        prymaryStage.setScene(sceneInicio);\r\n        prymaryStage.setTitle(\"Proyecto TIC, StandAlone\");\r\n        prymaryStage.setOnCloseRequest(e-> {\r\n            e.consume();\r\n            cerrarPrograma();\r\n        });\r\n\r\n        //PAGINA PASSAJEROS\r\n        /*\r\n        scenePasajeroPrincipal\r\n        gridPasajeroPrincipal\r\n        */\r\n\r\n        //PAGINA AEROLINEA\r\n        /*\r\n        sceneAerolineaPrincipal\r\n        gridAerolineaPrincipal\r\n        */\r\n\r\n        //PAGINA AEROPUERTO\r\n        /*\r\n        sceneAeropuertoPrincipal\r\n        gridAeropuertoPrincipal\r\n        */\r\n\r\n        //PAGINA EMPRESA\r\n        /*\r\n        gridEmproesaPrincipal\r\n        gridEmproesaPrincipal\r\n        */\r\n\r\n\r\n\r\n        prymaryStage.show();\r\n    }\r\n\r\n    private void cerrarPrograma(){\r\n        boolean respuesta = VentanaConfirmacion.confirmacion(\"Salir\",\"Estas seguro de que quiere salir\");\r\n        if (respuesta) {\r\n            prymaryStage.close();\r\n        }\r\n    }\r\n\r\n    private boolean isInt (TextField input){\r\n        try {\r\n            int num= Integer.parseInt(input.getText());\r\n            return true;\r\n        } catch (NumberFormatException e){\r\n            System.out.println(\"No son numeros\");\r\n            return false;\r\n        }\r\n    }\r\n    /*\r\n    private boolean VerificacionUsuarioExistente(TextField usuario, TextField password){\r\n        Usuarios usuarioABuscar = usuario.getText();\r\n        if Usuarios.get\r\n    }*/\r\n    /*\r\n    private boolean verificacionUsuarioNoExistente(TextField usuario){\r\n        hay que buscar el usuario en la base de datos\r\n    }\r\n     */\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/proyecto/Pepito.java b/src/main/java/proyecto/Pepito.java
+--- a/src/main/java/proyecto/Pepito.java	(revision 79c8ae90e92526b968feca4e07e63a0c459519df)
++++ b/src/main/java/proyecto/Pepito.java	(date 1695237541975)
+@@ -9,7 +9,6 @@
+ import javafx.scene.control.TextField;
+ import javafx.scene.layout.GridPane;
+ import javafx.stage.Stage;
+-import proyecto.ClasesMER.*;
+ 
+ public class Pepito extends Application {
+     Button botonDeLogIn,botondeSingIn,volverAlMenu,irARegistroDeUsuario,botonDeGuardar,siguienteSinInScene,salir;
+Index: Base de Datos/pruebita.log
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/*C3*/SET SCHEMA PUBLIC\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    create table aeropuerto (\\u000d\\u000a        cantidad_de_checkin integer not null,\\u000d\\u000a        cantidad_de_pistas integer not null,\\u000d\\u000a        cantidad_de_puertas integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255),\\u000d\\u000a        ubicacion varchar(255),\\u000d\\u000a        primary key (id_aeropuerto)\\u000d\\u000a    )\r\n/*C13*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C14*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C15*/SET SCHEMA PUBLIC\r\nDROP TABLE PUBLIC.PUBLIC.PERSONA\r\nDROP TABLE PUBLIC.PUBLIC.AEROPUERTO\r\n/*C12*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C11*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C7*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C9*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C6*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C10*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C8*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C5*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C3*/DISCONNECT\r\n/*C4*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C17*/SET SCHEMA PUBLIC\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    create table aeropuerto (\\u000d\\u000a        cantidad_de_checkin integer not null,\\u000d\\u000a        cantidad_de_pistas integer not null,\\u000d\\u000a        cantidad_de_puertas integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255),\\u000d\\u000a        ubicacion varchar(255),\\u000d\\u000a        primary key (id_aeropuerto)\\u000d\\u000a    )\r\nDISCONNECT\r\n/*C19*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C18*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C20*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C23*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C21*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C22*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C24*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C25*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C26*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C27*/SET SCHEMA PUBLIC\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    create table aeropuerto (\\u000d\\u000a        cantidad_de_checkin integer not null,\\u000d\\u000a        cantidad_de_pistas integer not null,\\u000d\\u000a        cantidad_de_puertas integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255),\\u000d\\u000a        ubi_cacion varchar(255),\\u000d\\u000a        primary key (id_aeropuerto)\\u000d\\u000a    )\r\n/*C31*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C32*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C27*/DISCONNECT\r\n/*C29*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C28*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C30*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C34*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C33*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C35*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C36*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C37*/SET SCHEMA PUBLIC\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    drop table if exists servicio cascade\r\n\\u000d\\u000a    create table aeropuerto (\\u000d\\u000a        cantidad_de_checkin integer not null,\\u000d\\u000a        cantidad_de_pistas integer not null,\\u000d\\u000a        cantidad_de_puertas integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255),\\u000d\\u000a        ubicacion varchar(255),\\u000d\\u000a        primary key (id_aeropuerto)\\u000d\\u000a    )\r\n\\u000d\\u000a    create table servicio (\\u000d\\u000a        capacidad integer not null,\\u000d\\u000a        costo integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255) not null,\\u000d\\u000a        primary key (id_aeropuerto, nombre)\\u000d\\u000a    )\r\nDISCONNECT\r\n/*C43*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C39*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C38*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C41*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C44*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C40*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C46*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C42*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C45*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C47*/SET SCHEMA PUBLIC\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    drop table if exists servicio cascade\r\n\\u000d\\u000a    create table aeropuerto (\\u000d\\u000a        cantidad_de_checkin integer not null,\\u000d\\u000a        cantidad_de_pistas integer not null,\\u000d\\u000a        cantidad_de_puertas integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255),\\u000d\\u000a        ubicacion varchar(255),\\u000d\\u000a        primary key (id_aeropuerto)\\u000d\\u000a    )\r\n\\u000d\\u000a    create table servicio (\\u000d\\u000a        capacidad integer not null,\\u000d\\u000a        costo integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255) not null,\\u000d\\u000a        primary key (id_aeropuerto, nombre)\\u000d\\u000a    )\r\n\\u000d\\u000a    alter table if exists servicio \\u000d\\u000a       add constraint FK2ctykaod60u2qa94o00hpdahi \\u000d\\u000a       foreign key (id_aeropuerto) \\u000d\\u000a       references aeropuerto\r\n/*C49*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C47*/DISCONNECT\r\n/*C54*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C50*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C53*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C48*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C51*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C52*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C56*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C55*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C57*/SET SCHEMA PUBLIC\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    drop table if exists servicio cascade\r\n\\u000d\\u000a    create table aeropuerto (\\u000d\\u000a        cantidad_de_checkin integer not null,\\u000d\\u000a        cantidad_de_pistas integer not null,\\u000d\\u000a        cantidad_de_puertas integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255),\\u000d\\u000a        ubicacion varchar(255),\\u000d\\u000a        primary key (id_aeropuerto)\\u000d\\u000a    )\r\n\\u000d\\u000a    create table servicio (\\u000d\\u000a        aeropuerto_id_aeropuerto integer not null,\\u000d\\u000a        capacidad integer not null,\\u000d\\u000a        costo integer not null,\\u000d\\u000a        nombre varchar(255) not null,\\u000d\\u000a        primary key (aeropuerto_id_aeropuerto, nombre)\\u000d\\u000a    )\r\n\\u000d\\u000a    alter table if exists servicio \\u000d\\u000a       add constraint FKqyotqmeuthlf64iwbjtorbruq \\u000d\\u000a       foreign key (aeropuerto_id_aeropuerto) \\u000d\\u000a       references aeropuerto\r\n/*C60*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C61*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C64*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C62*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C58*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C57*/DISCONNECT\r\n/*C59*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C63*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C65*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C66*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C67*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C68*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C69*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C70*/SET SCHEMA PUBLIC\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    drop table if exists servicio cascade\r\n\\u000d\\u000a    create table aeropuerto (\\u000d\\u000a        cantidad_de_checkin integer not null,\\u000d\\u000a        cantidad_de_pistas integer not null,\\u000d\\u000a        cantidad_de_puertas integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255),\\u000d\\u000a        ubicacion varchar(255),\\u000d\\u000a        primary key (id_aeropuerto)\\u000d\\u000a    )\r\n\\u000d\\u000a    create table servicio (\\u000d\\u000a        aeropuerto integer not null,\\u000d\\u000a        capacidad integer not null,\\u000d\\u000a        costo integer not null,\\u000d\\u000a        nombre varchar(255) not null,\\u000d\\u000a        primary key (aeropuerto, nombre)\\u000d\\u000a    )\r\n/*C74*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C70*/DISCONNECT\r\n/*C72*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C71*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C76*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C75*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C73*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C77*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C78*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C79*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C80*/SET SCHEMA PUBLIC\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    drop table if exists servicio cascade\r\n\\u000d\\u000a    create table aeropuerto (\\u000d\\u000a        cantidad_de_checkin integer not null,\\u000d\\u000a        cantidad_de_pistas integer not null,\\u000d\\u000a        cantidad_de_puertas integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255),\\u000d\\u000a        ubicacion varchar(255),\\u000d\\u000a        primary key (id_aeropuerto)\\u000d\\u000a    )\r\n\\u000d\\u000a    create table servicio (\\u000d\\u000a        capacidad integer not null,\\u000d\\u000a        costo integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255) not null,\\u000d\\u000a        primary key (id_aeropuerto, nombre)\\u000d\\u000a    )\r\n\\u000d\\u000a    alter table if exists servicio \\u000d\\u000a       add constraint FK2ctykaod60u2qa94o00hpdahi \\u000d\\u000a       foreign key (id_aeropuerto) \\u000d\\u000a       references aeropuerto\r\n/*C84*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C80*/DISCONNECT\r\n/*C81*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C87*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C86*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C89*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C82*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C83*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C88*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C85*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C90*/SET SCHEMA PUBLIC\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    drop table if exists servicio cascade\r\n\\u000d\\u000a    create table aeropuerto (\\u000d\\u000a        cantidad_de_checkin integer not null,\\u000d\\u000a        cantidad_de_pistas integer not null,\\u000d\\u000a        cantidad_de_puertas integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255),\\u000d\\u000a        ubicacion varchar(255),\\u000d\\u000a        primary key (id_aeropuerto)\\u000d\\u000a    )\r\n\\u000d\\u000a    create table servicio (\\u000d\\u000a        aeropuerto_id_aeropuerto integer not null,\\u000d\\u000a        capacidad integer not null,\\u000d\\u000a        costo integer not null,\\u000d\\u000a        nombre varchar(255) not null,\\u000d\\u000a        primary key (aeropuerto_id_aeropuerto, nombre)\\u000d\\u000a    )\r\n\\u000d\\u000a    alter table if exists servicio \\u000d\\u000a       add constraint FKqyotqmeuthlf64iwbjtorbruq \\u000d\\u000a       foreign key (aeropuerto_id_aeropuerto) \\u000d\\u000a       references aeropuerto\r\nDISCONNECT\r\n/*C91*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C93*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C94*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C92*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C99*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C98*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C95*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C97*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C96*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C100*/SET SCHEMA PUBLIC\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    drop table if exists servicio cascade\r\n\\u000d\\u000a    create table aeropuerto (\\u000d\\u000a        cantidad_de_checkin integer not null,\\u000d\\u000a        cantidad_de_pistas integer not null,\\u000d\\u000a        cantidad_de_puertas integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255),\\u000d\\u000a        ubicacion varchar(255),\\u000d\\u000a        primary key (id_aeropuerto)\\u000d\\u000a    )\r\n\\u000d\\u000a    create table servicio (\\u000d\\u000a        aeropuerto_id_aeropuerto integer not null,\\u000d\\u000a        capacidad integer not null,\\u000d\\u000a        costo integer not null,\\u000d\\u000a        nombre varchar(255) not null,\\u000d\\u000a        primary key (aeropuerto_id_aeropuerto, nombre)\\u000d\\u000a    )\r\n\\u000d\\u000a    alter table if exists servicio \\u000d\\u000a       add constraint FKqyotqmeuthlf64iwbjtorbruq \\u000d\\u000a       foreign key (aeropuerto_id_aeropuerto) \\u000d\\u000a       references aeropuerto\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    drop table if exists servicio cascade\r\nDISCONNECT\r\n/*C101*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C102*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C103*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C104*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C105*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C106*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C107*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C108*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C109*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C110*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C111*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C112*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C113*/SET SCHEMA PUBLIC\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    drop table if exists servicio cascade\r\n\\u000d\\u000a    create table aeropuerto (\\u000d\\u000a        cantidad_de_checkin integer not null,\\u000d\\u000a        cantidad_de_pistas integer not null,\\u000d\\u000a        cantidad_de_puertas integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255),\\u000d\\u000a        ubicacion varchar(255),\\u000d\\u000a        primary key (id_aeropuerto)\\u000d\\u000a    )\r\n\\u000d\\u000a    create table servicio (\\u000d\\u000a        aeropuerto_id_aeropuerto integer not null,\\u000d\\u000a        capacidad integer not null,\\u000d\\u000a        costo integer not null,\\u000d\\u000a        nombre varchar(255),\\u000d\\u000a        primary key (aeropuerto_id_aeropuerto)\\u000d\\u000a    )\r\n\\u000d\\u000a    alter table if exists servicio \\u000d\\u000a       add constraint FKqyotqmeuthlf64iwbjtorbruq \\u000d\\u000a       foreign key (aeropuerto_id_aeropuerto) \\u000d\\u000a       references aeropuerto\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    drop table if exists servicio cascade\r\nDISCONNECT\r\n/*C114*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C115*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C116*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C117*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C118*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C119*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C120*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C121*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C122*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C123*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C124*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C125*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C126*/SET SCHEMA PUBLIC\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    drop table if exists servicio cascade\r\n\\u000d\\u000a    create table aeropuerto (\\u000d\\u000a        cantidad_de_checkin integer not null,\\u000d\\u000a        cantidad_de_pistas integer not null,\\u000d\\u000a        cantidad_de_puertas integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255),\\u000d\\u000a        ubicacion varchar(255),\\u000d\\u000a        primary key (id_aeropuerto)\\u000d\\u000a    )\r\n\\u000d\\u000a    create table servicio (\\u000d\\u000a        capacidad integer not null,\\u000d\\u000a        costo integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255) not null,\\u000d\\u000a        primary key (id_aeropuerto, nombre)\\u000d\\u000a    )\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    drop table if exists servicio cascade\r\nDISCONNECT\r\n/*C127*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C128*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C129*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C130*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C131*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C132*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C133*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C134*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C135*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C136*/SET SCHEMA PUBLIC\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    drop table if exists servicio cascade\r\n\\u000d\\u000a    create table aeropuerto (\\u000d\\u000a        cantidad_de_checkin integer not null,\\u000d\\u000a        cantidad_de_pistas integer not null,\\u000d\\u000a        cantidad_de_puertas integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255),\\u000d\\u000a        ubicacion varchar(255),\\u000d\\u000a        primary key (id_aeropuerto)\\u000d\\u000a    )\r\n\\u000d\\u000a    create table servicio (\\u000d\\u000a        capacidad integer not null,\\u000d\\u000a        costo integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255) not null,\\u000d\\u000a        primary key (id_aeropuerto, nombre)\\u000d\\u000a    )\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    drop table if exists servicio cascade\r\nDISCONNECT\r\n/*C137*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C138*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C139*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C140*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C141*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C142*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C143*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C144*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C145*/SET SCHEMA PUBLIC\r\nDISCONNECT\r\n/*C146*/SET SCHEMA PUBLIC\r\n\\u000d\\u000a    drop table if exists aeropuerto cascade\r\n\\u000d\\u000a    drop table if exists servicio cascade\r\n\\u000d\\u000a    create table aeropuerto (\\u000d\\u000a        cantidad_de_checkin integer not null,\\u000d\\u000a        cantidad_de_pistas integer not null,\\u000d\\u000a        cantidad_de_puertas integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255),\\u000d\\u000a        ubicacion varchar(255),\\u000d\\u000a        primary key (id_aeropuerto)\\u000d\\u000a    )\r\n\\u000d\\u000a    create table servicio (\\u000d\\u000a        capacidad integer not null,\\u000d\\u000a        costo integer not null,\\u000d\\u000a        id_aeropuerto integer not null,\\u000d\\u000a        nombre varchar(255) not null,\\u000d\\u000a        primary key (nombre)\\u000d\\u000a    )\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Base de Datos/pruebita.log b/Base de Datos/pruebita.log
+--- a/Base de Datos/pruebita.log	(revision 79c8ae90e92526b968feca4e07e63a0c459519df)
++++ b/Base de Datos/pruebita.log	(date 1695237541930)
+@@ -1,244 +1,473 @@
+-/*C3*/SET SCHEMA PUBLIC
++/*C16*/SET SCHEMA PUBLIC
++\u000d\u000a    drop table if exists aerolinea cascade
++\u000d\u000a    drop table if exists aerolineas_presentes cascade
+ \u000d\u000a    drop table if exists aeropuerto cascade
+-\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
+-/*C13*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C14*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C15*/SET SCHEMA PUBLIC
+-DROP TABLE PUBLIC.PUBLIC.PERSONA
+-DROP TABLE PUBLIC.PUBLIC.AEROPUERTO
+-/*C12*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C11*/SET SCHEMA PUBLIC
++\u000d\u000a    drop table if exists avion cascade
++\u000d\u000a    drop table if exists empresa cascade
++\u000d\u000a    drop table if exists servicio cascade
++\u000d\u000a    drop sequence if exists aerolineas_presentes_seq
++\u000d\u000a    drop sequence if exists aeropuerto_seq
++\u000d\u000a    drop sequence if exists empresa_seq
++\u000d\u000a    drop sequence if exists servicio_seq
++\u000d\u000a    create sequence aerolineas_presentes_seq start with 1 increment by 50
++\u000d\u000a    create sequence aeropuerto_seq start with 1 increment by 50
++\u000d\u000a    create sequence empresa_seq start with 1 increment by 50
++\u000d\u000a    create sequence servicio_seq start with 1 increment by 50
++\u000d\u000a    create table aerolinea (\u000d\u000a        id_aerolinea integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (nombre)\u000d\u000a    )
++\u000d\u000a    create table aerolineas_presentes (\u000d\u000a        id integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
++\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        iata varchar(255),\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
++\u000d\u000a    create table avion (\u000d\u000a        capacidad integer not null,\u000d\u000a        matricula varchar(255) not null,\u000d\u000a        primary key (matricula)\u000d\u000a    )
++\u000d\u000a    create table empresa (\u000d\u000a        id_empresa integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id_empresa)\u000d\u000a    )
++\u000d\u000a    create table servicio (\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        id_servicio integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id_servicio),\u000d\u000a        constraint UKylb1roceuuciyidrtfokp9qm unique (nombre, id_aeropuerto)\u000d\u000a    )
++\u000d\u000a    alter table if exists aerolineas_presentes \u000d\u000a       add constraint FKk03p9owoiq6axtbn1kb2kglji \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists aerolineas_presentes \u000d\u000a       add constraint FKt67cmdgjfxnrkiqcfs032fb29 \u000d\u000a       foreign key (nombre) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists servicio \u000d\u000a       add constraint FK2ctykaod60u2qa94o00hpdahi \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++/*C20*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C7*/SET SCHEMA PUBLIC
++/*C22*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C9*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C6*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C10*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C8*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C5*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C3*/DISCONNECT
+-/*C4*/SET SCHEMA PUBLIC
++/*C18*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C17*/SET SCHEMA PUBLIC
+-\u000d\u000a    drop table if exists aeropuerto cascade
+-\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
+ DISCONNECT
++/*C16*/DISCONNECT
+ /*C19*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C18*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C20*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C23*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C21*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C22*/SET SCHEMA PUBLIC
++/*C23*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C24*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C25*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C26*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C27*/SET SCHEMA PUBLIC
++\u000d\u000a    drop table if exists aerolinea cascade
++\u000d\u000a    drop table if exists aerolineas_presentes cascade
+ \u000d\u000a    drop table if exists aeropuerto cascade
+-\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        ubi_cacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
+-/*C31*/SET SCHEMA PUBLIC
++\u000d\u000a    drop table if exists avion cascade
++\u000d\u000a    drop table if exists empresa cascade
++\u000d\u000a    drop table if exists servicio cascade
++\u000d\u000a    drop table if exists sucursal cascade
++\u000d\u000a    drop sequence if exists aerolineas_presentes_seq
++\u000d\u000a    drop sequence if exists aeropuerto_seq
++\u000d\u000a    drop sequence if exists empresa_seq
++\u000d\u000a    drop sequence if exists servicio_seq
++\u000d\u000a    drop sequence if exists sucursal_seq
++\u000d\u000a    create sequence aerolineas_presentes_seq start with 1 increment by 50
++\u000d\u000a    create sequence aeropuerto_seq start with 1 increment by 50
++\u000d\u000a    create sequence empresa_seq start with 1 increment by 50
++\u000d\u000a    create sequence servicio_seq start with 1 increment by 50
++\u000d\u000a    create sequence sucursal_seq start with 1 increment by 50
++\u000d\u000a    create table aerolinea (\u000d\u000a        id_aerolinea integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (nombre)\u000d\u000a    )
++\u000d\u000a    create table aerolineas_presentes (\u000d\u000a        id integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
++\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        iata varchar(255),\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
++\u000d\u000a    create table avion (\u000d\u000a        capacidad integer not null,\u000d\u000a        matricula varchar(255) not null,\u000d\u000a        primary key (matricula)\u000d\u000a    )
++\u000d\u000a    create table empresa (\u000d\u000a        id_empresa integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id_empresa)\u000d\u000a    )
++\u000d\u000a    create table servicio (\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        id_servicio integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id_servicio),\u000d\u000a        constraint UKylb1roceuuciyidrtfokp9qm unique (nombre, id_aeropuerto)\u000d\u000a    )
++\u000d\u000a    create table sucursal (\u000d\u000a        cantidad_de_empleados integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        id_empresa integer,\u000d\u000a        id_sucursal integer not null,\u000d\u000a        primary key (id_sucursal)\u000d\u000a    )
++\u000d\u000a    alter table if exists aerolineas_presentes \u000d\u000a       add constraint FKk03p9owoiq6axtbn1kb2kglji \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists aerolineas_presentes \u000d\u000a       add constraint FKt67cmdgjfxnrkiqcfs032fb29 \u000d\u000a       foreign key (nombre) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists servicio \u000d\u000a       add constraint FK2ctykaod60u2qa94o00hpdahi \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists sucursal \u000d\u000a       add constraint FKnl8kicjg784yrow6qbleby1uq \u000d\u000a       foreign key (id_empresa) \u000d\u000a       references empresa
++\u000d\u000a    alter table if exists sucursal \u000d\u000a       add constraint FKrxwbi0f9k3076udwpsfmjnhms \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
+ DISCONNECT
+ /*C32*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C27*/DISCONNECT
+-/*C29*/SET SCHEMA PUBLIC
++/*C31*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C28*/SET SCHEMA PUBLIC
++DISCONNECT
++/*C27*/SET SCHEMA PUBLIC
++DISCONNECT
++/*C33*/SET SCHEMA PUBLIC
++DISCONNECT
++/*C29*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C30*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C34*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C33*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C35*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C36*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C37*/SET SCHEMA PUBLIC
++\u000d\u000a    drop table if exists aerolinea cascade
++\u000d\u000a    drop table if exists aerolineas_presentes cascade
+ \u000d\u000a    drop table if exists aeropuerto cascade
++\u000d\u000a    drop table if exists avion cascade
++\u000d\u000a    drop table if exists empresa cascade
+ \u000d\u000a    drop table if exists servicio cascade
+-\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
+-\u000d\u000a    create table servicio (\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (id_aeropuerto, nombre)\u000d\u000a    )
+-DISCONNECT
+-/*C43*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C39*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C38*/SET SCHEMA PUBLIC
++\u000d\u000a    drop table if exists sucursal cascade
++\u000d\u000a    drop sequence if exists aerolineas_presentes_seq
++\u000d\u000a    drop sequence if exists aeropuerto_seq
++\u000d\u000a    drop sequence if exists empresa_seq
++\u000d\u000a    drop sequence if exists servicio_seq
++\u000d\u000a    drop sequence if exists sucursal_seq
++\u000d\u000a    create sequence aerolineas_presentes_seq start with 1 increment by 50
++\u000d\u000a    create sequence aeropuerto_seq start with 1 increment by 50
++\u000d\u000a    create sequence empresa_seq start with 1 increment by 50
++\u000d\u000a    create sequence servicio_seq start with 1 increment by 50
++\u000d\u000a    create sequence sucursal_seq start with 1 increment by 50
++\u000d\u000a    create table aerolinea (\u000d\u000a        id_aerolinea integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (nombre)\u000d\u000a    )
++\u000d\u000a    create table aerolineas_presentes (\u000d\u000a        id integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
++\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        iata varchar(255),\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
++\u000d\u000a    create table avion (\u000d\u000a        capacidad integer not null,\u000d\u000a        matricula varchar(255) not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (matricula)\u000d\u000a    )
++\u000d\u000a    create table empresa (\u000d\u000a        id_empresa integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id_empresa)\u000d\u000a    )
++\u000d\u000a    create table servicio (\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        id_servicio integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id_servicio),\u000d\u000a        constraint UKylb1roceuuciyidrtfokp9qm unique (nombre, id_aeropuerto)\u000d\u000a    )
++\u000d\u000a    create table sucursal (\u000d\u000a        cantidad_de_empleados integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        id_empresa integer,\u000d\u000a        id_sucursal integer not null,\u000d\u000a        primary key (id_sucursal)\u000d\u000a    )
++\u000d\u000a    alter table if exists aerolineas_presentes \u000d\u000a       add constraint FKk03p9owoiq6axtbn1kb2kglji \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists aerolineas_presentes \u000d\u000a       add constraint FKt67cmdgjfxnrkiqcfs032fb29 \u000d\u000a       foreign key (nombre) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists avion \u000d\u000a       add constraint FKilqrl6yukbmwp7i9hmmgp4kae \u000d\u000a       foreign key (nombre) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists servicio \u000d\u000a       add constraint FK2ctykaod60u2qa94o00hpdahi \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists sucursal \u000d\u000a       add constraint FKnl8kicjg784yrow6qbleby1uq \u000d\u000a       foreign key (id_empresa) \u000d\u000a       references empresa
++\u000d\u000a    alter table if exists sucursal \u000d\u000a       add constraint FKrxwbi0f9k3076udwpsfmjnhms \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++/*C42*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C41*/SET SCHEMA PUBLIC
++DISCONNECT
++/*C45*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C44*/SET SCHEMA PUBLIC
++DISCONNECT
++/*C43*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C40*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C46*/SET SCHEMA PUBLIC
++/*C39*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C42*/SET SCHEMA PUBLIC
++/*C38*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C45*/SET SCHEMA PUBLIC
++/*C37*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C47*/SET SCHEMA PUBLIC
++/*C36*/DISCONNECT
++/*C46*/SET SCHEMA PUBLIC
++\u000d\u000a    drop table if exists aerolinea cascade
++\u000d\u000a    drop table if exists aerolineas_presentes cascade
+ \u000d\u000a    drop table if exists aeropuerto cascade
++\u000d\u000a    drop table if exists avion cascade
++\u000d\u000a    drop table if exists empresa cascade
+ \u000d\u000a    drop table if exists servicio cascade
+-\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
+-\u000d\u000a    create table servicio (\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (id_aeropuerto, nombre)\u000d\u000a    )
++\u000d\u000a    drop table if exists sucursal cascade
++\u000d\u000a    drop sequence if exists aerolineas_presentes_seq
++\u000d\u000a    drop sequence if exists aeropuerto_seq
++\u000d\u000a    drop sequence if exists empresa_seq
++\u000d\u000a    drop sequence if exists servicio_seq
++\u000d\u000a    drop sequence if exists sucursal_seq
++\u000d\u000a    create sequence aerolineas_presentes_seq start with 1 increment by 50
++\u000d\u000a    create sequence aeropuerto_seq start with 1 increment by 50
++\u000d\u000a    create sequence empresa_seq start with 1 increment by 50
++\u000d\u000a    create sequence servicio_seq start with 1 increment by 50
++\u000d\u000a    create sequence sucursal_seq start with 1 increment by 50
++\u000d\u000a    create table aerolinea (\u000d\u000a        id_aerolinea integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (nombre)\u000d\u000a    )
++\u000d\u000a    create table aerolineas_presentes (\u000d\u000a        id integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
++\u000d\u000a    create table aeropuerto (\u000d\u000a        aeropuerto_de_partida integer unique,\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        iata varchar(255),\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
++\u000d\u000a    create table avion (\u000d\u000a        capacidad integer not null,\u000d\u000a        matricula varchar(255) not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (matricula)\u000d\u000a    )
++\u000d\u000a    create table empresa (\u000d\u000a        id_empresa integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id_empresa)\u000d\u000a    )
++\u000d\u000a    create table servicio (\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        id_servicio integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id_servicio),\u000d\u000a        constraint UKylb1roceuuciyidrtfokp9qm unique (nombre, id_aeropuerto)\u000d\u000a    )
++\u000d\u000a    create table sucursal (\u000d\u000a        cantidad_de_empleados integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        id_empresa integer,\u000d\u000a        id_sucursal integer not null,\u000d\u000a        primary key (id_sucursal)\u000d\u000a    )
++\u000d\u000a    alter table if exists aerolineas_presentes \u000d\u000a       add constraint FKk03p9owoiq6axtbn1kb2kglji \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists aerolineas_presentes \u000d\u000a       add constraint FKt67cmdgjfxnrkiqcfs032fb29 \u000d\u000a       foreign key (nombre) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists aeropuerto \u000d\u000a       add constraint FKergr7p1qrhxv6lrjuygu2eio8 \u000d\u000a       foreign key (aeropuerto_de_partida) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists avion \u000d\u000a       add constraint FKilqrl6yukbmwp7i9hmmgp4kae \u000d\u000a       foreign key (nombre) \u000d\u000a       references aerolinea
+ \u000d\u000a    alter table if exists servicio \u000d\u000a       add constraint FK2ctykaod60u2qa94o00hpdahi \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
+-/*C49*/SET SCHEMA PUBLIC
++\u000d\u000a    alter table if exists sucursal \u000d\u000a       add constraint FKnl8kicjg784yrow6qbleby1uq \u000d\u000a       foreign key (id_empresa) \u000d\u000a       references empresa
++\u000d\u000a    alter table if exists sucursal \u000d\u000a       add constraint FKrxwbi0f9k3076udwpsfmjnhms \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++/*C53*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C47*/DISCONNECT
+ /*C54*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C50*/SET SCHEMA PUBLIC
++/*C46*/DISCONNECT
++/*C47*/SET SCHEMA PUBLIC
++DISCONNECT
++/*C48*/SET SCHEMA PUBLIC
++DISCONNECT
++/*C49*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C53*/SET SCHEMA PUBLIC
++/*C55*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C48*/SET SCHEMA PUBLIC
++/*C50*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C51*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C52*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C56*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C55*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C57*/SET SCHEMA PUBLIC
++\u000d\u000a    drop table if exists aerolinea cascade
++\u000d\u000a    drop table if exists aerolineas_presentes cascade
+ \u000d\u000a    drop table if exists aeropuerto cascade
++\u000d\u000a    drop table if exists avion cascade
++\u000d\u000a    drop table if exists empresa cascade
+ \u000d\u000a    drop table if exists servicio cascade
+-\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
+-\u000d\u000a    create table servicio (\u000d\u000a        aeropuerto_id_aeropuerto integer not null,\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (aeropuerto_id_aeropuerto, nombre)\u000d\u000a    )
+-\u000d\u000a    alter table if exists servicio \u000d\u000a       add constraint FKqyotqmeuthlf64iwbjtorbruq \u000d\u000a       foreign key (aeropuerto_id_aeropuerto) \u000d\u000a       references aeropuerto
+-/*C60*/SET SCHEMA PUBLIC
++\u000d\u000a    drop table if exists sucursal cascade
++\u000d\u000a    drop table if exists vuelo cascade
++\u000d\u000a    drop sequence if exists aerolineas_presentes_seq
++\u000d\u000a    drop sequence if exists aeropuerto_seq
++\u000d\u000a    drop sequence if exists empresa_seq
++\u000d\u000a    drop sequence if exists servicio_seq
++\u000d\u000a    drop sequence if exists sucursal_seq
++\u000d\u000a    drop sequence if exists vuelo_seq
++\u000d\u000a    create sequence aerolineas_presentes_seq start with 1 increment by 50
++\u000d\u000a    create sequence aeropuerto_seq start with 1 increment by 50
++\u000d\u000a    create sequence empresa_seq start with 1 increment by 50
++\u000d\u000a    create sequence servicio_seq start with 1 increment by 50
++\u000d\u000a    create sequence sucursal_seq start with 1 increment by 50
++\u000d\u000a    create sequence vuelo_seq start with 1 increment by 50
++\u000d\u000a    create table aerolinea (\u000d\u000a        id_aerolinea integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (nombre)\u000d\u000a    )
++\u000d\u000a    create table aerolineas_presentes (\u000d\u000a        id integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
++\u000d\u000a    create table aeropuerto (\u000d\u000a        aeropuerto_de_partida integer unique,\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        iata varchar(255),\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
++\u000d\u000a    create table avion (\u000d\u000a        capacidad integer not null,\u000d\u000a        matricula varchar(255) not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (matricula)\u000d\u000a    )
++\u000d\u000a    create table empresa (\u000d\u000a        id_empresa integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id_empresa)\u000d\u000a    )
++\u000d\u000a    create table servicio (\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        id_servicio integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id_servicio),\u000d\u000a        constraint UKylb1roceuuciyidrtfokp9qm unique (nombre, id_aeropuerto)\u000d\u000a    )
++\u000d\u000a    create table sucursal (\u000d\u000a        cantidad_de_empleados integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        id_empresa integer,\u000d\u000a        id_sucursal integer not null,\u000d\u000a        primary key (id_sucursal)\u000d\u000a    )
++\u000d\u000a    create table vuelo (\u000d\u000a        esta_atrasado boolean not null,\u000d\u000a        hora_de_arribo date,\u000d\u000a        hora_de_arribo_estimada date,\u000d\u000a        hora_de_partida date,\u000d\u000a        hora_de_partida_estimada date,\u000d\u000a        id_vuelo integer not null,\u000d\u000a        puereta_de_embarque integer not null,\u000d\u000a        puerta_de_arribo integer not null,\u000d\u000a        primary key (id_vuelo)\u000d\u000a    )
++\u000d\u000a    alter table if exists aerolineas_presentes \u000d\u000a       add constraint FKk03p9owoiq6axtbn1kb2kglji \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists aerolineas_presentes \u000d\u000a       add constraint FKt67cmdgjfxnrkiqcfs032fb29 \u000d\u000a       foreign key (nombre) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists aeropuerto \u000d\u000a       add constraint FKergr7p1qrhxv6lrjuygu2eio8 \u000d\u000a       foreign key (aeropuerto_de_partida) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists avion \u000d\u000a       add constraint FKilqrl6yukbmwp7i9hmmgp4kae \u000d\u000a       foreign key (nombre) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists servicio \u000d\u000a       add constraint FK2ctykaod60u2qa94o00hpdahi \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists sucursal \u000d\u000a       add constraint FKnl8kicjg784yrow6qbleby1uq \u000d\u000a       foreign key (id_empresa) \u000d\u000a       references empresa
++\u000d\u000a    alter table if exists sucursal \u000d\u000a       add constraint FKrxwbi0f9k3076udwpsfmjnhms \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++/*C57*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C61*/SET SCHEMA PUBLIC
++/*C56*/DISCONNECT
++/*C58*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C64*/SET SCHEMA PUBLIC
++/*C59*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C62*/SET SCHEMA PUBLIC
++/*C63*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C58*/SET SCHEMA PUBLIC
++/*C60*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C57*/DISCONNECT
+-/*C59*/SET SCHEMA PUBLIC
++/*C61*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C63*/SET SCHEMA PUBLIC
++/*C62*/SET SCHEMA PUBLIC
++DISCONNECT
++/*C64*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C65*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C66*/SET SCHEMA PUBLIC
+-DISCONNECT
++\u000d\u000a    drop table if exists aerolinea cascade
++\u000d\u000a    drop table if exists aerolineas_presentes cascade
++\u000d\u000a    drop table if exists aeropuerto cascade
++\u000d\u000a    drop table if exists avion cascade
++\u000d\u000a    drop table if exists empresa cascade
++\u000d\u000a    drop table if exists servicio cascade
++\u000d\u000a    drop table if exists sucursal cascade
++\u000d\u000a    drop table if exists vuelo cascade
++\u000d\u000a    drop sequence if exists aerolineas_presentes_seq
++\u000d\u000a    drop sequence if exists aeropuerto_seq
++\u000d\u000a    drop sequence if exists empresa_seq
++\u000d\u000a    drop sequence if exists servicio_seq
++\u000d\u000a    drop sequence if exists sucursal_seq
++\u000d\u000a    drop sequence if exists vuelo_seq
++\u000d\u000a    create sequence aerolineas_presentes_seq start with 1 increment by 50
++\u000d\u000a    create sequence aeropuerto_seq start with 1 increment by 50
++\u000d\u000a    create sequence empresa_seq start with 1 increment by 50
++\u000d\u000a    create sequence servicio_seq start with 1 increment by 50
++\u000d\u000a    create sequence sucursal_seq start with 1 increment by 50
++\u000d\u000a    create sequence vuelo_seq start with 1 increment by 50
++\u000d\u000a    create table aerolinea (\u000d\u000a        id_aerolinea integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (nombre)\u000d\u000a    )
++\u000d\u000a    create table aerolineas_presentes (\u000d\u000a        id integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
++\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        iata varchar(255),\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
++\u000d\u000a    create table avion (\u000d\u000a        capacidad integer not null,\u000d\u000a        matricula varchar(255) not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (matricula)\u000d\u000a    )
++\u000d\u000a    create table empresa (\u000d\u000a        id_empresa integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id_empresa)\u000d\u000a    )
++\u000d\u000a    create table servicio (\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        id_servicio integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id_servicio),\u000d\u000a        constraint UKylb1roceuuciyidrtfokp9qm unique (nombre, id_aeropuerto)\u000d\u000a    )
++\u000d\u000a    create table sucursal (\u000d\u000a        cantidad_de_empleados integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        id_empresa integer,\u000d\u000a        id_sucursal integer not null,\u000d\u000a        primary key (id_sucursal)\u000d\u000a    )
++\u000d\u000a    create table vuelo (\u000d\u000a        aeropuerto_de_partida integer unique,\u000d\u000a        esta_atrasado boolean not null,\u000d\u000a        hora_de_arribo date,\u000d\u000a        hora_de_arribo_estimada date,\u000d\u000a        hora_de_partida date,\u000d\u000a        hora_de_partida_estimada date,\u000d\u000a        id_vuelo integer not null,\u000d\u000a        puereta_de_embarque integer not null,\u000d\u000a        puerta_de_arribo integer not null,\u000d\u000a        primary key (id_vuelo)\u000d\u000a    )
++\u000d\u000a    alter table if exists aerolineas_presentes \u000d\u000a       add constraint FKk03p9owoiq6axtbn1kb2kglji \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists aerolineas_presentes \u000d\u000a       add constraint FKt67cmdgjfxnrkiqcfs032fb29 \u000d\u000a       foreign key (nombre) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists avion \u000d\u000a       add constraint FKilqrl6yukbmwp7i9hmmgp4kae \u000d\u000a       foreign key (nombre) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists servicio \u000d\u000a       add constraint FK2ctykaod60u2qa94o00hpdahi \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists sucursal \u000d\u000a       add constraint FKnl8kicjg784yrow6qbleby1uq \u000d\u000a       foreign key (id_empresa) \u000d\u000a       references empresa
++\u000d\u000a    alter table if exists sucursal \u000d\u000a       add constraint FKrxwbi0f9k3076udwpsfmjnhms \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists vuelo \u000d\u000a       add constraint FK5l15r5adqfbimku7w55rblwxw \u000d\u000a       foreign key (aeropuerto_de_partida) \u000d\u000a       references aeropuerto
+ /*C67*/SET SCHEMA PUBLIC
+ DISCONNECT
++/*C66*/DISCONNECT
+ /*C68*/SET SCHEMA PUBLIC
++DISCONNECT
++/*C70*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C69*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C70*/SET SCHEMA PUBLIC
+-\u000d\u000a    drop table if exists aeropuerto cascade
+-\u000d\u000a    drop table if exists servicio cascade
+-\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
+-\u000d\u000a    create table servicio (\u000d\u000a        aeropuerto integer not null,\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (aeropuerto, nombre)\u000d\u000a    )
+ /*C74*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C70*/DISCONNECT
+-/*C72*/SET SCHEMA PUBLIC
+-DISCONNECT
+ /*C71*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C76*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C75*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C73*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C77*/SET SCHEMA PUBLIC
++/*C72*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C78*/SET SCHEMA PUBLIC
++/*C75*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C79*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C80*/SET SCHEMA PUBLIC
++/*C76*/SET SCHEMA PUBLIC
++\u000d\u000a    drop table if exists aerolinea cascade
++\u000d\u000a    drop table if exists aerolineas_presentes cascade
+ \u000d\u000a    drop table if exists aeropuerto cascade
++\u000d\u000a    drop table if exists avion cascade
++\u000d\u000a    drop table if exists empresa cascade
+ \u000d\u000a    drop table if exists servicio cascade
+-\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
+-\u000d\u000a    create table servicio (\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (id_aeropuerto, nombre)\u000d\u000a    )
++\u000d\u000a    drop table if exists sucursal cascade
++\u000d\u000a    drop table if exists vuelo cascade
++\u000d\u000a    drop sequence if exists aerolineas_presentes_seq
++\u000d\u000a    drop sequence if exists aeropuerto_seq
++\u000d\u000a    drop sequence if exists empresa_seq
++\u000d\u000a    drop sequence if exists servicio_seq
++\u000d\u000a    drop sequence if exists sucursal_seq
++\u000d\u000a    drop sequence if exists vuelo_seq
++\u000d\u000a    create sequence aerolineas_presentes_seq start with 1 increment by 50
++\u000d\u000a    create sequence aeropuerto_seq start with 1 increment by 50
++\u000d\u000a    create sequence empresa_seq start with 1 increment by 50
++\u000d\u000a    create sequence servicio_seq start with 1 increment by 50
++\u000d\u000a    create sequence sucursal_seq start with 1 increment by 50
++\u000d\u000a    create sequence vuelo_seq start with 1 increment by 50
++\u000d\u000a    create table aerolinea (\u000d\u000a        id_aerolinea integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (nombre)\u000d\u000a    )
++\u000d\u000a    create table aerolineas_presentes (\u000d\u000a        id integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
++\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        iata varchar(255),\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
++\u000d\u000a    create table avion (\u000d\u000a        capacidad integer not null,\u000d\u000a        matricula varchar(255) not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (matricula)\u000d\u000a    )
++\u000d\u000a    create table empresa (\u000d\u000a        id_empresa integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id_empresa)\u000d\u000a    )
++\u000d\u000a    create table servicio (\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        id_servicio integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id_servicio),\u000d\u000a        constraint UKylb1roceuuciyidrtfokp9qm unique (nombre, id_aeropuerto)\u000d\u000a    )
++\u000d\u000a    create table sucursal (\u000d\u000a        cantidad_de_empleados integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        id_empresa integer,\u000d\u000a        id_sucursal integer not null,\u000d\u000a        primary key (id_sucursal)\u000d\u000a    )
++\u000d\u000a    create table vuelo (\u000d\u000a        aeropuerto_de_arribo integer unique,\u000d\u000a        aeropuerto_de_partida integer unique,\u000d\u000a        esta_atrasado boolean not null,\u000d\u000a        hora_de_arribo date,\u000d\u000a        hora_de_arribo_estimada date,\u000d\u000a        hora_de_partida date,\u000d\u000a        hora_de_partida_estimada date,\u000d\u000a        id_vuelo integer not null,\u000d\u000a        puereta_de_embarque integer not null,\u000d\u000a        puerta_de_arribo integer not null,\u000d\u000a        primary key (id_vuelo)\u000d\u000a    )
++\u000d\u000a    alter table if exists aerolineas_presentes \u000d\u000a       add constraint FKk03p9owoiq6axtbn1kb2kglji \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists aerolineas_presentes \u000d\u000a       add constraint FKt67cmdgjfxnrkiqcfs032fb29 \u000d\u000a       foreign key (nombre) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists avion \u000d\u000a       add constraint FKilqrl6yukbmwp7i9hmmgp4kae \u000d\u000a       foreign key (nombre) \u000d\u000a       references aerolinea
+ \u000d\u000a    alter table if exists servicio \u000d\u000a       add constraint FK2ctykaod60u2qa94o00hpdahi \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
+-/*C84*/SET SCHEMA PUBLIC
++\u000d\u000a    alter table if exists sucursal \u000d\u000a       add constraint FKnl8kicjg784yrow6qbleby1uq \u000d\u000a       foreign key (id_empresa) \u000d\u000a       references empresa
++\u000d\u000a    alter table if exists sucursal \u000d\u000a       add constraint FKrxwbi0f9k3076udwpsfmjnhms \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists vuelo \u000d\u000a       add constraint FK5uw5qghumkwkdxl7y2ukxmuks \u000d\u000a       foreign key (aeropuerto_de_arribo) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists vuelo \u000d\u000a       add constraint FK5l15r5adqfbimku7w55rblwxw \u000d\u000a       foreign key (aeropuerto_de_partida) \u000d\u000a       references aeropuerto
++/*C78*/SET SCHEMA PUBLIC
++DISCONNECT
++/*C76*/DISCONNECT
++/*C80*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C80*/DISCONNECT
+-/*C81*/SET SCHEMA PUBLIC
++/*C79*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C87*/SET SCHEMA PUBLIC
++/*C77*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C86*/SET SCHEMA PUBLIC
++/*C81*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C89*/SET SCHEMA PUBLIC
++/*C85*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C82*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C83*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C88*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C85*/SET SCHEMA PUBLIC
++/*C84*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C90*/SET SCHEMA PUBLIC
++/*C86*/SET SCHEMA PUBLIC
++\u000d\u000a    drop table if exists aerolinea cascade
++\u000d\u000a    drop table if exists aerolineas_presentes cascade
+ \u000d\u000a    drop table if exists aeropuerto cascade
++\u000d\u000a    drop table if exists avion cascade
++\u000d\u000a    drop table if exists empresa cascade
+ \u000d\u000a    drop table if exists servicio cascade
+-\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
+-\u000d\u000a    create table servicio (\u000d\u000a        aeropuerto_id_aeropuerto integer not null,\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (aeropuerto_id_aeropuerto, nombre)\u000d\u000a    )
+-\u000d\u000a    alter table if exists servicio \u000d\u000a       add constraint FKqyotqmeuthlf64iwbjtorbruq \u000d\u000a       foreign key (aeropuerto_id_aeropuerto) \u000d\u000a       references aeropuerto
+-DISCONNECT
+-/*C91*/SET SCHEMA PUBLIC
++\u000d\u000a    drop table if exists sucursal cascade
++\u000d\u000a    drop table if exists vuelo cascade
++\u000d\u000a    drop sequence if exists aerolineas_presentes_seq
++\u000d\u000a    drop sequence if exists aeropuerto_seq
++\u000d\u000a    drop sequence if exists empresa_seq
++\u000d\u000a    drop sequence if exists servicio_seq
++\u000d\u000a    drop sequence if exists sucursal_seq
++\u000d\u000a    drop sequence if exists vuelo_seq
++\u000d\u000a    create sequence aerolineas_presentes_seq start with 1 increment by 50
++\u000d\u000a    create sequence aeropuerto_seq start with 1 increment by 50
++\u000d\u000a    create sequence empresa_seq start with 1 increment by 50
++\u000d\u000a    create sequence servicio_seq start with 1 increment by 50
++\u000d\u000a    create sequence sucursal_seq start with 1 increment by 50
++\u000d\u000a    create sequence vuelo_seq start with 1 increment by 50
++\u000d\u000a    create table aerolinea (\u000d\u000a        id_aerolinea integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (nombre)\u000d\u000a    )
++\u000d\u000a    create table aerolineas_presentes (\u000d\u000a        id integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
++\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        iata varchar(255),\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
++\u000d\u000a    create table avion (\u000d\u000a        capacidad integer not null,\u000d\u000a        matricula varchar(255) not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (matricula)\u000d\u000a    )
++\u000d\u000a    create table empresa (\u000d\u000a        id_empresa integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id_empresa)\u000d\u000a    )
++\u000d\u000a    create table servicio (\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        id_servicio integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id_servicio),\u000d\u000a        constraint UKylb1roceuuciyidrtfokp9qm unique (nombre, id_aeropuerto)\u000d\u000a    )
++\u000d\u000a    create table sucursal (\u000d\u000a        cantidad_de_empleados integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        id_empresa integer,\u000d\u000a        id_sucursal integer not null,\u000d\u000a        primary key (id_sucursal)\u000d\u000a    )
++\u000d\u000a    create table vuelo (\u000d\u000a        aeropuerto_de_arribo integer unique,\u000d\u000a        aeropuerto_de_partida integer unique,\u000d\u000a        esta_atrasado boolean not null,\u000d\u000a        hora_de_arribo date,\u000d\u000a        hora_de_arribo_estimada date,\u000d\u000a        hora_de_partida date,\u000d\u000a        hora_de_partida_estimada date,\u000d\u000a        id_vuelo integer not null,\u000d\u000a        puereta_de_embarque integer not null,\u000d\u000a        puerta_de_arribo integer not null,\u000d\u000a        aerolinea varchar(255) unique,\u000d\u000a        avion varchar(255) unique,\u000d\u000a        primary key (id_vuelo)\u000d\u000a    )
++\u000d\u000a    alter table if exists aerolineas_presentes \u000d\u000a       add constraint FKk03p9owoiq6axtbn1kb2kglji \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists aerolineas_presentes \u000d\u000a       add constraint FKt67cmdgjfxnrkiqcfs032fb29 \u000d\u000a       foreign key (nombre) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists avion \u000d\u000a       add constraint FKilqrl6yukbmwp7i9hmmgp4kae \u000d\u000a       foreign key (nombre) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists servicio \u000d\u000a       add constraint FK2ctykaod60u2qa94o00hpdahi \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists sucursal \u000d\u000a       add constraint FKnl8kicjg784yrow6qbleby1uq \u000d\u000a       foreign key (id_empresa) \u000d\u000a       references empresa
++\u000d\u000a    alter table if exists sucursal \u000d\u000a       add constraint FKrxwbi0f9k3076udwpsfmjnhms \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists vuelo \u000d\u000a       add constraint FKnobpahn76h3ooissbk94jm31s \u000d\u000a       foreign key (aerolinea) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists vuelo \u000d\u000a       add constraint FK5uw5qghumkwkdxl7y2ukxmuks \u000d\u000a       foreign key (aeropuerto_de_arribo) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists vuelo \u000d\u000a       add constraint FK5l15r5adqfbimku7w55rblwxw \u000d\u000a       foreign key (aeropuerto_de_partida) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists vuelo \u000d\u000a       add constraint FK6l81vp3v4x89pabfnwai9250f \u000d\u000a       foreign key (avion) \u000d\u000a       references avion
++/*C87*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C93*/SET SCHEMA PUBLIC
++/*C86*/DISCONNECT
++/*C88*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C94*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C92*/SET SCHEMA PUBLIC
++/*C89*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C99*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C98*/SET SCHEMA PUBLIC
++/*C90*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C95*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C97*/SET SCHEMA PUBLIC
++/*C91*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C96*/SET SCHEMA PUBLIC
++/*C92*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C100*/SET SCHEMA PUBLIC
+-\u000d\u000a    drop table if exists aeropuerto cascade
+-\u000d\u000a    drop table if exists servicio cascade
+-\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
+-\u000d\u000a    create table servicio (\u000d\u000a        aeropuerto_id_aeropuerto integer not null,\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (aeropuerto_id_aeropuerto, nombre)\u000d\u000a    )
+-\u000d\u000a    alter table if exists servicio \u000d\u000a       add constraint FKqyotqmeuthlf64iwbjtorbruq \u000d\u000a       foreign key (aeropuerto_id_aeropuerto) \u000d\u000a       references aeropuerto
++/*C93*/SET SCHEMA PUBLIC
++DISCONNECT
++/*C96*/SET SCHEMA PUBLIC
++\u000d\u000a    drop table if exists aerolinea cascade
++\u000d\u000a    drop table if exists aerolineas_presentes cascade
+ \u000d\u000a    drop table if exists aeropuerto cascade
++\u000d\u000a    drop table if exists avion cascade
++\u000d\u000a    drop table if exists empresa cascade
+ \u000d\u000a    drop table if exists servicio cascade
++\u000d\u000a    drop table if exists sucursal cascade
++\u000d\u000a    drop table if exists vuelo cascade
++\u000d\u000a    drop sequence if exists aerolineas_presentes_seq
++\u000d\u000a    drop sequence if exists aeropuerto_seq
++\u000d\u000a    drop sequence if exists empresa_seq
++\u000d\u000a    drop sequence if exists servicio_seq
++\u000d\u000a    drop sequence if exists sucursal_seq
++\u000d\u000a    drop sequence if exists vuelo_seq
++\u000d\u000a    create sequence aerolineas_presentes_seq start with 1 increment by 50
++\u000d\u000a    create sequence aeropuerto_seq start with 1 increment by 50
++\u000d\u000a    create sequence empresa_seq start with 1 increment by 50
++\u000d\u000a    create sequence servicio_seq start with 1 increment by 50
++\u000d\u000a    create sequence sucursal_seq start with 1 increment by 50
++\u000d\u000a    create sequence vuelo_seq start with 1 increment by 50
++\u000d\u000a    create table aerolinea (\u000d\u000a        id_aerolinea integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (nombre)\u000d\u000a    )
++\u000d\u000a    create table aerolineas_presentes (\u000d\u000a        id integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
++\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        iata varchar(255),\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
++\u000d\u000a    create table avion (\u000d\u000a        capacidad integer not null,\u000d\u000a        matricula varchar(255) not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (matricula)\u000d\u000a    )
++\u000d\u000a    create table empresa (\u000d\u000a        id_empresa integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id_empresa)\u000d\u000a    )
++\u000d\u000a    create table servicio (\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        id_servicio integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id_servicio),\u000d\u000a        constraint UKylb1roceuuciyidrtfokp9qm unique (nombre, id_aeropuerto)\u000d\u000a    )
++\u000d\u000a    create table sucursal (\u000d\u000a        cantidad_de_empleados integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        id_empresa integer,\u000d\u000a        id_sucursal integer not null,\u000d\u000a        primary key (id_sucursal)\u000d\u000a    )
++\u000d\u000a    create table vuelo (\u000d\u000a        aeropuerto_de_arribo integer,\u000d\u000a        aeropuerto_de_partida integer,\u000d\u000a        esta_atrasado boolean not null,\u000d\u000a        hora_de_arribo date,\u000d\u000a        hora_de_arribo_estimada date,\u000d\u000a        hora_de_partida date,\u000d\u000a        hora_de_partida_estimada date,\u000d\u000a        id_vuelo integer not null,\u000d\u000a        puereta_de_embarque integer not null,\u000d\u000a        puerta_de_arribo integer not null,\u000d\u000a        aerolinea varchar(255),\u000d\u000a        avion varchar(255),\u000d\u000a        primary key (id_vuelo)\u000d\u000a    )
++\u000d\u000a    alter table if exists aerolineas_presentes \u000d\u000a       add constraint FKk03p9owoiq6axtbn1kb2kglji \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists aerolineas_presentes \u000d\u000a       add constraint FKt67cmdgjfxnrkiqcfs032fb29 \u000d\u000a       foreign key (nombre) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists avion \u000d\u000a       add constraint FKilqrl6yukbmwp7i9hmmgp4kae \u000d\u000a       foreign key (nombre) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists servicio \u000d\u000a       add constraint FK2ctykaod60u2qa94o00hpdahi \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists sucursal \u000d\u000a       add constraint FKnl8kicjg784yrow6qbleby1uq \u000d\u000a       foreign key (id_empresa) \u000d\u000a       references empresa
++\u000d\u000a    alter table if exists sucursal \u000d\u000a       add constraint FKrxwbi0f9k3076udwpsfmjnhms \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists vuelo \u000d\u000a       add constraint FKnobpahn76h3ooissbk94jm31s \u000d\u000a       foreign key (aerolinea) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists vuelo \u000d\u000a       add constraint FK5uw5qghumkwkdxl7y2ukxmuks \u000d\u000a       foreign key (aeropuerto_de_arribo) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists vuelo \u000d\u000a       add constraint FK5l15r5adqfbimku7w55rblwxw \u000d\u000a       foreign key (aeropuerto_de_partida) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists vuelo \u000d\u000a       add constraint FK6l81vp3v4x89pabfnwai9250f \u000d\u000a       foreign key (avion) \u000d\u000a       references avion
++/*C101*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C101*/SET SCHEMA PUBLIC
++/*C103*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C102*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C103*/SET SCHEMA PUBLIC
++/*C96*/DISCONNECT
++/*C97*/SET SCHEMA PUBLIC
++DISCONNECT
++/*C98*/SET SCHEMA PUBLIC
++DISCONNECT
++/*C100*/SET SCHEMA PUBLIC
++DISCONNECT
++/*C99*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C104*/SET SCHEMA PUBLIC
+ DISCONNECT
+@@ -251,24 +480,65 @@
+ /*C108*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C109*/SET SCHEMA PUBLIC
++\u000d\u000a    drop table if exists aerolinea cascade
++\u000d\u000a    drop table if exists aerolineas_presentes cascade
++\u000d\u000a    drop table if exists aeropuerto cascade
++\u000d\u000a    drop table if exists avion cascade
++\u000d\u000a    drop table if exists empresa cascade
++\u000d\u000a    drop table if exists pasaje cascade
++\u000d\u000a    drop table if exists servicio cascade
++\u000d\u000a    drop table if exists sucursal cascade
++\u000d\u000a    drop table if exists usuario cascade
++\u000d\u000a    drop table if exists vuelo cascade
++\u000d\u000a    drop sequence if exists aerolineas_presentes_seq
++\u000d\u000a    drop sequence if exists aeropuerto_seq
++\u000d\u000a    drop sequence if exists empresa_seq
++\u000d\u000a    drop sequence if exists pasaje_seq
++\u000d\u000a    drop sequence if exists servicio_seq
++\u000d\u000a    drop sequence if exists sucursal_seq
++\u000d\u000a    drop sequence if exists usuario_seq
++\u000d\u000a    drop sequence if exists vuelo_seq
++\u000d\u000a    create sequence aerolineas_presentes_seq start with 1 increment by 50
++\u000d\u000a    create sequence aeropuerto_seq start with 1 increment by 50
++\u000d\u000a    create sequence empresa_seq start with 1 increment by 50
++\u000d\u000a    create sequence pasaje_seq start with 1 increment by 50
++\u000d\u000a    create sequence servicio_seq start with 1 increment by 50
++\u000d\u000a    create sequence sucursal_seq start with 1 increment by 50
++\u000d\u000a    create sequence usuario_seq start with 1 increment by 50
++\u000d\u000a    create sequence vuelo_seq start with 1 increment by 50
++\u000d\u000a    create table aerolinea (\u000d\u000a        id_aerolinea integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (nombre)\u000d\u000a    )
++\u000d\u000a    create table aerolineas_presentes (\u000d\u000a        id integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
++\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        iata varchar(255),\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
++\u000d\u000a    create table avion (\u000d\u000a        capacidad integer not null,\u000d\u000a        matricula varchar(255) not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (matricula)\u000d\u000a    )
++\u000d\u000a    create table empresa (\u000d\u000a        id_empresa integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id_empresa)\u000d\u000a    )
++\u000d\u000a    create table pasaje (\u000d\u000a        id_pasaje integer not null,\u000d\u000a        id_usuario integer,\u000d\u000a        id_vuelo integer,\u000d\u000a        asiento varchar(255),\u000d\u000a        clase varchar(255),\u000d\u000a        primary key (id_pasaje)\u000d\u000a    )
++\u000d\u000a    create table servicio (\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        id_servicio integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id_servicio),\u000d\u000a        constraint UKylb1roceuuciyidrtfokp9qm unique (nombre, id_aeropuerto)\u000d\u000a    )
++\u000d\u000a    create table sucursal (\u000d\u000a        cantidad_de_empleados integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        id_empresa integer,\u000d\u000a        id_sucursal integer not null,\u000d\u000a        primary key (id_sucursal)\u000d\u000a    )
++\u000d\u000a    create table usuario (\u000d\u000a        id_usuario integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        password varchar(255),\u000d\u000a        username varchar(255),\u000d\u000a        primary key (id_usuario)\u000d\u000a    )
++\u000d\u000a    create table vuelo (\u000d\u000a        aeropuerto_de_arribo integer,\u000d\u000a        aeropuerto_de_partida integer,\u000d\u000a        esta_atrasado boolean not null,\u000d\u000a        hora_de_arribo date,\u000d\u000a        hora_de_arribo_estimada date,\u000d\u000a        hora_de_partida date,\u000d\u000a        hora_de_partida_estimada date,\u000d\u000a        id_vuelo integer not null,\u000d\u000a        puereta_de_embarque integer not null,\u000d\u000a        puerta_de_arribo integer not null,\u000d\u000a        aerolinea varchar(255),\u000d\u000a        avion varchar(255),\u000d\u000a        primary key (id_vuelo)\u000d\u000a    )
++\u000d\u000a    alter table if exists aerolineas_presentes \u000d\u000a       add constraint FKk03p9owoiq6axtbn1kb2kglji \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists aerolineas_presentes \u000d\u000a       add constraint FKt67cmdgjfxnrkiqcfs032fb29 \u000d\u000a       foreign key (nombre) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists avion \u000d\u000a       add constraint FKilqrl6yukbmwp7i9hmmgp4kae \u000d\u000a       foreign key (nombre) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists pasaje \u000d\u000a       add constraint FK24jgtgwh2pn8q4976s8al8xrk \u000d\u000a       foreign key (id_usuario) \u000d\u000a       references usuario
++\u000d\u000a    alter table if exists pasaje \u000d\u000a       add constraint FKksq3xvixgx44t6iwptbgdkmat \u000d\u000a       foreign key (id_vuelo) \u000d\u000a       references vuelo
++\u000d\u000a    alter table if exists servicio \u000d\u000a       add constraint FK2ctykaod60u2qa94o00hpdahi \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists sucursal \u000d\u000a       add constraint FKnl8kicjg784yrow6qbleby1uq \u000d\u000a       foreign key (id_empresa) \u000d\u000a       references empresa
++\u000d\u000a    alter table if exists sucursal \u000d\u000a       add constraint FKrxwbi0f9k3076udwpsfmjnhms \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists vuelo \u000d\u000a       add constraint FKnobpahn76h3ooissbk94jm31s \u000d\u000a       foreign key (aerolinea) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists vuelo \u000d\u000a       add constraint FK5uw5qghumkwkdxl7y2ukxmuks \u000d\u000a       foreign key (aeropuerto_de_arribo) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists vuelo \u000d\u000a       add constraint FK5l15r5adqfbimku7w55rblwxw \u000d\u000a       foreign key (aeropuerto_de_partida) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists vuelo \u000d\u000a       add constraint FK6l81vp3v4x89pabfnwai9250f \u000d\u000a       foreign key (avion) \u000d\u000a       references avion
++/*C114*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C110*/SET SCHEMA PUBLIC
++DISCONNECT
++/*C109*/DISCONNECT
++/*C113*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C111*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C112*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C113*/SET SCHEMA PUBLIC
+-\u000d\u000a    drop table if exists aeropuerto cascade
+-\u000d\u000a    drop table if exists servicio cascade
+-\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
+-\u000d\u000a    create table servicio (\u000d\u000a        aeropuerto_id_aeropuerto integer not null,\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (aeropuerto_id_aeropuerto)\u000d\u000a    )
+-\u000d\u000a    alter table if exists servicio \u000d\u000a       add constraint FKqyotqmeuthlf64iwbjtorbruq \u000d\u000a       foreign key (aeropuerto_id_aeropuerto) \u000d\u000a       references aeropuerto
+-\u000d\u000a    drop table if exists aeropuerto cascade
+-\u000d\u000a    drop table if exists servicio cascade
+-DISCONNECT
+-/*C114*/SET SCHEMA PUBLIC
+-DISCONNECT
+ /*C115*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C116*/SET SCHEMA PUBLIC
+@@ -278,32 +548,140 @@
+ /*C118*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C119*/SET SCHEMA PUBLIC
++\u000d\u000a    drop table if exists aerolinea cascade
++\u000d\u000a    drop table if exists aerolineas_presentes cascade
++\u000d\u000a    drop table if exists aeropuerto cascade
++\u000d\u000a    drop table if exists avion cascade
++\u000d\u000a    drop table if exists empresa cascade
++\u000d\u000a    drop table if exists pasaje cascade
++\u000d\u000a    drop table if exists pasajero cascade
++\u000d\u000a    drop table if exists servicio cascade
++\u000d\u000a    drop table if exists sucursal cascade
++\u000d\u000a    drop table if exists usuario cascade
++\u000d\u000a    drop table if exists vuelo cascade
++\u000d\u000a    drop sequence if exists aerolineas_presentes_seq
++\u000d\u000a    drop sequence if exists aeropuerto_seq
++\u000d\u000a    drop sequence if exists empresa_seq
++\u000d\u000a    drop sequence if exists pasaje_seq
++\u000d\u000a    drop sequence if exists servicio_seq
++\u000d\u000a    drop sequence if exists sucursal_seq
++\u000d\u000a    drop sequence if exists usuario_seq
++\u000d\u000a    drop sequence if exists vuelo_seq
++\u000d\u000a    create sequence aerolineas_presentes_seq start with 1 increment by 50
++\u000d\u000a    create sequence aeropuerto_seq start with 1 increment by 50
++\u000d\u000a    create sequence empresa_seq start with 1 increment by 50
++\u000d\u000a    create sequence pasaje_seq start with 1 increment by 50
++\u000d\u000a    create sequence servicio_seq start with 1 increment by 50
++\u000d\u000a    create sequence sucursal_seq start with 1 increment by 50
++\u000d\u000a    create sequence usuario_seq start with 1 increment by 50
++\u000d\u000a    create sequence vuelo_seq start with 1 increment by 50
++\u000d\u000a    create table aerolinea (\u000d\u000a        id_aerolinea integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (nombre)\u000d\u000a    )
++\u000d\u000a    create table aerolineas_presentes (\u000d\u000a        id integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
++\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        iata varchar(255),\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
++\u000d\u000a    create table avion (\u000d\u000a        capacidad integer not null,\u000d\u000a        matricula varchar(255) not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (matricula)\u000d\u000a    )
++\u000d\u000a    create table empresa (\u000d\u000a        id_empresa integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id_empresa)\u000d\u000a    )
++\u000d\u000a    create table pasaje (\u000d\u000a        id_pasaje integer not null,\u000d\u000a        id_usuario integer,\u000d\u000a        id_vuelo integer,\u000d\u000a        asiento varchar(255),\u000d\u000a        clase varchar(255),\u000d\u000a        primary key (id_pasaje)\u000d\u000a    )
++\u000d\u000a    create table pasajero (\u000d\u000a        id_usuario integer not null,\u000d\u000a        primary key (id_usuario)\u000d\u000a    )
++\u000d\u000a    create table servicio (\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        id_servicio integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id_servicio),\u000d\u000a        constraint UKylb1roceuuciyidrtfokp9qm unique (nombre, id_aeropuerto)\u000d\u000a    )
++\u000d\u000a    create table sucursal (\u000d\u000a        cantidad_de_empleados integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        id_empresa integer,\u000d\u000a        id_sucursal integer not null,\u000d\u000a        primary key (id_sucursal)\u000d\u000a    )
++\u000d\u000a    create table usuario (\u000d\u000a        id_usuario integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        password varchar(255),\u000d\u000a        username varchar(255),\u000d\u000a        primary key (id_usuario)\u000d\u000a    )
++\u000d\u000a    create table vuelo (\u000d\u000a        aeropuerto_de_arribo integer,\u000d\u000a        aeropuerto_de_partida integer,\u000d\u000a        esta_atrasado boolean not null,\u000d\u000a        hora_de_arribo date,\u000d\u000a        hora_de_arribo_estimada date,\u000d\u000a        hora_de_partida date,\u000d\u000a        hora_de_partida_estimada date,\u000d\u000a        id_vuelo integer not null,\u000d\u000a        puereta_de_embarque integer not null,\u000d\u000a        puerta_de_arribo integer not null,\u000d\u000a        aerolinea varchar(255),\u000d\u000a        avion varchar(255),\u000d\u000a        primary key (id_vuelo)\u000d\u000a    )
++\u000d\u000a    alter table if exists aerolineas_presentes \u000d\u000a       add constraint FKk03p9owoiq6axtbn1kb2kglji \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists aerolineas_presentes \u000d\u000a       add constraint FKt67cmdgjfxnrkiqcfs032fb29 \u000d\u000a       foreign key (nombre) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists avion \u000d\u000a       add constraint FKilqrl6yukbmwp7i9hmmgp4kae \u000d\u000a       foreign key (nombre) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists pasaje \u000d\u000a       add constraint FK24jgtgwh2pn8q4976s8al8xrk \u000d\u000a       foreign key (id_usuario) \u000d\u000a       references usuario
++\u000d\u000a    alter table if exists pasaje \u000d\u000a       add constraint FKksq3xvixgx44t6iwptbgdkmat \u000d\u000a       foreign key (id_vuelo) \u000d\u000a       references vuelo
++\u000d\u000a    alter table if exists pasajero \u000d\u000a       add constraint FK9aka4v7wttwc3kcnnigcosvaa \u000d\u000a       foreign key (id_usuario) \u000d\u000a       references usuario
++\u000d\u000a    alter table if exists servicio \u000d\u000a       add constraint FK2ctykaod60u2qa94o00hpdahi \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists sucursal \u000d\u000a       add constraint FKnl8kicjg784yrow6qbleby1uq \u000d\u000a       foreign key (id_empresa) \u000d\u000a       references empresa
++\u000d\u000a    alter table if exists sucursal \u000d\u000a       add constraint FKrxwbi0f9k3076udwpsfmjnhms \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists vuelo \u000d\u000a       add constraint FKnobpahn76h3ooissbk94jm31s \u000d\u000a       foreign key (aerolinea) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists vuelo \u000d\u000a       add constraint FK5uw5qghumkwkdxl7y2ukxmuks \u000d\u000a       foreign key (aeropuerto_de_arribo) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists vuelo \u000d\u000a       add constraint FK5l15r5adqfbimku7w55rblwxw \u000d\u000a       foreign key (aeropuerto_de_partida) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists vuelo \u000d\u000a       add constraint FK6l81vp3v4x89pabfnwai9250f \u000d\u000a       foreign key (avion) \u000d\u000a       references avion
+ DISCONNECT
+ /*C120*/SET SCHEMA PUBLIC
++DISCONNECT
++/*C123*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C121*/SET SCHEMA PUBLIC
++DISCONNECT
++/*C127*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C122*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C123*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C124*/SET SCHEMA PUBLIC
++/*C128*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C125*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C126*/SET SCHEMA PUBLIC
+-\u000d\u000a    drop table if exists aeropuerto cascade
+-\u000d\u000a    drop table if exists servicio cascade
+-\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
+-\u000d\u000a    create table servicio (\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (id_aeropuerto, nombre)\u000d\u000a    )
++DISCONNECT
++/*C124*/SET SCHEMA PUBLIC
++DISCONNECT
++/*C129*/SET SCHEMA PUBLIC
++\u000d\u000a    drop table if exists aerolinea cascade
++\u000d\u000a    drop table if exists aerolineas_presentes cascade
+ \u000d\u000a    drop table if exists aeropuerto cascade
++\u000d\u000a    drop table if exists avion cascade
++\u000d\u000a    drop table if exists emp_aerolinea cascade
++\u000d\u000a    drop table if exists empresa cascade
++\u000d\u000a    drop table if exists pasaje cascade
++\u000d\u000a    drop table if exists pasajero cascade
+ \u000d\u000a    drop table if exists servicio cascade
++\u000d\u000a    drop table if exists sucursal cascade
++\u000d\u000a    drop table if exists usuario cascade
++\u000d\u000a    drop table if exists vuelo cascade
++\u000d\u000a    drop sequence if exists aerolineas_presentes_seq
++\u000d\u000a    drop sequence if exists aeropuerto_seq
++\u000d\u000a    drop sequence if exists empresa_seq
++\u000d\u000a    drop sequence if exists pasaje_seq
++\u000d\u000a    drop sequence if exists servicio_seq
++\u000d\u000a    drop sequence if exists sucursal_seq
++\u000d\u000a    drop sequence if exists usuario_seq
++\u000d\u000a    drop sequence if exists vuelo_seq
++\u000d\u000a    create sequence aerolineas_presentes_seq start with 1 increment by 50
++\u000d\u000a    create sequence aeropuerto_seq start with 1 increment by 50
++\u000d\u000a    create sequence empresa_seq start with 1 increment by 50
++\u000d\u000a    create sequence pasaje_seq start with 1 increment by 50
++\u000d\u000a    create sequence servicio_seq start with 1 increment by 50
++\u000d\u000a    create sequence sucursal_seq start with 1 increment by 50
++\u000d\u000a    create sequence usuario_seq start with 1 increment by 50
++\u000d\u000a    create sequence vuelo_seq start with 1 increment by 50
++\u000d\u000a    create table aerolinea (\u000d\u000a        id_aerolinea integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (nombre)\u000d\u000a    )
++\u000d\u000a    create table aerolineas_presentes (\u000d\u000a        id integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
++\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        iata varchar(255),\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
++\u000d\u000a    create table avion (\u000d\u000a        capacidad integer not null,\u000d\u000a        matricula varchar(255) not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (matricula)\u000d\u000a    )
++\u000d\u000a    create table emp_aerolinea (\u000d\u000a        id_usuario integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id_usuario)\u000d\u000a    )
++\u000d\u000a    create table empresa (\u000d\u000a        id_empresa integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id_empresa)\u000d\u000a    )
++\u000d\u000a    create table pasaje (\u000d\u000a        id_pasaje integer not null,\u000d\u000a        id_usuario integer,\u000d\u000a        id_vuelo integer,\u000d\u000a        asiento varchar(255),\u000d\u000a        clase varchar(255),\u000d\u000a        primary key (id_pasaje)\u000d\u000a    )
++\u000d\u000a    create table pasajero (\u000d\u000a        id_usuario integer not null,\u000d\u000a        primary key (id_usuario)\u000d\u000a    )
++\u000d\u000a    create table servicio (\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        id_servicio integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id_servicio),\u000d\u000a        constraint UKylb1roceuuciyidrtfokp9qm unique (nombre, id_aeropuerto)\u000d\u000a    )
++\u000d\u000a    create table sucursal (\u000d\u000a        cantidad_de_empleados integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        id_empresa integer,\u000d\u000a        id_sucursal integer not null,\u000d\u000a        primary key (id_sucursal)\u000d\u000a    )
++\u000d\u000a    create table usuario (\u000d\u000a        id_usuario integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        password varchar(255),\u000d\u000a        username varchar(255),\u000d\u000a        primary key (id_usuario)\u000d\u000a    )
++\u000d\u000a    create table vuelo (\u000d\u000a        aeropuerto_de_arribo integer,\u000d\u000a        aeropuerto_de_partida integer,\u000d\u000a        esta_atrasado boolean not null,\u000d\u000a        hora_de_arribo date,\u000d\u000a        hora_de_arribo_estimada date,\u000d\u000a        hora_de_partida date,\u000d\u000a        hora_de_partida_estimada date,\u000d\u000a        id_vuelo integer not null,\u000d\u000a        puereta_de_embarque integer not null,\u000d\u000a        puerta_de_arribo integer not null,\u000d\u000a        aerolinea varchar(255),\u000d\u000a        avion varchar(255),\u000d\u000a        primary key (id_vuelo)\u000d\u000a    )
++\u000d\u000a    alter table if exists aerolineas_presentes \u000d\u000a       add constraint FKk03p9owoiq6axtbn1kb2kglji \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists aerolineas_presentes \u000d\u000a       add constraint FKt67cmdgjfxnrkiqcfs032fb29 \u000d\u000a       foreign key (nombre) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists avion \u000d\u000a       add constraint FKilqrl6yukbmwp7i9hmmgp4kae \u000d\u000a       foreign key (nombre) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists emp_aerolinea \u000d\u000a       add constraint FKgxi6h3cpuh8c1njpo8bpqigli \u000d\u000a       foreign key (id_usuario) \u000d\u000a       references usuario
++\u000d\u000a    alter table if exists emp_aerolinea \u000d\u000a       add constraint FKlg09lh7d7vkhyyjmqqx13trhr \u000d\u000a       foreign key (nombre) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists pasaje \u000d\u000a       add constraint FK24jgtgwh2pn8q4976s8al8xrk \u000d\u000a       foreign key (id_usuario) \u000d\u000a       references usuario
++\u000d\u000a    alter table if exists pasaje \u000d\u000a       add constraint FKksq3xvixgx44t6iwptbgdkmat \u000d\u000a       foreign key (id_vuelo) \u000d\u000a       references vuelo
++\u000d\u000a    alter table if exists pasajero \u000d\u000a       add constraint FK9aka4v7wttwc3kcnnigcosvaa \u000d\u000a       foreign key (id_usuario) \u000d\u000a       references usuario
++\u000d\u000a    alter table if exists servicio \u000d\u000a       add constraint FK2ctykaod60u2qa94o00hpdahi \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists sucursal \u000d\u000a       add constraint FKnl8kicjg784yrow6qbleby1uq \u000d\u000a       foreign key (id_empresa) \u000d\u000a       references empresa
++\u000d\u000a    alter table if exists sucursal \u000d\u000a       add constraint FKrxwbi0f9k3076udwpsfmjnhms \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists vuelo \u000d\u000a       add constraint FKnobpahn76h3ooissbk94jm31s \u000d\u000a       foreign key (aerolinea) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists vuelo \u000d\u000a       add constraint FK5uw5qghumkwkdxl7y2ukxmuks \u000d\u000a       foreign key (aeropuerto_de_arribo) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists vuelo \u000d\u000a       add constraint FK5l15r5adqfbimku7w55rblwxw \u000d\u000a       foreign key (aeropuerto_de_partida) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists vuelo \u000d\u000a       add constraint FK6l81vp3v4x89pabfnwai9250f \u000d\u000a       foreign key (avion) \u000d\u000a       references avion
++/*C134*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C127*/SET SCHEMA PUBLIC
++/*C135*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C128*/SET SCHEMA PUBLIC
++/*C137*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C129*/SET SCHEMA PUBLIC
++/*C129*/DISCONNECT
++/*C138*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C130*/SET SCHEMA PUBLIC
+ DISCONNECT
+@@ -313,38 +691,167 @@
+ DISCONNECT
+ /*C133*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C134*/SET SCHEMA PUBLIC
++/*C136*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C135*/SET SCHEMA PUBLIC
+-DISCONNECT
+-/*C136*/SET SCHEMA PUBLIC
+-\u000d\u000a    drop table if exists aeropuerto cascade
+-\u000d\u000a    drop table if exists servicio cascade
+-\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
+-\u000d\u000a    create table servicio (\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (id_aeropuerto, nombre)\u000d\u000a    )
++/*C139*/SET SCHEMA PUBLIC
++\u000d\u000a    drop table if exists aerolinea cascade
++\u000d\u000a    drop table if exists aerolineas_presentes cascade
+ \u000d\u000a    drop table if exists aeropuerto cascade
++\u000d\u000a    drop table if exists avion cascade
++\u000d\u000a    drop table if exists emp_aerolinea cascade
++\u000d\u000a    drop table if exists emp_aeropuerto cascade
++\u000d\u000a    drop table if exists empresa cascade
++\u000d\u000a    drop table if exists pasaje cascade
++\u000d\u000a    drop table if exists pasajero cascade
+ \u000d\u000a    drop table if exists servicio cascade
++\u000d\u000a    drop table if exists sucursal cascade
++\u000d\u000a    drop table if exists usuario cascade
++\u000d\u000a    drop table if exists vuelo cascade
++\u000d\u000a    drop sequence if exists aerolineas_presentes_seq
++\u000d\u000a    drop sequence if exists aeropuerto_seq
++\u000d\u000a    drop sequence if exists empresa_seq
++\u000d\u000a    drop sequence if exists pasaje_seq
++\u000d\u000a    drop sequence if exists servicio_seq
++\u000d\u000a    drop sequence if exists sucursal_seq
++\u000d\u000a    drop sequence if exists usuario_seq
++\u000d\u000a    drop sequence if exists vuelo_seq
++\u000d\u000a    create sequence aerolineas_presentes_seq start with 1 increment by 50
++\u000d\u000a    create sequence aeropuerto_seq start with 1 increment by 50
++\u000d\u000a    create sequence empresa_seq start with 1 increment by 50
++\u000d\u000a    create sequence pasaje_seq start with 1 increment by 50
++\u000d\u000a    create sequence servicio_seq start with 1 increment by 50
++\u000d\u000a    create sequence sucursal_seq start with 1 increment by 50
++\u000d\u000a    create sequence usuario_seq start with 1 increment by 50
++\u000d\u000a    create sequence vuelo_seq start with 1 increment by 50
++\u000d\u000a    create table aerolinea (\u000d\u000a        id_aerolinea integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (nombre)\u000d\u000a    )
++\u000d\u000a    create table aerolineas_presentes (\u000d\u000a        id integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
++\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        iata varchar(255),\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
++\u000d\u000a    create table avion (\u000d\u000a        capacidad integer not null,\u000d\u000a        matricula varchar(255) not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (matricula)\u000d\u000a    )
++\u000d\u000a    create table emp_aerolinea (\u000d\u000a        id_usuario integer not null,\u000d\u000a        aerolinea_de_trabajo varchar(255),\u000d\u000a        primary key (id_usuario)\u000d\u000a    )
++\u000d\u000a    create table emp_aeropuerto (\u000d\u000a        aeropuerto_de_trabajo integer,\u000d\u000a        id_usuario integer not null,\u000d\u000a        primary key (id_usuario)\u000d\u000a    )
++\u000d\u000a    create table empresa (\u000d\u000a        id_empresa integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id_empresa)\u000d\u000a    )
++\u000d\u000a    create table pasaje (\u000d\u000a        id_pasaje integer not null,\u000d\u000a        id_usuario integer,\u000d\u000a        id_vuelo integer,\u000d\u000a        asiento varchar(255),\u000d\u000a        clase varchar(255),\u000d\u000a        primary key (id_pasaje)\u000d\u000a    )
++\u000d\u000a    create table pasajero (\u000d\u000a        id_usuario integer not null,\u000d\u000a        primary key (id_usuario)\u000d\u000a    )
++\u000d\u000a    create table servicio (\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        id_servicio integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id_servicio),\u000d\u000a        constraint UKylb1roceuuciyidrtfokp9qm unique (nombre, id_aeropuerto)\u000d\u000a    )
++\u000d\u000a    create table sucursal (\u000d\u000a        cantidad_de_empleados integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        id_empresa integer,\u000d\u000a        id_sucursal integer not null,\u000d\u000a        primary key (id_sucursal)\u000d\u000a    )
++\u000d\u000a    create table usuario (\u000d\u000a        id_usuario integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        password varchar(255),\u000d\u000a        username varchar(255),\u000d\u000a        primary key (id_usuario)\u000d\u000a    )
++\u000d\u000a    create table vuelo (\u000d\u000a        aeropuerto_de_arribo integer,\u000d\u000a        aeropuerto_de_partida integer,\u000d\u000a        esta_atrasado boolean not null,\u000d\u000a        hora_de_arribo date,\u000d\u000a        hora_de_arribo_estimada date,\u000d\u000a        hora_de_partida date,\u000d\u000a        hora_de_partida_estimada date,\u000d\u000a        id_vuelo integer not null,\u000d\u000a        puereta_de_embarque integer not null,\u000d\u000a        puerta_de_arribo integer not null,\u000d\u000a        aerolinea varchar(255),\u000d\u000a        avion varchar(255),\u000d\u000a        primary key (id_vuelo)\u000d\u000a    )
++\u000d\u000a    alter table if exists aerolineas_presentes \u000d\u000a       add constraint FKk03p9owoiq6axtbn1kb2kglji \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists aerolineas_presentes \u000d\u000a       add constraint FKt67cmdgjfxnrkiqcfs032fb29 \u000d\u000a       foreign key (nombre) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists avion \u000d\u000a       add constraint FKilqrl6yukbmwp7i9hmmgp4kae \u000d\u000a       foreign key (nombre) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists emp_aerolinea \u000d\u000a       add constraint FKgxi6h3cpuh8c1njpo8bpqigli \u000d\u000a       foreign key (id_usuario) \u000d\u000a       references usuario
++\u000d\u000a    alter table if exists emp_aerolinea \u000d\u000a       add constraint FK2ovscvkxpnwfp0u1eqsceaawu \u000d\u000a       foreign key (aerolinea_de_trabajo) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists emp_aeropuerto \u000d\u000a       add constraint FK3pg3vc8d0b6fk0pw4lgmmxcu8 \u000d\u000a       foreign key (id_usuario) \u000d\u000a       references usuario
++\u000d\u000a    alter table if exists emp_aeropuerto \u000d\u000a       add constraint FKoet8qp37kvj4bsoo2nr6jtv6s \u000d\u000a       foreign key (aeropuerto_de_trabajo) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists pasaje \u000d\u000a       add constraint FK24jgtgwh2pn8q4976s8al8xrk \u000d\u000a       foreign key (id_usuario) \u000d\u000a       references usuario
++\u000d\u000a    alter table if exists pasaje \u000d\u000a       add constraint FKksq3xvixgx44t6iwptbgdkmat \u000d\u000a       foreign key (id_vuelo) \u000d\u000a       references vuelo
++\u000d\u000a    alter table if exists pasajero \u000d\u000a       add constraint FK9aka4v7wttwc3kcnnigcosvaa \u000d\u000a       foreign key (id_usuario) \u000d\u000a       references usuario
++\u000d\u000a    alter table if exists servicio \u000d\u000a       add constraint FK2ctykaod60u2qa94o00hpdahi \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists sucursal \u000d\u000a       add constraint FKnl8kicjg784yrow6qbleby1uq \u000d\u000a       foreign key (id_empresa) \u000d\u000a       references empresa
++\u000d\u000a    alter table if exists sucursal \u000d\u000a       add constraint FKrxwbi0f9k3076udwpsfmjnhms \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists vuelo \u000d\u000a       add constraint FKnobpahn76h3ooissbk94jm31s \u000d\u000a       foreign key (aerolinea) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists vuelo \u000d\u000a       add constraint FK5uw5qghumkwkdxl7y2ukxmuks \u000d\u000a       foreign key (aeropuerto_de_arribo) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists vuelo \u000d\u000a       add constraint FK5l15r5adqfbimku7w55rblwxw \u000d\u000a       foreign key (aeropuerto_de_partida) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists vuelo \u000d\u000a       add constraint FK6l81vp3v4x89pabfnwai9250f \u000d\u000a       foreign key (avion) \u000d\u000a       references avion
+ DISCONNECT
+-/*C137*/SET SCHEMA PUBLIC
++/*C146*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C138*/SET SCHEMA PUBLIC
++/*C147*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C139*/SET SCHEMA PUBLIC
++/*C143*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C140*/SET SCHEMA PUBLIC
++/*C142*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C141*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C142*/SET SCHEMA PUBLIC
++/*C140*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C143*/SET SCHEMA PUBLIC
++/*C145*/SET SCHEMA PUBLIC
+ DISCONNECT
+ /*C144*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C145*/SET SCHEMA PUBLIC
++/*C148*/SET SCHEMA PUBLIC
+ DISCONNECT
+-/*C146*/SET SCHEMA PUBLIC
++/*C149*/SET SCHEMA PUBLIC
++\u000d\u000a    drop table if exists aerolinea cascade
++\u000d\u000a    drop table if exists aerolineas_presentes cascade
+ \u000d\u000a    drop table if exists aeropuerto cascade
++\u000d\u000a    drop table if exists avion cascade
++\u000d\u000a    drop table if exists emp_aerolinea cascade
++\u000d\u000a    drop table if exists emp_aeropuerto cascade
++\u000d\u000a    drop table if exists emp_empresa cascade
++\u000d\u000a    drop table if exists empresa cascade
++\u000d\u000a    drop table if exists pasaje cascade
++\u000d\u000a    drop table if exists pasajero cascade
+ \u000d\u000a    drop table if exists servicio cascade
+-\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
+-\u000d\u000a    create table servicio (\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (nombre)\u000d\u000a    )
++\u000d\u000a    drop table if exists sucursal cascade
++\u000d\u000a    drop table if exists usuario cascade
++\u000d\u000a    drop table if exists vuelo cascade
++\u000d\u000a    drop sequence if exists aerolineas_presentes_seq
++\u000d\u000a    drop sequence if exists aeropuerto_seq
++\u000d\u000a    drop sequence if exists empresa_seq
++\u000d\u000a    drop sequence if exists pasaje_seq
++\u000d\u000a    drop sequence if exists servicio_seq
++\u000d\u000a    drop sequence if exists sucursal_seq
++\u000d\u000a    drop sequence if exists usuario_seq
++\u000d\u000a    drop sequence if exists vuelo_seq
++\u000d\u000a    create sequence aerolineas_presentes_seq start with 1 increment by 50
++\u000d\u000a    create sequence aeropuerto_seq start with 1 increment by 50
++\u000d\u000a    create sequence empresa_seq start with 1 increment by 50
++\u000d\u000a    create sequence pasaje_seq start with 1 increment by 50
++\u000d\u000a    create sequence servicio_seq start with 1 increment by 50
++\u000d\u000a    create sequence sucursal_seq start with 1 increment by 50
++\u000d\u000a    create sequence usuario_seq start with 1 increment by 50
++\u000d\u000a    create sequence vuelo_seq start with 1 increment by 50
++\u000d\u000a    create table aerolinea (\u000d\u000a        id_aerolinea integer not null,\u000d\u000a        nombre varchar(255) not null,\u000d\u000a        primary key (nombre)\u000d\u000a    )
++\u000d\u000a    create table aerolineas_presentes (\u000d\u000a        id integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
++\u000d\u000a    create table aeropuerto (\u000d\u000a        cantidad_de_checkin integer not null,\u000d\u000a        cantidad_de_pistas integer not null,\u000d\u000a        cantidad_de_puertas integer not null,\u000d\u000a        id_aeropuerto integer not null,\u000d\u000a        iata varchar(255),\u000d\u000a        nombre varchar(255),\u000d\u000a        ubicacion varchar(255),\u000d\u000a        primary key (id_aeropuerto)\u000d\u000a    )
++\u000d\u000a    create table avion (\u000d\u000a        capacidad integer not null,\u000d\u000a        matricula varchar(255) not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (matricula)\u000d\u000a    )
++\u000d\u000a    create table emp_aerolinea (\u000d\u000a        id_usuario integer not null,\u000d\u000a        aerolinea_de_trabajo varchar(255),\u000d\u000a        primary key (id_usuario)\u000d\u000a    )
++\u000d\u000a    create table emp_aeropuerto (\u000d\u000a        aeropuerto_de_trabajo integer,\u000d\u000a        id_usuario integer not null,\u000d\u000a        primary key (id_usuario)\u000d\u000a    )
++\u000d\u000a    create table emp_empresa (\u000d\u000a        empresa_de_trabajo integer,\u000d\u000a        id_usuario integer not null,\u000d\u000a        primary key (id_usuario)\u000d\u000a    )
++\u000d\u000a    create table empresa (\u000d\u000a        id_empresa integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id_empresa)\u000d\u000a    )
++\u000d\u000a    create table pasaje (\u000d\u000a        id_pasaje integer not null,\u000d\u000a        id_usuario integer,\u000d\u000a        id_vuelo integer,\u000d\u000a        asiento varchar(255),\u000d\u000a        clase varchar(255),\u000d\u000a        primary key (id_pasaje)\u000d\u000a    )
++\u000d\u000a    create table pasajero (\u000d\u000a        id_usuario integer not null,\u000d\u000a        primary key (id_usuario)\u000d\u000a    )
++\u000d\u000a    create table servicio (\u000d\u000a        capacidad integer not null,\u000d\u000a        costo integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        id_servicio integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        primary key (id_servicio),\u000d\u000a        constraint UKylb1roceuuciyidrtfokp9qm unique (nombre, id_aeropuerto)\u000d\u000a    )
++\u000d\u000a    create table sucursal (\u000d\u000a        cantidad_de_empleados integer not null,\u000d\u000a        id_aeropuerto integer,\u000d\u000a        id_empresa integer,\u000d\u000a        id_sucursal integer not null,\u000d\u000a        primary key (id_sucursal)\u000d\u000a    )
++\u000d\u000a    create table usuario (\u000d\u000a        id_usuario integer not null,\u000d\u000a        nombre varchar(255),\u000d\u000a        password varchar(255),\u000d\u000a        username varchar(255),\u000d\u000a        primary key (id_usuario)\u000d\u000a    )
++\u000d\u000a    create table vuelo (\u000d\u000a        aeropuerto_de_arribo integer,\u000d\u000a        aeropuerto_de_partida integer,\u000d\u000a        esta_atrasado boolean not null,\u000d\u000a        hora_de_arribo date,\u000d\u000a        hora_de_arribo_estimada date,\u000d\u000a        hora_de_partida date,\u000d\u000a        hora_de_partida_estimada date,\u000d\u000a        id_vuelo integer not null,\u000d\u000a        puereta_de_embarque integer not null,\u000d\u000a        puerta_de_arribo integer not null,\u000d\u000a        aerolinea varchar(255),\u000d\u000a        avion varchar(255),\u000d\u000a        primary key (id_vuelo)\u000d\u000a    )
++\u000d\u000a    alter table if exists aerolineas_presentes \u000d\u000a       add constraint FKk03p9owoiq6axtbn1kb2kglji \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists aerolineas_presentes \u000d\u000a       add constraint FKt67cmdgjfxnrkiqcfs032fb29 \u000d\u000a       foreign key (nombre) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists avion \u000d\u000a       add constraint FKilqrl6yukbmwp7i9hmmgp4kae \u000d\u000a       foreign key (nombre) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists emp_aerolinea \u000d\u000a       add constraint FKgxi6h3cpuh8c1njpo8bpqigli \u000d\u000a       foreign key (id_usuario) \u000d\u000a       references usuario
++\u000d\u000a    alter table if exists emp_aerolinea \u000d\u000a       add constraint FK2ovscvkxpnwfp0u1eqsceaawu \u000d\u000a       foreign key (aerolinea_de_trabajo) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists emp_aeropuerto \u000d\u000a       add constraint FK3pg3vc8d0b6fk0pw4lgmmxcu8 \u000d\u000a       foreign key (id_usuario) \u000d\u000a       references usuario
++\u000d\u000a    alter table if exists emp_aeropuerto \u000d\u000a       add constraint FKoet8qp37kvj4bsoo2nr6jtv6s \u000d\u000a       foreign key (aeropuerto_de_trabajo) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists emp_empresa \u000d\u000a       add constraint FKgq23b4d4v8u8jadhmuldu44n4 \u000d\u000a       foreign key (id_usuario) \u000d\u000a       references usuario
++\u000d\u000a    alter table if exists emp_empresa \u000d\u000a       add constraint FKt8dt9hegftojo29jq42sln5g6 \u000d\u000a       foreign key (empresa_de_trabajo) \u000d\u000a       references empresa
++\u000d\u000a    alter table if exists pasaje \u000d\u000a       add constraint FK24jgtgwh2pn8q4976s8al8xrk \u000d\u000a       foreign key (id_usuario) \u000d\u000a       references usuario
++\u000d\u000a    alter table if exists pasaje \u000d\u000a       add constraint FKksq3xvixgx44t6iwptbgdkmat \u000d\u000a       foreign key (id_vuelo) \u000d\u000a       references vuelo
++\u000d\u000a    alter table if exists pasajero \u000d\u000a       add constraint FK9aka4v7wttwc3kcnnigcosvaa \u000d\u000a       foreign key (id_usuario) \u000d\u000a       references usuario
++\u000d\u000a    alter table if exists servicio \u000d\u000a       add constraint FK2ctykaod60u2qa94o00hpdahi \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists sucursal \u000d\u000a       add constraint FKnl8kicjg784yrow6qbleby1uq \u000d\u000a       foreign key (id_empresa) \u000d\u000a       references empresa
++\u000d\u000a    alter table if exists sucursal \u000d\u000a       add constraint FKrxwbi0f9k3076udwpsfmjnhms \u000d\u000a       foreign key (id_aeropuerto) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists vuelo \u000d\u000a       add constraint FKnobpahn76h3ooissbk94jm31s \u000d\u000a       foreign key (aerolinea) \u000d\u000a       references aerolinea
++\u000d\u000a    alter table if exists vuelo \u000d\u000a       add constraint FK5uw5qghumkwkdxl7y2ukxmuks \u000d\u000a       foreign key (aeropuerto_de_arribo) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists vuelo \u000d\u000a       add constraint FK5l15r5adqfbimku7w55rblwxw \u000d\u000a       foreign key (aeropuerto_de_partida) \u000d\u000a       references aeropuerto
++\u000d\u000a    alter table if exists vuelo \u000d\u000a       add constraint FK6l81vp3v4x89pabfnwai9250f \u000d\u000a       foreign key (avion) \u000d\u000a       references avion
++DISCONNECT
++/*C158*/SET SCHEMA PUBLIC
++DISCONNECT
++/*C152*/SET SCHEMA PUBLIC
++DISCONNECT
++/*C150*/SET SCHEMA PUBLIC
++DISCONNECT
++/*C157*/SET SCHEMA PUBLIC
++DISCONNECT
++/*C154*/SET SCHEMA PUBLIC
++DISCONNECT
++/*C151*/SET SCHEMA PUBLIC
++DISCONNECT
++/*C153*/SET SCHEMA PUBLIC
++DISCONNECT
++/*C155*/SET SCHEMA PUBLIC
++DISCONNECT
++/*C156*/SET SCHEMA PUBLIC
++DISCONNECT
+Index: Base de Datos/pruebita.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#HSQL Database Engine 2.7.2\r\n#Sun Sep 10 20:43:50 UYT 2023\r\nmodified=yes\r\ntx_timestamp=159\r\nversion=2.7.2\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/Base de Datos/pruebita.properties b/Base de Datos/pruebita.properties
+--- a/Base de Datos/pruebita.properties	(revision 79c8ae90e92526b968feca4e07e63a0c459519df)
++++ b/Base de Datos/pruebita.properties	(date 1695237541932)
+@@ -1,5 +1,5 @@
+ #HSQL Database Engine 2.7.2
+-#Sun Sep 10 20:43:50 UYT 2023
++#Thu Sep 14 18:46:04 UYT 2023
+ modified=yes
+-tx_timestamp=159
++tx_timestamp=522
+ version=2.7.2
+Index: src/main/java/proyecto/ClasesMER/Aeropuerto/Aeropuerto.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package proyecto.ClasesMER.Aeropuerto;\r\n\r\n\r\nimport jakarta.persistence.*;\r\nimport lombok.AllArgsConstructor;\r\nimport lombok.Getter;\r\nimport lombok.NoArgsConstructor;\r\nimport lombok.Setter;\r\nimport org.springframework.stereotype.Component;\r\nimport proyecto.ClasesMER.AerolineasPresentes;\r\nimport proyecto.ClasesMER.Servicio.Servicio;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.LinkedList;\r\nimport java.util.List;\r\n\r\n@AllArgsConstructor\r\n@NoArgsConstructor\r\n@Getter\r\n@Setter\r\n@Entity\r\n@Table(name = \"Aeropuerto\")\r\n@Component\r\npublic class Aeropuerto {\r\n    @Id\r\n    @GeneratedValue(strategy = GenerationType.SEQUENCE)\r\n    private int idAeropuerto;\r\n    private String nombre;\r\n    private String ubicacion;\r\n    private String iata;\r\n    private int cantidadDePuertas;\r\n    private int cantidadDePistas;\r\n    private int cantidadDeCheckin;\r\n\r\n    @OneToMany\r\n    @JoinColumn(name=\"id_aeropuerto\")\r\n    private List<Servicio> servicios = new LinkedList<>();\r\n\r\n    @OneToMany\r\n    @JoinColumn(name=\"id_aeropuerto\")\r\n    private List<AerolineasPresentes> aerolineasPresentes = new ArrayList<>();\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/proyecto/ClasesMER/Aeropuerto/Aeropuerto.java b/src/main/java/proyecto/ClasesMER/Aeropuerto/Aeropuerto.java
+--- a/src/main/java/proyecto/ClasesMER/Aeropuerto/Aeropuerto.java	(revision 79c8ae90e92526b968feca4e07e63a0c459519df)
++++ b/src/main/java/proyecto/ClasesMER/Aeropuerto/Aeropuerto.java	(date 1695237541945)
+@@ -1,14 +1,14 @@
+ package proyecto.ClasesMER.Aeropuerto;
+ 
+-
+ import jakarta.persistence.*;
+ import lombok.AllArgsConstructor;
+ import lombok.Getter;
+ import lombok.NoArgsConstructor;
+ import lombok.Setter;
+ import org.springframework.stereotype.Component;
+-import proyecto.ClasesMER.AerolineasPresentes;
++import proyecto.ClasesMER.AerolineasPresentes.AerolineasPresentes;
+ import proyecto.ClasesMER.Servicio.Servicio;
++import proyecto.ClasesMER.Sucursal.Sucursal;
+ 
+ import java.util.ArrayList;
+ import java.util.LinkedList;
+@@ -40,4 +40,9 @@
+     @JoinColumn(name="id_aeropuerto")
+     private List<AerolineasPresentes> aerolineasPresentes = new ArrayList<>();
+ 
++    @OneToMany
++    @JoinColumn(name="id_aeropuerto")
++    private List<Sucursal> sucursales = new ArrayList<>();
++
++
+ }
+Index: Base de Datos/pruebita.script
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>SET DATABASE UNIQUE NAME HSQLDB8A2844B1C4\r\nSET DATABASE DEFAULT RESULT MEMORY ROWS 0\r\nSET DATABASE EVENT LOG LEVEL 0\r\nSET DATABASE TRANSACTION CONTROL LOCKS\r\nSET DATABASE DEFAULT ISOLATION LEVEL READ COMMITTED\r\nSET DATABASE TRANSACTION ROLLBACK ON CONFLICT TRUE\r\nSET DATABASE TEXT TABLE DEFAULTS ''\r\nSET DATABASE SQL NAMES FALSE\r\nSET DATABASE SQL RESTRICT EXEC FALSE\r\nSET DATABASE SQL REFERENCES FALSE\r\nSET DATABASE SQL SIZE TRUE\r\nSET DATABASE SQL TYPES FALSE\r\nSET DATABASE SQL TDC DELETE TRUE\r\nSET DATABASE SQL TDC UPDATE TRUE\r\nSET DATABASE SQL SYS INDEX NAMES TRUE\r\nSET DATABASE SQL CONCAT NULLS TRUE\r\nSET DATABASE SQL UNIQUE NULLS TRUE\r\nSET DATABASE SQL CONVERT TRUNCATE TRUE\r\nSET DATABASE SQL AVG SCALE 0\r\nSET DATABASE SQL DOUBLE NAN TRUE\r\nSET FILES WRITE DELAY 500 MILLIS\r\nSET FILES BACKUP INCREMENT TRUE\r\nSET FILES CACHE SIZE 10000\r\nSET FILES CACHE ROWS 50000\r\nSET FILES SCALE 32\r\nSET FILES LOB SCALE 32\r\nSET FILES DEFRAG 0\r\nSET FILES NIO TRUE\r\nSET FILES NIO SIZE 256\r\nSET FILES LOG TRUE\r\nSET FILES LOG SIZE 50\r\nSET FILES CHECK 159\r\nSET DATABASE COLLATION \"SQL_TEXT\" PAD SPACE\r\nCREATE USER SA PASSWORD DIGEST 'd41d8cd98f00b204e9800998ecf8427e'\r\nALTER USER SA SET LOCAL TRUE\r\nCREATE SCHEMA PUBLIC AUTHORIZATION DBA\r\nCREATE MEMORY TABLE PUBLIC.PERSONA(NOMBRE VARCHAR(20),APELLIDO VARCHAR(20),CEDULA INTEGER)\r\nALTER SEQUENCE SYSTEM_LOBS.LOB_ID RESTART WITH 1\r\nSET DATABASE DEFAULT INITIAL SCHEMA PUBLIC\r\nGRANT USAGE ON DOMAIN INFORMATION_SCHEMA.CARDINAL_NUMBER TO PUBLIC\r\nGRANT USAGE ON DOMAIN INFORMATION_SCHEMA.YES_OR_NO TO PUBLIC\r\nGRANT USAGE ON DOMAIN INFORMATION_SCHEMA.CHARACTER_DATA TO PUBLIC\r\nGRANT USAGE ON DOMAIN INFORMATION_SCHEMA.SQL_IDENTIFIER TO PUBLIC\r\nGRANT USAGE ON DOMAIN INFORMATION_SCHEMA.TIME_STAMP TO PUBLIC\r\nGRANT DBA TO SA\r\nSET SCHEMA SYSTEM_LOBS\r\nINSERT INTO BLOCKS VALUES(0,2147483647,0)\r\nSET SCHEMA PUBLIC\r\nINSERT INTO PERSONA VALUES('Federico','Tambler',53614377)\r\nINSERT INTO PERSONA VALUES('Guzman','Vilche',6969)\r\nINSERT INTO PERSONA VALUES('Juan Felix','Gari',420420)\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Base de Datos/pruebita.script b/Base de Datos/pruebita.script
+--- a/Base de Datos/pruebita.script	(revision 79c8ae90e92526b968feca4e07e63a0c459519df)
++++ b/Base de Datos/pruebita.script	(date 1695237541935)
+@@ -29,12 +29,13 @@
+ SET FILES NIO SIZE 256
+ SET FILES LOG TRUE
+ SET FILES LOG SIZE 50
+-SET FILES CHECK 159
++SET FILES CHECK 522
+ SET DATABASE COLLATION "SQL_TEXT" PAD SPACE
+ CREATE USER SA PASSWORD DIGEST 'd41d8cd98f00b204e9800998ecf8427e'
+ ALTER USER SA SET LOCAL TRUE
+ CREATE SCHEMA PUBLIC AUTHORIZATION DBA
+-CREATE MEMORY TABLE PUBLIC.PERSONA(NOMBRE VARCHAR(20),APELLIDO VARCHAR(20),CEDULA INTEGER)
++CREATE MEMORY TABLE PUBLIC.AEROPUERTO(CANTIDAD_DE_CHECKIN INTEGER NOT NULL,CANTIDAD_DE_PISTAS INTEGER NOT NULL,CANTIDAD_DE_PUERTAS INTEGER NOT NULL,ID_AEROPUERTO INTEGER NOT NULL PRIMARY KEY,NOMBRE VARCHAR(255),UBICACION VARCHAR(255))
++CREATE MEMORY TABLE PUBLIC.SERVICIO(CAPACIDAD INTEGER NOT NULL,COSTO INTEGER NOT NULL,ID_AEROPUERTO INTEGER NOT NULL,NOMBRE VARCHAR(255) NOT NULL PRIMARY KEY)
+ ALTER SEQUENCE SYSTEM_LOBS.LOB_ID RESTART WITH 1
+ SET DATABASE DEFAULT INITIAL SCHEMA PUBLIC
+ GRANT USAGE ON DOMAIN INFORMATION_SCHEMA.CARDINAL_NUMBER TO PUBLIC
+@@ -45,7 +46,3 @@
+ GRANT DBA TO SA
+ SET SCHEMA SYSTEM_LOBS
+ INSERT INTO BLOCKS VALUES(0,2147483647,0)
+-SET SCHEMA PUBLIC
+-INSERT INTO PERSONA VALUES('Federico','Tambler',53614377)
+-INSERT INTO PERSONA VALUES('Guzman','Vilche',6969)
+-INSERT INTO PERSONA VALUES('Juan Felix','Gari',420420)

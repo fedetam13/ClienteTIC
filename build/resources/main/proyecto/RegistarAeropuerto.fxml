@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="anchorPaneRegistarAeropuerto_" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="330.0" minWidth="400.0" prefHeight="412.0" prefWidth="782.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.SceneController">
+   <children>
+      <Label layoutX="137.0" layoutY="78.0" text="Nombre" />
+      <TextField fx:id="textFieldRegistarAeropuerto_Nombre" layoutX="207.0" layoutY="74.0" />
+      <Label fx:id="t" layoutX="143.0" layoutY="115.0" text="Ciudad" />
+      <TextField fx:id="textFieldRegistarAeropuerto_Ciudad" layoutX="207.0" layoutY="111.0" />
+      <Label layoutX="159.0" layoutY="154.0" text="Iata" />
+      <TextField fx:id="textFieldRegistarAeropuerto_Iata" layoutX="207.0" layoutY="150.0" />
+      <Label layoutX="398.0" layoutY="79.0" text="Cantidad de Puertas" />
+      <TextField fx:id="textFieldRegistarAeropuerto_CPuerta" layoutX="523.0" layoutY="75.0" />
+      <Label layoutX="391.0" layoutY="116.0" text="Cantidad de Check-in" />
+      <TextField fx:id="textFieldRegistarAeropuerto_CCheckIn" layoutX="523.0" layoutY="112.0" />
+      <Label layoutX="407.0" layoutY="151.0" text="Cantidad de Pistas" />
+      <TextField fx:id="textFieldRegistarAeropuerto_CPistas" layoutX="523.0" layoutY="147.0" />
+      <TextField fx:id="textFieldRegistrarAeropuertoEmail" layoutX="374.0" layoutY="256.0" />
+      <PasswordField fx:id="passwordFieldRegistrarAeropuertoPassword" layoutX="374.0" layoutY="295.0" />
+      <Button fx:id="buttonRegistarAeropuerto_GoBack" layoutX="286.0" layoutY="357.0" mnemonicParsing="false" onAction="#volverAlMain" text="Go Back" />
+      <Button fx:id="buttonRegistarAeropuerto_Registar" layoutX="432.0" layoutY="357.0" mnemonicParsing="false" onAction="#agregarAeropuerto" text="Registrar" />
+      <Label layoutX="286.0" layoutY="14.0" text="Registrar Aeropuerto" textFill="#1b176e">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <Text layoutX="258.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inserte credenciales para la cuenta administradora" />
+      <Text layoutX="327.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
+      <Text layoutX="306.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
+   </children>
+</AnchorPane>

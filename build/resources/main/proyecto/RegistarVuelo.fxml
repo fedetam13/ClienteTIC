@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="anchorePaneRegistrarVuelo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="314.0" minWidth="380.0" prefHeight="392.0" prefWidth="846.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.Controllers.VueloController">
+   <children>
+      <Label layoutX="451.0" layoutY="64.0" text="Fecha de partida" />
+      <Label layoutX="23.0" layoutY="113.0" text="Aeropuerto de destino" />
+      <Label layoutX="192.0" layoutY="244.0" text="Duracion del Vuelo" />
+      <Label layoutX="263.0" layoutY="201.0" text="Avion" />
+      <Label layoutX="23.0" layoutY="64.0" text="Aeropuerto de partida" />
+      <Button fx:id="buttonRegistrarVuelo_GoBack" layoutX="312.0" layoutY="325.0" mnemonicParsing="false" onAction="#cerrar" text="Go Back" />
+      <Button fx:id="buttonRegistrarVuelo_AgendarVuelo" layoutX="428.0" layoutY="325.0" mnemonicParsing="false" onAction="#agregarVuelo" text="Agendar Vuelo" />
+      <Label layoutX="344.0" layoutY="14.0" text="Registrar Vuelo" textFill="#101784">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="checkBoxRegistrarVuelo_AeropuertoPartida" layoutX="165.0" layoutY="60.0" prefHeight="26.0" prefWidth="227.0" />
+      <ChoiceBox fx:id="checkBoxRegistrarVuelo_AeropuertoDestino" layoutX="165.0" layoutY="109.0" prefHeight="26.0" prefWidth="227.0" />
+      <DatePicker fx:id="datePickerRegistrarVueloPartida" layoutX="564.0" layoutY="61.0" />
+      <Label layoutX="317.0" layoutY="298.0" text="Alguno de los campos no es correcto" textFill="#f40505" />
+      <ChoiceBox id="hrsduracion" fx:id="choiceboxRegistrarVueloHoursDuracion" layoutX="329.0" layoutY="240.0" prefHeight="25.0" prefWidth="60.0" />
+      <ChoiceBox id="minduracion" fx:id="choiceboxRegistrarVueloMinutesDuracion" layoutX="421.0" layoutY="240.0" prefHeight="25.0" prefWidth="60.0" />
+      <ChoiceBox fx:id="checkBoxRegistrarVuelo_Avion" layoutX="329.0" layoutY="196.0" prefHeight="26.0" prefWidth="175.0" />
+      <Text layoutX="392.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hrs" />
+      <Text layoutX="485.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Min" />
+      <Label layoutX="456.0" layoutY="114.0" text="Hora de Partida" />
+      <ChoiceBox id="hrspartida" fx:id="choiceboxRegistrarVueloHoursPartida" layoutX="565.0" layoutY="110.0" prefHeight="25.0" prefWidth="60.0" />
+      <ChoiceBox id="minpartida" fx:id="choiceboxRegistrarVueloMinutesPartida" layoutX="657.0" layoutY="110.0" prefHeight="25.0" prefWidth="60.0" />
+      <Text layoutX="628.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hrs" />
+      <Text layoutX="721.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Min" />
+   </children>
+</AnchorPane>
