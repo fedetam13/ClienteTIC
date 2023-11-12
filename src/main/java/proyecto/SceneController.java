@@ -156,4 +156,7 @@ public class SceneController {
             //error de mensaje
         }
     }
+
+    public void updateAirline(ActionEvent actionEvent) {
+    }
 }

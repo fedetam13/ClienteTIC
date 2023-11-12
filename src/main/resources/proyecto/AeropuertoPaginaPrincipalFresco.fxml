@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="482.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.Controllers.AeropuertoController">
+   <children>
+      <MenuBar fx:id="menuBarAeropuertoPaginaPrincipal">
+         <menus>
+            <Menu fx:id="menuCollumAccountAeropuertoPaginaPrincipal" mnemonicParsing="false" text="Account">
+               <items>
+                  <MenuItem fx:id="menuItemAccountAeropuertoPaginaPrincipalClose" mnemonicParsing="false" onAction="#changePassword" text="Change Password" />
+                  <MenuItem fx:id="menuItemAccountAeropuertoPaginaPrincipalExit" mnemonicParsing="false" onAction="#volverAlLogIn" text="Sign Out" />
+               </items>
+            </Menu>
+            <Menu fx:id="menuColloumUpdateAeropuertoPaginaPrincipal" mnemonicParsing="false" text="Service">
+               <items>
+                  <MenuItem fx:id="menuItemServiciosUpdateAeropuertoPaginaPrincipal" mnemonicParsing="false" onAction="#agregarServicio" text="Add Services" />
+                  <MenuItem fx:id="menuItemUpdateAeropuertoPaginaPrincipal_UpdateService" mnemonicParsing="false" onAction="#updateService" text="Update Services" />
+                  <MenuItem fx:id="menuItemAeropuertoPaginaPrincipal_DeleteServices" mnemonicParsing="false" onAction="#deleteServices" text="Delete Services" />
+               </items>
+            </Menu>
+            <Menu fx:id="menuCollumAeropuertoPaginaPrincipal_Employee" mnemonicParsing="false" text="Employee">
+               <items>
+                  <MenuItem fx:id="menuItemEmployeeAeropuertoPaginaPrincipal_addEmployee" mnemonicParsing="false" onAction="#agregarEmpleadoEmpresa" text="New Employee" />
+                  <MenuItem fx:id="menuItemEmployeeAeropuertoPaginaPrincipal_FireEmployee" mnemonicParsing="false" onAction="#despedirEmpleado" text="Fire Employee" />
+                  <MenuItem fx:id="menuItemEmployeeAeropuertoPaginaPrincipal_changeArea" mnemonicParsing="false" onAction="#cambiarDeAreaEmpleado" text="Change Area" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Businesses">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Add business" />
+                  <MenuItem mnemonicParsing="false" text="Update business" />
+                  <MenuItem fx:id="menuItemAeropuertoPaginaPrincipal_DeleteBusines" mnemonicParsing="false" onAction="#deleteBusiness" text="Delete business" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Airlines">
+               <items>
+                  <MenuItem fx:id="menuItemAeropuertoPaginaPrincipal_AddCheckIn" mnemonicParsing="false" onAction="#agregarAerolineaPertenece" text="Add Airline Check-In" />
+                  <MenuItem fx:id="menuItemAeropuertoPaginaPrincipal_UpdateCheckIn" mnemonicParsing="false" onAction="#updateCheckIn" text="Update Airline Check-In" />
+                  <MenuItem fx:id="menuItemAeropuertoPaginaPrincipal_DeleteAirlineCheckIn" mnemonicParsing="false" onAction="#deleteAerolineaPertenece" text="Delete Airline Check-In" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <TabPane tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Pendent">
+               <content>
+                  <VBox>
+                     <children>
+                        <TableView fx:id="vuelosSinAutorizar" prefHeight="316.0" prefWidth="600.0">
+                           <columns>
+                              <TableColumn fx:id="idVueloPendiente" minWidth="0.0" prefWidth="84.0" text="Id Vuelo" />
+                              <TableColumn fx:id="aerolineaPendiente" prefWidth="150.0" text="Aerolinea" />
+                              <TableColumn fx:id="avionPendiente" prefWidth="110.0" text="Avion" />
+                              <TableColumn fx:id="fechaHoraPendiente" minWidth="0.0" prefWidth="133.0" text="Fecha Hora" />
+                              <TableColumn fx:id="tipoVueloPendiente" prefWidth="122.0" text="Partida//Arribo" />
+                           </columns>
+                        </TableView>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="rejectFlight" layoutX="65.0" layoutY="66.0" mnemonicParsing="false" onAction="#rejectFlight" prefHeight="25.0" prefWidth="61.0" text="Reject" />
+                              <Button fx:id="acceptFlight" layoutX="65.0" layoutY="26.0" mnemonicParsing="false" onAction="#acceptFlight" prefHeight="25.0" prefWidth="63.0" text="Accept" />
+                              <Button fx:id="reloadFlights" layoutX="65.0" layoutY="107.0" mnemonicParsing="false" onAction="#reloadFlights" prefHeight="25.0" prefWidth="61.0" text="Reload" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+               </content>
+          </Tab>
+            <Tab text="Accepted // Rejected">
+               <content>
+                  <VBox>
+                     <children>
+                        <TableView fx:id="vuelosAutorizados" prefHeight="386.0" prefWidth="600.0">
+                           <columns>
+                              <TableColumn fx:id="idVueloNP" minWidth="0.0" prefWidth="72.0" text="Id Vuelo" />
+                              <TableColumn fx:id="aerolineaNP" prefWidth="96.0" text="Aerolinea" />
+                              <TableColumn fx:id="avionNP" prefWidth="75.0" text="Avion" />
+                              <TableColumn fx:id="puertaNP" prefWidth="68.0" text="Puerta" />
+                              <TableColumn fx:id="fechaHoraNP" minWidth="0.0" prefWidth="103.0" text="Fecha Hora" />
+                              <TableColumn fx:id="statusNP" prefWidth="66.0" text="Status" />
+                              <TableColumn fx:id="tipoVueloNP" prefWidth="119.0" text="Partida//Arribo" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </VBox>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</VBox>

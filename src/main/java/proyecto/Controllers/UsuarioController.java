@@ -126,7 +126,7 @@ public class UsuarioController {
     public void aeropuertoWindow(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        Parent root1 = fxmlLoader.load(Main.class.getResourceAsStream("AeropuertoPaginaPrincipal.fxml"));
+        Parent root1 = fxmlLoader.load(Main.class.getResourceAsStream("AeropuertoPaginaPrincipalFresco.fxml"));
 
         Stage stage = ((Stage)((Button)actionEvent.getSource()).getParent().getScene().getWindow());
         stage.setTitle("Pagina Principal Aeropuerto");
@@ -167,7 +167,6 @@ public class UsuarioController {
     public void changePassword(ActionEvent actionEvent) {
         if(Objects.equals(passwordFieldChangePasswordOne.getText(),passwordFieldChangePasswordRepeat.getText())){
             UsuarioDTO u = usuarioRest.getUserById(Main.sessionID);
-            System.out.println(u.getNombre());
             u.setPassword(passwordFieldChangePasswordOne.getText());
 
             if(usuarioRest.changePassword(u).getStatusCode().is2xxSuccessful()){

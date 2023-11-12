@@ -25,7 +25,7 @@
           <Menu fx:id="menuCollomAdminGodScene_Update" mnemonicParsing="false" text="Update">
             <items>
               <MenuItem fx:id="menuItemUpdateMenuAdminGodScene_Airport" mnemonicParsing="false" onAction="#updateAirport" text="Airport" />
-                  <MenuItem fx:id="menuItemUpdateMenuAdminGodScene_Airline" mnemonicParsing="false" onAction="#creatAirline" text="Airline" />
+                  <MenuItem fx:id="menuItemUpdateMenuAdminGodScene_Airline" mnemonicParsing="false" onAction="#updateAirline" text="Airline" />
                   <MenuItem fx:id="menuItemUpdateMenuAdminGodScene_Business" mnemonicParsing="false" onAction="#updateBusiness" text="Business" />
             </items>
           </Menu>

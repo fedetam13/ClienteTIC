@@ -118,8 +118,8 @@ public class VueloController implements Initializable {
         v.setIdAeropuertoArribo(aDestino.getIdAeropuerto());
 
         v.setAprovacionDeVuelo("Pendiente");
-        v.setAprovacionArribo(false);
-        v.setAprovacionPartida(false);
+        v.setAprovacionArribo("-");
+        v.setAprovacionPartida("-");
         v.setEstaAtrasado(false);
 
         LocalDateTime localDateTimePartida = LocalDateTime.of(datePickerRegistrarVueloPartida.getValue(), LocalTime.of((int)choiceboxRegistrarVueloHoursPartida.getValue(),(int)choiceboxRegistrarVueloMinutesPartida.getValue()));

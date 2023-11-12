@@ -1,11 +1,9 @@
 package proyecto.DTO;
-import com.fasterxml.jackson.annotation.JsonRawValue;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.time.LocalDateTime;
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,8 +20,8 @@ public class VueloDTO {
     private int puertaDeArribo;
 
     private String aprovacionDeVuelo; //LA IDEA QUE SEA, Pendiente, Aprovado, Rechazado
-    private boolean aprovacionPartida;
-    private boolean aprovacionArribo;
+    private String aprovacionPartida; // (-,A,R)
+    private String aprovacionArribo; // (-,A,R)
 
 
     private int idAeropuertoPartida;
