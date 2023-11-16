@@ -4,36 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db32d1c5-e337-4668-9e49-3cedd079ace3" name="Changes" comment="Commit">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/proyecto/AeropuertoPaginaPrincipalFresco.fxml" afterDir="false" />
+    <list default="true" id="db32d1c5-e337-4668-9e49-3cedd079ace3" name="Changes" comment="Nueva pagina aeropuerto&#10;aceptar y rechazar vuelos&#10;siempre hay al menos un admin">
+      <change afterPath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/AceptarVueloController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/proyecto/AsignarPuerta.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/demo.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/demo.main.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/Controllers/AeropuertoController$FlightTuple.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/Controllers/AeropuertoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proyecto/Controllers/AeropuertoController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/Controllers/UsuarioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proyecto/Controllers/UsuarioController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/Controllers/VueloController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proyecto/Controllers/VueloController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/DTO/VueloDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proyecto/DTO/VueloDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/Rest/AeropuertoRest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proyecto/Rest/AeropuertoRest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/Rest/AvionRest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proyecto/Rest/AvionRest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/Rest/VueloRest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proyecto/Rest/VueloRest$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/Rest/VueloRest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proyecto/Rest/VueloRest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/proyecto/AdminGod.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/proyecto/AdminGod.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/proyecto/SignIn.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/UsuarioController.class.uniqueId1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/VueloController.class.uniqueId3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/VueloRest.class.uniqueId0" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/AeropuertoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/AeropuertoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/UsuarioController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/VueloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/VueloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/DTO/VueloDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/DTO/VueloDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/SceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/SceneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/proyecto/AdminGod.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/proyecto/AdminGod.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +80,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "ClienteTIC",
-    "last_opened_file_path": "C:/Users/Feder/OneDrive/Documentos/TicSolito/ProyectoTic-ClienteTIC/src/main/resources/proyecto",
+    "last_opened_file_path": "C:/Users/Feder/OneDrive/Documentos/TicSolito/ProyectoTic-ServidorTIC",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -140,7 +127,8 @@
       <workItem from="1698715752423" duration="3749000" />
       <workItem from="1698869292204" duration="19341000" />
       <workItem from="1698937604603" duration="4432000" />
-      <workItem from="1699746859331" duration="13115000" />
+      <workItem from="1699746859331" duration="13404000" />
+      <workItem from="1700138718335" duration="13540000" />
     </task>
     <task id="LOCAL-00001" summary="rest y dto Usuario">
       <created>1697727726115</created>
@@ -270,7 +258,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699747000186</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Nueva pagina aeropuerto&#10;aceptar y rechazar vuelos&#10;siempre hay al menos un admin">
+      <created>1699767206112</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1699767206112</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -307,6 +302,18 @@
     <MESSAGE value="CambiarContra.fxml" />
     <MESSAGE value="arreglillo" />
     <MESSAGE value="Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit" />
+    <MESSAGE value="Nueva pagina aeropuerto&#10;aceptar y rechazar vuelos&#10;siempre hay al menos un admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="Nueva pagina aeropuerto&#10;aceptar y rechazar vuelos&#10;siempre hay al menos un admin" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/proyecto/Controllers/AceptarVueloController.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

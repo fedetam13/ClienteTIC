@@ -74,7 +74,7 @@ public class UsuarioController {
 
     @FXML
     public void attemptLogin(ActionEvent actionEvent) throws IOException {
-        UsuarioDTO u = usuarioRest.getUser(textFieldUsernameLogInScene.getText());
+        UsuarioDTO u = usuarioRest.getUser(textFieldUsernameLogInScene.getText().toLowerCase());
         if(u!=null){
             if (Objects.equals(u.getPassword(),passwordFieldLogInScene.getText())){
                 Main.sessionID = u.getIdUsuario();

@@ -33,8 +33,10 @@ import java.util.concurrent.atomic.AtomicReference;
 @Controller
 public class AeropuertoController implements Initializable {
 
+
     int selectedId;
     String tipoDeVuelo;
+
 
     @Autowired
     private AeropuertoRest aeropuertoRest;
@@ -55,6 +57,7 @@ public class AeropuertoController implements Initializable {
     @FXML
     public TableColumn<PendentFlightTuple,String> idVueloPendiente;
 
+
     //NO PENDIENTE
     public TableView<NonPendentFlightTuple> vuelosAutorizados;
     public TableColumn<NonPendentFlightTuple,String> idVueloNP;
@@ -65,52 +68,13 @@ public class AeropuertoController implements Initializable {
     public TableColumn<NonPendentFlightTuple,String> statusNP;
     public TableColumn<NonPendentFlightTuple,String> tipoVueloNP;
 
+
     //
 
     @FXML
     public void volverAlMain(ActionEvent actionEvent) {
         Stage actual = (Stage)((Button)actionEvent.getSource()).getParent().getScene().getWindow();
         actual.close();
-    }
-
-    @FXML
-    public void agregarServicio(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    public void updateService(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    public void deleteServices(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    public void agregarEmpleadoEmpresa(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    public void despedirEmpleado(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    public void cambiarDeAreaEmpleado(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    public void deleteBusiness(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    public void agregarAerolineaPertenece(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    public void updateCheckIn(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    public void deleteAerolineaPertenece(ActionEvent actionEvent) {
     }
 
     @FXML
@@ -217,6 +181,7 @@ public class AeropuertoController implements Initializable {
         vuelosSinAutorizar.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
                 selectedId = Integer.parseInt(newValue.getIdVuelo());
+                System.out.println(selectedId);
                 tipoDeVuelo = newValue.getTipoVuelo();
             }
         });
@@ -234,21 +199,81 @@ public class AeropuertoController implements Initializable {
         }
     }
 
-    public void acceptFlight(ActionEvent actionEvent) {
+    public void acceptFlight(ActionEvent actionEvent) throws IOException {
         if(selectedId==-1){
             System.out.println("SELECCIONA ALGO BOLUDO");
         }else{
-            System.out.println(selectedId);
-            VueloDTO v = vueloRest.getVueloById(selectedId);
-            if(tipoDeVuelo=="Arribo"){ v.setAprovacionArribo("A"); } else { v.setAprovacionPartida("A"); }
-            vueloRest.updateVuelo(selectedId,v);
-            reloadFlights();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+            Parent root1 = fxmlLoader.load(Main.class.getResourceAsStream("AsignarPuerta.fxml"));
+
+            AceptarVueloController aceptarVueloController = fxmlLoader.getController();
+
+            aceptarVueloController.setTipoVuelo(tipoDeVuelo);
+            aceptarVueloController.setSelectedID(selectedId);
+
+
+            Stage stage = new Stage();
+            stage.setTitle("Asignar Puerta al Vuelo");
+            stage.setScene(new Scene(root1));
+            stage.show();
+
         }
     }
 
     public void reloadFlights() {
         initialize(null,null);
     }
+
+
+    /*public void asignarPuerta(ActionEvent actionEvent) {
+        VueloDTO v = vueloRest.getVueloById(selectedId);
+        if(tipoDeVuelo=="Arribo"){ v.setAprovacionArribo("A"); } else { v.setAprovacionPartida("A"); }
+        vueloRest.updateVuelo(selectedId,v);
+        reloadFlights();
+    }*/
+
+
+    @FXML
+    public void agregarServicio(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void updateService(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void deleteServices(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void agregarEmpleadoEmpresa(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void despedirEmpleado(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void cambiarDeAreaEmpleado(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void deleteBusiness(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void agregarAerolineaPertenece(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void updateCheckIn(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void deleteAerolineaPertenece(ActionEvent actionEvent) {
+    }
+
 
 
     //CLASES PARA HACER TUPLAS
@@ -321,7 +346,6 @@ public class AeropuertoController implements Initializable {
             this.fechaHora.set(fechaHora);
         }
     }
-
 
     public static class NonPendentFlightTuple{
         private final StringProperty idVueloNP = new SimpleStringProperty();

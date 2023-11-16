@@ -57,7 +57,6 @@ public class VueloController implements Initializable {
     public ChoiceBox choiceboxRegistrarVueloHoursPartida;
     @FXML
     public ChoiceBox choiceboxRegistrarVueloMinutesPartida;
-
     @FXML
     public ChoiceBox checkBoxRegistrarVuelo_Avion;
 
@@ -93,8 +92,12 @@ public class VueloController implements Initializable {
         ObservableList<AvionDTO> aviones = FXCollections.observableArrayList();
         List<AvionDTO> avionDTOList = avionRest.getAvionesByAirlineName(u.getNombre());
 
-        for(AvionDTO av : avionDTOList){
-            aviones.add(av);
+        if(true) {
+            for (AvionDTO av : avionDTOList) {
+                aviones.add(av);
+            }
+        }else{
+            aviones.add(null);
         }
         checkBoxRegistrarVuelo_Avion.setItems(aviones);
 
@@ -132,14 +135,16 @@ public class VueloController implements Initializable {
         v.setHoraDeArribo(localDateTimeArribo);
         v.setHoraDeArriboEstimada(localDateTimeArribo);
 
-        //ASIGNAR PUERTAS
-        Random r = new Random();
-        v.setPueretaDeEmbarque(r.nextInt(aPartida.getCantidadDePuertas()));
-        v.setPuertaDeArribo(r.nextInt(aDestino.getCantidadDePuertas()));
-
-        if(vueloRest.addVuelo(v).getStatusCode().is2xxSuccessful()){
+        if(vueloRest.addVuelo(v).getStatusCode().is2xxSuccessful()&&vueloValido(v)){
             cerrar(actionEvent);
         }
+    }
+
+    protected boolean vueloValido(VueloDTO v){
+        if(v.getIdAeropuertoArribo()!=v.getIdAeropuertoPartida()){
+            return true;
+        }
+        return false;
     }
 
     public void cerrar(ActionEvent actionEvent) {
