@@ -137,7 +137,7 @@ public class UsuarioController {
     public void pasajerosWindow(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        Parent root1 = fxmlLoader.load(Main.class.getResourceAsStream("PasajerosScene.fxml"));
+        Parent root1 = fxmlLoader.load(Main.class.getResourceAsStream("PasajerosNew.fxml"));
 
         Stage stage = ((Stage)((Button)actionEvent.getSource()).getParent().getScene().getWindow());
         stage.setTitle("Pasajeros");

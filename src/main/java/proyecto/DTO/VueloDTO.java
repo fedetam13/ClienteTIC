@@ -19,7 +19,8 @@ public class VueloDTO {
     private int pueretaDeEmbarque;
     private int puertaDeArribo;
 
-    private String aprovacionDeVuelo; //LA IDEA QUE SEA, Pendiente, Aprovado, Rechazado
+    private int ocupados;
+
     private String aprovacionPartida; // (-,A,R)
     private String aprovacionArribo; // (-,A,R)
 

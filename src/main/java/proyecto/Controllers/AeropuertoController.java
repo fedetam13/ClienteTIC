@@ -96,7 +96,6 @@ public class AeropuertoController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("INITIALIZING");
         selectedId = -1;
         tipoDeVuelo = "-";
         List<VueloDTO> vuelosPendientes = vueloRest.getVuelosPendientes(Main.sessionName);
@@ -225,13 +224,6 @@ public class AeropuertoController implements Initializable {
         initialize(null,null);
     }
 
-
-    /*public void asignarPuerta(ActionEvent actionEvent) {
-        VueloDTO v = vueloRest.getVueloById(selectedId);
-        if(tipoDeVuelo=="Arribo"){ v.setAprovacionArribo("A"); } else { v.setAprovacionPartida("A"); }
-        vueloRest.updateVuelo(selectedId,v);
-        reloadFlights();
-    }*/
 
 
     @FXML

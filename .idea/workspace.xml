@@ -4,23 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db32d1c5-e337-4668-9e49-3cedd079ace3" name="Changes" comment="Nueva pagina aeropuerto&#10;aceptar y rechazar vuelos&#10;siempre hay al menos un admin">
-      <change afterPath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/AceptarVueloController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/proyecto/AsignarPuerta.fxml" afterDir="false" />
+    <list default="true" id="db32d1c5-e337-4668-9e49-3cedd079ace3" name="Changes" comment="Set puertas (faltan checks)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/PasajeroController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/demo.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/demo.main.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/Controllers/AeropuertoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proyecto/Controllers/AeropuertoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/Controllers/UsuarioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proyecto/Controllers/UsuarioController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/Controllers/VueloController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proyecto/Controllers/VueloController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/Rest/VueloRest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proyecto/Rest/VueloRest$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/Rest/VueloRest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proyecto/Rest/VueloRest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/AceptarVueloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/AceptarVueloController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/AeropuertoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/AeropuertoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/PasajeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/PasajeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/UsuarioController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/VueloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/VueloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/DTO/VueloDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/DTO/VueloDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Rest/PasajeRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Rest/PasajeRest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/proyecto/AdminGod.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/proyecto/AdminGod.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/proyecto/AerolineaPaginaPrincipal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/proyecto/AerolineaPaginaPrincipal.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/proyecto/AeropuertoPaginaPrincipalFresco.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/proyecto/AeropuertoPaginaPrincipalFresco.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/proyecto/PasajerosScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/proyecto/PasajerosScene.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,27 +73,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "ClienteTIC",
-    "last_opened_file_path": "C:/Users/Feder/OneDrive/Documentos/TicSolito/ProyectoTic-ServidorTIC",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "spring.configuration.checksum": "9de0862494cc3aa211be7c76dc6b547b",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;ClienteTIC&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Feder/OneDrive/Documentos/TicSolito/ProyectoTic-ServidorTIC&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;9de0862494cc3aa211be7c76dc6b547b&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Feder\OneDrive\Documentos\TicSolito\ProyectoTic-ClienteTIC\src\main\resources\proyecto" />
@@ -128,7 +132,8 @@
       <workItem from="1698869292204" duration="19341000" />
       <workItem from="1698937604603" duration="4432000" />
       <workItem from="1699746859331" duration="13404000" />
-      <workItem from="1700138718335" duration="13540000" />
+      <workItem from="1700138718335" duration="14165000" />
+      <workItem from="1700319731792" duration="16078000" />
     </task>
     <task id="LOCAL-00001" summary="rest y dto Usuario">
       <created>1697727726115</created>
@@ -265,7 +270,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699767206112</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Set puertas (faltan checks)">
+      <created>1700152670698</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1700152670698</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,15 +315,21 @@
     <MESSAGE value="arreglillo" />
     <MESSAGE value="Commit" />
     <MESSAGE value="Nueva pagina aeropuerto&#10;aceptar y rechazar vuelos&#10;siempre hay al menos un admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="Nueva pagina aeropuerto&#10;aceptar y rechazar vuelos&#10;siempre hay al menos un admin" />
+    <MESSAGE value="Set puertas (faltan checks)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Set puertas (faltan checks)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/proyecto/Controllers/AceptarVueloController.java</url>
-          <line>93</line>
+          <line>95</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/proyecto/Controllers/PasajeroController.java</url>
+          <line>104</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

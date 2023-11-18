@@ -120,7 +120,7 @@ public class VueloController implements Initializable {
         AeropuertoDTO aDestino = (AeropuertoDTO)checkBoxRegistrarVuelo_AeropuertoDestino.getValue();
         v.setIdAeropuertoArribo(aDestino.getIdAeropuerto());
 
-        v.setAprovacionDeVuelo("Pendiente");
+
         v.setAprovacionArribo("-");
         v.setAprovacionPartida("-");
         v.setEstaAtrasado(false);

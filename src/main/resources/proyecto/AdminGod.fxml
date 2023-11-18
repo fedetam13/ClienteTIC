@@ -5,7 +5,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane fx:controller="proyecto.SceneController" fx:id="boardPaneAdminGODScene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="boardPaneAdminGODScene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.SceneController">
    <top>
       <MenuBar fx:id="menuBarAdmingod" BorderPane.alignment="CENTER">
         <menus>
@@ -21,13 +21,6 @@
                   <MenuItem fx:id="menuItemUploadMenuAdminGodScene_Airline" mnemonicParsing="false" onAction="#creatAirline" text="Airline" />
                   <MenuItem fx:id="menuItemUploadMenuAdminGodScene_Business" mnemonicParsing="false" onAction="#createBusiness" text="Business" />
                </items>
-          </Menu>
-          <Menu fx:id="menuCollomAdminGodScene_Update" mnemonicParsing="false" text="Update">
-            <items>
-              <MenuItem fx:id="menuItemUpdateMenuAdminGodScene_Airport" mnemonicParsing="false" onAction="#updateAirport" text="Airport" />
-                  <MenuItem fx:id="menuItemUpdateMenuAdminGodScene_Airline" mnemonicParsing="false" onAction="#updateAirline" text="Airline" />
-                  <MenuItem fx:id="menuItemUpdateMenuAdminGodScene_Business" mnemonicParsing="false" onAction="#updateBusiness" text="Business" />
-            </items>
           </Menu>
         </menus>
       </MenuBar>

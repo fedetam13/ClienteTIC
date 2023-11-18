@@ -28,6 +28,15 @@ public class AceptarVueloController implements Initializable {
     private int selectedId;
     private String tipoDeVuelo;
 
+    @Autowired
+    AeropuertoController aeropuertoController;
+
+    @Autowired
+    AeropuertoRest aeropuertoRest;
+
+    @Autowired
+    VueloRest vueloRest;
+
     public AceptarVueloController(){}
 
     public AceptarVueloController(int selectedId, String tipoDeVuelo) {
@@ -38,14 +47,7 @@ public class AceptarVueloController implements Initializable {
     @FXML
     public ChoiceBox choiceBoxPuertasDisponibles;
 
-    @Autowired
-    AeropuertoController aeropuertoController;
 
-    @Autowired
-    AeropuertoRest aeropuertoRest;
-
-    @Autowired
-    VueloRest vueloRest;
 
     public void setSelectedID(int selectedId) {
         this.selectedId = selectedId;
