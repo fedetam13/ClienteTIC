@@ -21,13 +21,14 @@ public class UsuarioRest {
     }
 
     public ResponseEntity<UsuarioDTO> addUsers(UsuarioDTO client) {
+        client.setEmail(client.getEmail().toLowerCase());
         ResponseEntity<UsuarioDTO> response = restTemplate.postForEntity(Main.serverURL+"/usuario/post", client, UsuarioDTO.class);
 
         return response;
     }
 
     public UsuarioDTO getUser(String email) {
-        ResponseEntity<String> response = restTemplate.getForEntity(Main.serverURL+"/usuario/getByEmail?email=" + email, String.class);
+        ResponseEntity<String> response = restTemplate.getForEntity(Main.serverURL+"/usuario/getByEmail?email=" + email.toLowerCase(), String.class);
 
         if (response.getStatusCode().is2xxSuccessful()) {
             ObjectMapper objectMapper = new ObjectMapper();
@@ -64,4 +65,5 @@ public class UsuarioRest {
         ResponseEntity<UsuarioDTO> response = restTemplate.postForEntity(Main.serverURL+"/usuario/changePassword", u, UsuarioDTO.class);
         return response;
     }
+
 }

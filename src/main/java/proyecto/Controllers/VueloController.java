@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,9 +18,12 @@ import proyecto.Rest.*;
 
 import java.net.URL;
 import java.time.Duration;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.chrono.ChronoLocalDate;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 import java.util.ResourceBundle;
 
@@ -39,7 +43,7 @@ public class VueloController implements Initializable {
     @Autowired
     private AerolineaRest aerolineaRest;
 
-
+    public Label registrarVueloError;
 
     @FXML
     public ChoiceBox checkBoxRegistrarVuelo_AeropuertoPartida;
@@ -106,45 +110,70 @@ public class VueloController implements Initializable {
     
     @FXML
     public void agregarVuelo(ActionEvent actionEvent){
-        VueloDTO v = new VueloDTO();
 
-        UsuarioDTO u = usuarioRest.getUserById(Main.sessionID);
-        v.setNombreAerolinea(u.getNombre());
+        if(informacionValida()) {
 
-        AvionDTO av = (AvionDTO) checkBoxRegistrarVuelo_Avion.getValue();
-        v.setMatriculaAvion(av.getMatricula());
+            VueloDTO v = new VueloDTO();
 
-        AeropuertoDTO aPartida = (AeropuertoDTO)checkBoxRegistrarVuelo_AeropuertoPartida.getValue();
-        v.setIdAeropuertoPartida(aPartida.getIdAeropuerto());
+            UsuarioDTO u = usuarioRest.getUserById(Main.sessionID);
+            v.setNombreAerolinea(u.getNombre());
 
-        AeropuertoDTO aDestino = (AeropuertoDTO)checkBoxRegistrarVuelo_AeropuertoDestino.getValue();
-        v.setIdAeropuertoArribo(aDestino.getIdAeropuerto());
+            AvionDTO av = (AvionDTO) checkBoxRegistrarVuelo_Avion.getValue();
+            v.setMatriculaAvion(av.getMatricula());
+
+            AeropuertoDTO aPartida = (AeropuertoDTO) checkBoxRegistrarVuelo_AeropuertoPartida.getValue();
+            v.setIdAeropuertoPartida(aPartida.getIdAeropuerto());
+
+            AeropuertoDTO aDestino = (AeropuertoDTO) checkBoxRegistrarVuelo_AeropuertoDestino.getValue();
+            v.setIdAeropuertoArribo(aDestino.getIdAeropuerto());
 
 
-        v.setAprovacionArribo("-");
-        v.setAprovacionPartida("-");
-        v.setEstaAtrasado(false);
+            v.setAprovacionArribo("-");
+            v.setAprovacionPartida("-");
+            v.setEstaAtrasado(false);
 
-        LocalDateTime localDateTimePartida = LocalDateTime.of(datePickerRegistrarVueloPartida.getValue(), LocalTime.of((int)choiceboxRegistrarVueloHoursPartida.getValue(),(int)choiceboxRegistrarVueloMinutesPartida.getValue()));
-        v.setHoraDePartida(localDateTimePartida);
-        v.setHoraDePartidaEstimada(localDateTimePartida);
+            LocalDateTime localDateTimePartida = LocalDateTime.of(datePickerRegistrarVueloPartida.getValue(), LocalTime.of((int) choiceboxRegistrarVueloHoursPartida.getValue(), (int) choiceboxRegistrarVueloMinutesPartida.getValue()));
+            v.setHoraDePartida(localDateTimePartida);
+            v.setHoraDePartidaEstimada(localDateTimePartida);
 
-        Duration duration = Duration.ofHours((int)choiceboxRegistrarVueloHoursDuracion.getValue()).plusMinutes((int)choiceboxRegistrarVueloMinutesDuracion.getValue());
-        LocalDateTime localDateTimeArribo = localDateTimePartida.plus(duration);
+            Duration duration = Duration.ofHours((int) choiceboxRegistrarVueloHoursDuracion.getValue()).plusMinutes((int) choiceboxRegistrarVueloMinutesDuracion.getValue());
+            LocalDateTime localDateTimeArribo = localDateTimePartida.plus(duration);
 
-        v.setHoraDeArribo(localDateTimeArribo);
-        v.setHoraDeArriboEstimada(localDateTimeArribo);
+            v.setHoraDeArribo(localDateTimeArribo);
+            v.setHoraDeArriboEstimada(localDateTimeArribo);
 
-        if(vueloRest.addVuelo(v).getStatusCode().is2xxSuccessful()&&vueloValido(v)){
-            cerrar(actionEvent);
+            if (vueloRest.addVuelo(v).getStatusCode().is2xxSuccessful()) {
+                cerrar(actionEvent);
+            }
         }
     }
 
-    protected boolean vueloValido(VueloDTO v){
-        if(v.getIdAeropuertoArribo()!=v.getIdAeropuertoPartida()){
-            return true;
+    public boolean informacionValida(){
+        if(checkBoxRegistrarVuelo_AeropuertoPartida.getValue()==null ||
+            checkBoxRegistrarVuelo_AeropuertoDestino.getValue()==null ||
+            choiceboxRegistrarVueloHoursPartida.getValue()==null ||
+            choiceboxRegistrarVueloMinutesPartida.getValue()==null ||
+            choiceboxRegistrarVueloHoursDuracion.getValue()==null ||
+            choiceboxRegistrarVueloMinutesDuracion.getValue()==null ||
+            checkBoxRegistrarVuelo_Avion.getValue()==null ||
+            datePickerRegistrarVueloPartida.getValue()==null
+        ){
+            registrarVueloError.setText("All boxes must be filled");
+            registrarVueloError.setVisible(true);
+            return false;
+
         }
-        return false;
+        else if (Objects.equals(checkBoxRegistrarVuelo_AeropuertoPartida.getValue(),checkBoxRegistrarVuelo_AeropuertoDestino.getValue())){
+            registrarVueloError.setText("Airports must be different");
+            registrarVueloError.setVisible(true);
+            return false;
+        }
+        else if(datePickerRegistrarVueloPartida.getValue().isBefore(LocalDate.now())){
+            registrarVueloError.setText("Date must be valid");
+            registrarVueloError.setVisible(true);
+            return false;
+        }
+        return true;
     }
 
     public void cerrar(ActionEvent actionEvent) {

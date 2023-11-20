@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -28,8 +29,10 @@ public class UsuarioController {
     @Autowired
     private UsuarioRest usuarioRest;
 
-    @FXML
-    public Text incorrectData;
+
+    public Label errorLabel;
+    public Label logInErrorLabel;
+    public Label cambiarContraError;
 
     @FXML
     private TextField textFieldSingInScene_Username;
@@ -57,18 +60,32 @@ public class UsuarioController {
 
     @FXML
     public void agregarUsuario(ActionEvent actionEvent) throws Exception {
-        if(!Objects.equals(passwordFieldSingInScenePassword.getText(),passwordFieldSingInSceneRepeatPassword.getText())){
-            throw new Exception("Not matching");
-        }
-        UsuarioDTO u = new UsuarioDTO();
-        u.setNombre(textFieldSingInScene_nombre.getText());
-        u.setEmail(textFieldSingInScene_Username.getText());
-        u.setPassword(passwordFieldSingInScenePassword.getText());
-        u.setTipoUsuario("Pasajero");
 
-        if (usuarioRest.addUsers(u).getStatusCode().is2xxSuccessful()) {
-            Stage actual = (Stage) ((Button) actionEvent.getSource()).getParent().getScene().getWindow();
-            actual.close();
+        if(usuarioRest.getUser(textFieldSingInScene_Username.getText())!=null){
+            errorLabel.setText("Email already in use");
+            errorLabel.setVisible(true);
+        }else if(textFieldSingInScene_Username.getText().isEmpty() ||
+                textFieldSingInScene_nombre.getText().isEmpty() ||
+                passwordFieldSingInScenePassword.getText().isEmpty() ||
+                passwordFieldSingInSceneRepeatPassword.getText().isEmpty() ){
+
+            errorLabel.setText("All fields must be filled");
+            errorLabel.setVisible(true);
+        }
+        else if(!Objects.equals(passwordFieldSingInScenePassword.getText(),passwordFieldSingInSceneRepeatPassword.getText())){
+            errorLabel.setText("Passwords dont match");
+            errorLabel.setVisible(true);
+        }else{
+            UsuarioDTO u = new UsuarioDTO();
+            u.setNombre(textFieldSingInScene_nombre.getText());
+            u.setEmail(textFieldSingInScene_Username.getText());
+            u.setPassword(passwordFieldSingInScenePassword.getText());
+            u.setTipoUsuario("Pasajero");
+
+            if (usuarioRest.addUsers(u).getStatusCode().is2xxSuccessful()) {
+                Stage actual = (Stage) ((Button) actionEvent.getSource()).getParent().getScene().getWindow();
+                actual.close();
+            }
         }
     }
 
@@ -96,9 +113,14 @@ public class UsuarioController {
                     pasajerosWindow(actionEvent);
                 }
             }
+            else{
+                logInErrorLabel.setText("Wrong Email or Password");
+                logInErrorLabel.setVisible(true);
+            }
         }
         else{
-            incorrectData.setOpacity(100);
+            logInErrorLabel.setText("Wrong Email or Password");
+            logInErrorLabel.setVisible(true);
         }
     }
 
@@ -108,7 +130,7 @@ public class UsuarioController {
         Parent root1 = fxmlLoader.load(Main.class.getResourceAsStream("AdminGod.fxml"));
 
         Stage stage = ((Stage)((Button)actionEvent.getSource()).getParent().getScene().getWindow());
-        stage.setTitle("Administracion general del Sistema");
+        stage.setTitle("General Administration");
         stage.setScene(new Scene(root1));
     }
 
@@ -118,7 +140,7 @@ public class UsuarioController {
         Parent root1 = fxmlLoader.load(Main.class.getResourceAsStream("AerolineaPaginaPrincipal.fxml"));
 
         Stage stage = ((Stage)((Button)actionEvent.getSource()).getParent().getScene().getWindow());
-        stage.setTitle("Pagina Principal Aerollinea");
+        stage.setTitle("Airline Manager");
         stage.setScene(new Scene(root1));
 
     }
@@ -129,7 +151,7 @@ public class UsuarioController {
         Parent root1 = fxmlLoader.load(Main.class.getResourceAsStream("AeropuertoPaginaPrincipalFresco.fxml"));
 
         Stage stage = ((Stage)((Button)actionEvent.getSource()).getParent().getScene().getWindow());
-        stage.setTitle("Pagina Principal Aeropuerto");
+        stage.setTitle("Airport Manager");
         stage.setScene(new Scene(root1));
 
     }
@@ -140,10 +162,9 @@ public class UsuarioController {
         Parent root1 = fxmlLoader.load(Main.class.getResourceAsStream("PasajerosNew.fxml"));
 
         Stage stage = ((Stage)((Button)actionEvent.getSource()).getParent().getScene().getWindow());
-        stage.setTitle("Pasajeros");
+        stage.setTitle("Passenger Services");
         stage.setScene(new Scene(root1));
     }
-
 
     public void cerrar(ActionEvent actionEvent) {
         Stage actual = (Stage)((Button)actionEvent.getSource()).getParent().getScene().getWindow();
@@ -165,7 +186,12 @@ public class UsuarioController {
 
     @FXML
     public void changePassword(ActionEvent actionEvent) {
-        if(Objects.equals(passwordFieldChangePasswordOne.getText(),passwordFieldChangePasswordRepeat.getText())){
+        if(passwordFieldChangePasswordOne.getText().isEmpty() ||
+                passwordFieldChangePasswordRepeat.getText().isEmpty()){
+            cambiarContraError.setText("Both fields must be filled");
+            cambiarContraError.setVisible(true);
+        }
+        else if(Objects.equals(passwordFieldChangePasswordOne.getText(),passwordFieldChangePasswordRepeat.getText())){
             UsuarioDTO u = usuarioRest.getUserById(Main.sessionID);
             u.setPassword(passwordFieldChangePasswordOne.getText());
 
@@ -174,7 +200,19 @@ public class UsuarioController {
             }
         }
         else{
-            System.out.println("Passwords not matching");
+            cambiarContraError.setText("Passwords do not Match");
+            cambiarContraError.setVisible(true);
         }
+    }
+
+    public void openAbout(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+        Parent root1 = fxmlLoader.load(Main.class.getResourceAsStream("AboutPage.fxml"));
+
+        Stage stage = new Stage();
+        stage.setTitle("About Us");
+        stage.setScene(new Scene(root1));
+        stage.show();
     }
 }

@@ -67,7 +67,7 @@ public class AceptarVueloController implements Initializable {
 
     public void asignarPuerta(ActionEvent actionEvent) {
         VueloDTO v = vueloRest.getVueloById(selectedId);
-        if(tipoDeVuelo=="Arribo"){
+        if(tipoDeVuelo=="Arrival"){
             v.setAprovacionArribo("A");
             v.setPuertaDeArribo((Integer) choiceBoxPuertasDisponibles.getValue());
         } else {
@@ -85,7 +85,7 @@ public class AceptarVueloController implements Initializable {
 
             List<Integer> puertasOcupadas = new ArrayList<>();
 
-            if(Objects.equals(tipoDeVuelo,"Arribo")){
+            if(Objects.equals(tipoDeVuelo,"Arrival")){
                 puertasOcupadas = vueloRest.getPuertasOcupadasArribo(selectedId);
             }else{
                 puertasOcupadas = vueloRest.getPuertasOcupadasPartida(selectedId);

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="454.0" prefWidth="592.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <MenuBar fx:id="menuBarAdmingod">
+         <menus>
+            <Menu fx:id="menuCollomAccountAdminGod" mnemonicParsing="false" text="Account">
+               <items>
+                  <MenuItem fx:id="menuItemAccountAdminGodScene_ChangePassword" mnemonicParsing="false" onAction="#changePasswordWinwow" text="Change Password" />
+                  <MenuItem fx:id="menuItemAccountAdminGodScene_Exit" mnemonicParsing="false" onAction="#volverAlLogIn" text="Sign Out" />
+               </items>
+            </Menu>
+            <Menu fx:id="menuCollomAdminGodScene_Upload" mnemonicParsing="false" text="Create">
+               <items>
+                  <MenuItem fx:id="menuItemUploadMenuAdminGodScene_Airport" mnemonicParsing="false" onAction="#createAirport" text="Airport" />
+                  <MenuItem fx:id="menuItemUploadMenuAdminGodScene_Airline" mnemonicParsing="false" onAction="#creatAirline" text="Airline" />
+                  <MenuItem fx:id="menuItemUploadMenuAdminGodScene_Business" mnemonicParsing="false" onAction="#createBusiness" text="Business" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <TabPane tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Airports">
+               <content>
+                  <Pane>
+                     <children>
+                        <TableView prefHeight="400.0" prefWidth="592.0">
+                          <columns>
+                            <TableColumn prefWidth="76.0" text="Airport ID" />
+                            <TableColumn prefWidth="58.0" text="Tracks" />
+                              <TableColumn prefWidth="61.0" text="Gates" />
+                              <TableColumn prefWidth="82.0" text="IATA Code" />
+                              <TableColumn prefWidth="192.0" text="Airport Name" />
+                              <TableColumn prefWidth="122.0" text="Location" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </Pane>
+               </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <TabPane prefHeight="419.0" prefWidth="592.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Airlines">
+               <content>
+                  <Pane>
+                     <children>
+                        <TableView prefHeight="183.0" prefWidth="592.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="Airline ID" />
+                            <TableColumn prefWidth="127.0" text="Airline Name" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </Pane>
+               </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</VBox>

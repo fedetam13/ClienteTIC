@@ -8,21 +8,22 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anchorPaneLogInSCene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="200.0" minWidth="284.0" prefHeight="321.0" prefWidth="284.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.Controllers.UsuarioController">
+<AnchorPane fx:id="anchorPaneLogInSCene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="200.0" minWidth="284.0" prefHeight="354.0" prefWidth="284.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.Controllers.UsuarioController">
    <children>
-      <Label layoutX="23.0" layoutY="65.0" text="Username:" />
+      <Label layoutX="45.0" layoutY="65.0" text="Email:" />
       <Label layoutX="23.0" layoutY="114.0" text="Password:" />
       <TextField fx:id="textFieldUsernameLogInScene" layoutX="85.0" layoutY="61.0" />
       <PasswordField fx:id="passwordFieldLogInScene" layoutX="86.0" layoutY="110.0" />
-      <Button fx:id="bottonLogInLogInScene" layoutX="114.0" layoutY="153.0" mnemonicParsing="false" onAction="#attemptLogin" text="Log In" />
-      <Button fx:id="bottonLogInGotoSignUp" layoutX="112.0" layoutY="231.0" mnemonicParsing="false" onAction="#openSignUp" text="Sign Up" />
-      <Text fx:id="incorrectData" fill="RED" layoutX="66.0" layoutY="161.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Incorrect Email or Password" />
-      <Text layoutX="76.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Titulo a pensar" wrappingWidth="163.158203125">
+      <Button fx:id="bottonLogInLogInScene" layoutX="117.0" layoutY="167.0" mnemonicParsing="false" onAction="#attemptLogin" text="Log In" />
+      <Button fx:id="bottonLogInGotoSignUp" layoutX="113.0" layoutY="235.0" mnemonicParsing="false" onAction="#openSignUp" text="Sign Up" />
+      <Label fx:id="logInErrorLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="144.0" prefHeight="17.0" prefWidth="221.0" text="Error" textAlignment="CENTER" textFill="RED" visible="false" />
+      <Text layoutX="32.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insert Credentials" textAlignment="CENTER" wrappingWidth="221.0">
          <font>
             <Font size="22.0" />
          </font>
       </Text>
       <Text layoutX="81.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dont have an Account?" />
       <Button layoutX="113.0" layoutY="274.0" mnemonicParsing="false" onAction="#cerrar" prefHeight="25.0" prefWidth="58.0" text="Exit" />
+      <Button layoutX="114.0" layoutY="315.0" mnemonicParsing="false" onAction="#openAbout" prefHeight="25.0" prefWidth="58.0" text="About" />
    </children>
 </AnchorPane>

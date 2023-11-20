@@ -5,10 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,10 +19,14 @@ import java.io.IOException;
 @Controller
 public class SceneController {
 
+
     @Autowired
     private AeropuertoRest aeropuertoRest;
     @Autowired
     private UsuarioRest usuarioRest;
+
+    public Label registrarAeropuertoErrorA;
+    public Label registrarAeropuertoErrorCuenta;
 
     @FXML
     public void volverAlMain(ActionEvent actionEvent) {
@@ -56,7 +57,7 @@ public class SceneController {
         Parent root1 = fxmlLoader.load(Main.class.getResourceAsStream("RegistarAerolinea.fxml"));
 
         Stage stage = new Stage();
-        stage.setTitle("Crear Nueva Aerolinea");
+        stage.setTitle("Create New Airline");
         stage.setScene(new Scene(root1));
         stage.show();
 
@@ -69,7 +70,7 @@ public class SceneController {
         Parent root1 = fxmlLoader.load(Main.class.getResourceAsStream("RegistarAeropuerto.fxml"));
 
         Stage stage = new Stage();
-        stage.setTitle("Crear Nuevo Aeroouerto");
+        stage.setTitle("Create New Airport");
         stage.setScene(new Scene(root1));
         stage.show();
 
@@ -78,18 +79,6 @@ public class SceneController {
     public void createBusiness(ActionEvent actionEvent) {
     }
 
-
-    public void updateBusiness(ActionEvent actionEvent) {
-    }
-
-    public void addFlightWindow(ActionEvent actionEvent) {
-    }
-
-    public void addPlaneWindow(ActionEvent actionEvent) {
-    }
-
-    public void agregarAerolinea(ActionEvent actionEvent) {
-    }
 
     @FXML
     public void volverAlLogIn(ActionEvent actionEvent) throws IOException {
@@ -103,7 +92,7 @@ public class SceneController {
         Main.sessionName = null;
 
         Stage stage = new Stage();
-        stage.setTitle("Ingresar Usuario");
+        stage.setTitle("Log In");
         stage.setScene(new Scene(root1));
         stage.show();
 
@@ -133,30 +122,55 @@ public class SceneController {
 
     @FXML
     public void agregarAeropuerto(){
-        UsuarioDTO u = new UsuarioDTO();
-        u.setEmail(textFieldRegistrarAeropuertoEmail.getText());
-        u.setPassword(passwordFieldRegistrarAeropuertoPassword.getText());
-        u.setNombre(textFieldRegistarAeropuerto_Nombre.getText());
-        u.setTipoUsuario("AdminAeropuerto");
+        if(textFieldRegistarAeropuerto_Iata.getText().isEmpty() ||
+                textFieldRegistarAeropuerto_Nombre.getText().isEmpty() ||
+                textFieldRegistarAeropuerto_CCheckIn.getText().isEmpty() ||
+                textFieldRegistarAeropuerto_Ciudad.getText().isEmpty() ||
+                textFieldRegistarAeropuerto_CPuerta.getText().isEmpty() ||
+                textFieldRegistarAeropuerto_CPistas.getText().isEmpty()){
 
-        AeropuertoDTO a = new AeropuertoDTO();
-        a.setIata(textFieldRegistarAeropuerto_Iata.getText());
-        a.setNombre(textFieldRegistarAeropuerto_Nombre.getText());
-        a.setCantidadDeCheckin(Integer.parseInt(textFieldRegistarAeropuerto_CCheckIn.getText()));
-        a.setUbicacion(textFieldRegistarAeropuerto_Ciudad.getText());
-        a.setCantidadDePuertas(Integer.parseInt(textFieldRegistarAeropuerto_CPuerta.getText()));
-        a.setCantidadDePistas(Integer.parseInt(textFieldRegistarAeropuerto_CPistas.getText()));
-
-        if(usuarioRest.addUsers(u).getStatusCode().is2xxSuccessful()){
-            if (aeropuertoRest.addAeropuerto(a).getStatusCode().is2xxSuccessful()){
-                Stage actual = (Stage)textFieldRegistarAeropuerto_CPistas.getScene().getWindow();
-                actual.close();
-            }
-        }else{
-            //error de mensaje
+            registrarAeropuertoErrorA.setText("All fields must be filled");
+            registrarAeropuertoErrorA.setVisible(true);
         }
-    }
 
-    public void updateAirline(ActionEvent actionEvent) {
+        else if (aeropuertoRest.getAeropuerto(textFieldRegistarAeropuerto_Iata.getText())!=null){
+
+            registrarAeropuertoErrorA.setText("IATA Code already in use");
+            registrarAeropuertoErrorA.setVisible(true);
+        }
+        else if(textFieldRegistrarAeropuertoEmail.getText().isEmpty() ||
+            passwordFieldRegistrarAeropuertoPassword.getText().isEmpty()){
+
+            registrarAeropuertoErrorCuenta.setText("All fields must be filled");
+            registrarAeropuertoErrorCuenta.setVisible(true);
+        }
+        else if(usuarioRest.getUser(textFieldRegistrarAeropuertoEmail.getText())!=null){
+
+            registrarAeropuertoErrorCuenta.setText("Email already in use");
+            registrarAeropuertoErrorCuenta.setVisible(true);
+        }
+        else{
+            UsuarioDTO u = new UsuarioDTO();
+            u.setEmail(textFieldRegistrarAeropuertoEmail.getText());
+            u.setPassword(passwordFieldRegistrarAeropuertoPassword.getText());
+            u.setNombre(textFieldRegistarAeropuerto_Nombre.getText());
+            u.setTipoUsuario("AdminAeropuerto");
+
+            AeropuertoDTO a = new AeropuertoDTO();
+            a.setIata(textFieldRegistarAeropuerto_Iata.getText());
+            a.setNombre(textFieldRegistarAeropuerto_Nombre.getText());
+            a.setCantidadDeCheckin(Integer.parseInt(textFieldRegistarAeropuerto_CCheckIn.getText()));
+            a.setUbicacion(textFieldRegistarAeropuerto_Ciudad.getText());
+            a.setCantidadDePuertas(Integer.parseInt(textFieldRegistarAeropuerto_CPuerta.getText()));
+            a.setCantidadDePistas(Integer.parseInt(textFieldRegistarAeropuerto_CPistas.getText()));
+
+            if(usuarioRest.addUsers(u).getStatusCode().is2xxSuccessful()){
+                if (aeropuertoRest.addAeropuerto(a).getStatusCode().is2xxSuccessful()){
+                    Stage actual = (Stage)textFieldRegistarAeropuerto_CPistas.getScene().getWindow();
+                    actual.close();
+                }
+            }
+        }
+
     }
 }

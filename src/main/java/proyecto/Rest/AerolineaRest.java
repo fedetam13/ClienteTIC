@@ -18,29 +18,23 @@ public class AerolineaRest {
     }
 
     public ResponseEntity addAerolinea(AerolineaDTO client) {
+        client.setNombre(client.getNombre().toLowerCase());
         return restTemplate.postForEntity(Main.serverURL+"/aerolinea/post", client, AerolineaDTO.class);
     }
 
     public AerolineaDTO getAerolinea(String nombre){
-        ResponseEntity<String> response = restTemplate.getForEntity(Main.serverURL + "/aerolinea/getByNombre?nombre=" + nombre, String.class);
+        ResponseEntity<String> response = restTemplate.getForEntity(Main.serverURL + "/aerolinea/getByNombre?nombre=" + nombre.toLowerCase(), String.class);
 
-        if (response.getStatusCode().is2xxSuccessful()) {
-            ObjectMapper objectMapper = new ObjectMapper();
-            try {
-                AerolineaDTO aerolinea = objectMapper.readValue(response.getBody(), AerolineaDTO.class);
-                return aerolinea;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-        } else {
-            return null;
-        }
+        return transformer(response);
     }
 
     public AerolineaDTO getAerolineaById(int sessionID) {
         ResponseEntity<String> response = restTemplate.getForEntity(Main.serverURL + "/aerolinea/getAerolineaById?idAerolinea=" + sessionID, String.class);
 
+        return transformer(response);
+    }
+
+    protected AerolineaDTO transformer(ResponseEntity<String> response){
         if (response.getStatusCode().is2xxSuccessful()) {
             ObjectMapper objectMapper = new ObjectMapper();
             try {

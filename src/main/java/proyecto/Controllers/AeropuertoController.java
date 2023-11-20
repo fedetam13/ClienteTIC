@@ -69,14 +69,6 @@ public class AeropuertoController implements Initializable {
     public TableColumn<NonPendentFlightTuple,String> tipoVueloNP;
 
 
-    //
-
-    @FXML
-    public void volverAlMain(ActionEvent actionEvent) {
-        Stage actual = (Stage)((Button)actionEvent.getSource()).getParent().getScene().getWindow();
-        actual.close();
-    }
-
     @FXML
     public void volverAlLogIn(ActionEvent actionEvent) throws IOException {
         SceneController sc = new SceneController();
@@ -127,8 +119,8 @@ public class AeropuertoController implements Initializable {
         for(VueloDTO v : vuelosPendientes){
 
             AeropuertoDTO a = aeropuertoRest.getAeropuertoByNombre(Main.sessionName);
-            if(a.getIdAeropuerto()==v.getIdAeropuertoArribo()){tipo = "Arribo";}else{ tipo = "Partida";}
-            if(Objects.equals(tipo,"Arribo")){fechaHora= String.valueOf(v.getHoraDeArribo());}else{fechaHora= String.valueOf(v.getHoraDePartida());}
+            if(a.getIdAeropuerto()==v.getIdAeropuertoArribo()){tipo = "Arrival";}else{ tipo = "Departure";}
+            if(Objects.equals(tipo,"Arrival")){fechaHora= String.valueOf(v.getHoraDeArribo());}else{fechaHora= String.valueOf(v.getHoraDePartida());}
 
 
             PendentFlightTuple f = new PendentFlightTuple();
@@ -148,16 +140,16 @@ public class AeropuertoController implements Initializable {
 
             AeropuertoDTO a = aeropuertoRest.getAeropuertoByNombre(Main.sessionName);
             if(a.getIdAeropuerto()==v.getIdAeropuertoArribo()){
-                tipo = "Arribo";
+                tipo = "Arrival";
                 fechaHora = String.valueOf(v.getHoraDeArribo());
                 puerta = String.valueOf(v.getPuertaDeArribo());
-                if(Objects.equals(v.getAprovacionArribo(),"A")){status="Aprovado";}else{status="Rechazado";}
+                if(Objects.equals(v.getAprovacionArribo(),"A")){status="Aproved";}else{status="Rejected";}
             }
             else{
-                tipo = "Partida";
+                tipo = "Departure";
                 fechaHora = String.valueOf(v.getHoraDePartida());
                 puerta = String.valueOf(v.getPueretaDeEmbarque());
-                if(Objects.equals(v.getAprovacionPartida(),"A")){status="Aprovado";}else{status="Rechazado";}
+                if(Objects.equals(v.getAprovacionPartida(),"A")){status="Aproved";}else{status="Rejected";}
             }
 
 
@@ -192,7 +184,7 @@ public class AeropuertoController implements Initializable {
             System.out.println("SELECCIONA ALGO BOLUDO");
         }else{
             VueloDTO v = vueloRest.getVueloById(selectedId);
-            if(tipoDeVuelo=="Arribo"){ v.setAprovacionArribo("R"); } else { v.setAprovacionPartida("R"); }
+            if(tipoDeVuelo=="Arrival"){ v.setAprovacionArribo("R"); } else { v.setAprovacionPartida("R"); }
             vueloRest.addVuelo(v);
             reloadFlights();
         }
@@ -213,7 +205,7 @@ public class AeropuertoController implements Initializable {
 
 
             Stage stage = new Stage();
-            stage.setTitle("Asignar Puerta al Vuelo");
+            stage.setTitle("Asign Boarding Gate");
             stage.setScene(new Scene(root1));
             stage.show();
 

@@ -107,8 +107,8 @@ public class PasajeController implements Initializable {
         PasajeDTO p = new PasajeDTO();
         p.setIdUsuario(Main.sessionID);
         p.setIdVuelo(selectedVuelo);
+        vueloRest.addCounter(selectedVuelo);
         if(pasajeRest.addPasaje(p).getStatusCode().is2xxSuccessful()){
-            vueloRest.addCounter(selectedVuelo);
             closeWindow(actionEvent);
         }
 

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="387.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.Controllers.PasajeroController">
+   <children>
+      <MenuBar>
+         <menus>
+            <Menu mnemonicParsing="false" text="Account">
+               <items>
+                  <MenuItem fx:id="menuItemPassajeros_cambiarContrasenia" mnemonicParsing="false" onAction="#changePasswordWindwow" text="Change Password" />
+                  <MenuItem fx:id="menuItemPasajeros_exit" mnemonicParsing="false" onAction="#volverAlLogIn" text="Sign Out" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <TabPane tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="Search Flights">
+               <content>
+                  <VBox alignment="TOP_CENTER" prefHeight="295.0" prefWidth="600.0">
+                     <children>
+                        <Pane>
+                           <children>
+                              <Label layoutX="225.0" layoutY="23.0" text="Search Flights" textAlignment="CENTER" textFill="#140d71">
+                                 <font>
+                                    <Font name="System Bold" size="23.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="104.0" layoutY="96.0" text="Departure City" />
+                              <Label layoutX="124.0" layoutY="153.0" text="Arrival City" />
+                              <Button fx:id="buttonBuscarVuelo_Buscar" layoutX="275.0" layoutY="240.0" mnemonicParsing="false" onAction="#retornarVuelosDisponibles" text="Search" />
+                              <ChoiceBox fx:id="choiceBoxDestino" layoutX="226.0" layoutY="149.0" prefHeight="25.0" prefWidth="242.0" />
+                              <ChoiceBox fx:id="choiceBoxOrigen" layoutX="225.0" layoutY="92.0" prefHeight="25.0" prefWidth="243.0" />
+                              <Label fx:id="buscarVueloError" alignment="CENTER" layoutX="127.0" layoutY="206.0" prefHeight="17.0" prefWidth="347.0" text="ERROR" textFill="RED" visible="false" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+               </content>
+            </Tab>
+            <Tab text="My Flights">
+               <content>
+                  <VBox>
+                     <children>
+                        <Pane>
+                           <children>
+                              <Button layoutX="265.0" layoutY="288.0" mnemonicParsing="false" onAction="#reloadPage" prefHeight="25.0" prefWidth="66.0" text="Reload" />
+                              <TableView fx:id="vuelosAutorizados" prefHeight="268.0" prefWidth="596.0">
+                                 <columns>
+                                    <TableColumn fx:id="origenVuelo" minWidth="0.0" prefWidth="107.0" text="Departure" />
+                                    <TableColumn fx:id="destinoVuelo" prefWidth="116.0" text="Arrival" />
+                                    <TableColumn fx:id="avionVuelo" prefWidth="90.0" text="Airplane" />
+                                    <TableColumn fx:id="puertaVuelo" prefWidth="135.0" text="Boarding Gate" />
+                                    <TableColumn fx:id="fechaHoraVuelo" minWidth="0.0" prefWidth="146.0" text="Date Time" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</VBox>

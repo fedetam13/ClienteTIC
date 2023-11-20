@@ -10,10 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +26,12 @@ import proyecto.Rest.VueloRest;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 @Controller
 public class PasajeroController implements Initializable {
+
 
 
     @Autowired
@@ -46,6 +45,7 @@ public class PasajeroController implements Initializable {
 
     public ChoiceBox choiceBoxDestino;
     public ChoiceBox choiceBoxOrigen;
+    public Label buscarVueloError;
 
     public TableView<registeredFlights> vuelosAutorizados;
     public TableColumn<registeredFlights,String> origenVuelo;
@@ -103,20 +103,29 @@ public class PasajeroController implements Initializable {
 
     public void retornarVuelosDisponibles(ActionEvent actionEvent) throws IOException {
         if(choiceBoxOrigen.getValue()!=null&&choiceBoxDestino.getValue()!=null){
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-            Parent root1 = fxmlLoader.load(Main.class.getResourceAsStream("ComprarVuelo.fxml"));
+            if(Objects.equals(choiceBoxOrigen.getValue(),choiceBoxDestino.getValue())){
+                buscarVueloError.setText("Departure and Arrival locations must be different");
+                buscarVueloError.setVisible(true);
+            }
+            else{
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+                Parent root1 = fxmlLoader.load(Main.class.getResourceAsStream("ComprarVuelo.fxml"));
 
-            PasajeController pasajeController = fxmlLoader.getController();
+                PasajeController pasajeController = fxmlLoader.getController();
 
-            pasajeController.setaOrigen((AeropuertoDTO) choiceBoxOrigen.getValue());
-            pasajeController.setaDestino((AeropuertoDTO) choiceBoxDestino.getValue());
+                pasajeController.setaOrigen((AeropuertoDTO) choiceBoxOrigen.getValue());
+                pasajeController.setaDestino((AeropuertoDTO) choiceBoxDestino.getValue());
 
 
-            Stage stage = new Stage();
-            stage.setTitle("Comprar Ticket de Vuelo");
-            stage.setScene(new Scene(root1));
-            stage.show();
+                Stage stage = new Stage();
+                stage.setTitle("Buy Flight Ticket");
+                stage.setScene(new Scene(root1));
+                stage.show();
+            }
+        }else{
+            buscarVueloError.setText("Both boxes must be chosen");
+            buscarVueloError.setVisible(true);
         }
     }
 
