@@ -4,53 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db32d1c5-e337-4668-9e49-3cedd079ace3" name="Changes" comment="ADD: asignar puertas, reservar vuelos, counter de pasajeros en vuelo">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/proyecto/AdminNew.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/proyecto/ComprarVuelo.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/proyecto/PasajerosNew.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+    <list default="true" id="db32d1c5-e337-4668-9e49-3cedd079ace3" name="Changes" comment="FINAL Commit">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/proyecto/AboutPage.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/Controllers/AerolineaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proyecto/Controllers/AerolineaController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/Controllers/AeropuertoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proyecto/Controllers/AeropuertoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/Controllers/AvionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proyecto/Controllers/AvionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/Controllers/PasajeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proyecto/Controllers/PasajeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/Controllers/UsuarioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proyecto/Controllers/UsuarioController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/Controllers/VueloController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proyecto/Controllers/VueloController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/DTO/VueloDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proyecto/DTO/VueloDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/Pepito.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proyecto/Pepito.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/Rest/AerolineaRest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proyecto/Rest/AerolineaRest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/Rest/AeropuertoRest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proyecto/Rest/AeropuertoRest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/Rest/PasajeRest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proyecto/Rest/PasajeRest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proyecto/Rest/UsuarioRest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proyecto/Rest/UsuarioRest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/proyecto/AdminGod.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/proyecto/AdminGod.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/proyecto/AerolineaPaginaPrincipal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/proyecto/AerolineaPaginaPrincipal.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/proyecto/CambiarContra.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/proyecto/CambiarContra.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/proyecto/LogIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/proyecto/LogIn.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/proyecto/PasajerosScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/proyecto/PasajerosScene.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/proyecto/RegistarAerolinea.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/proyecto/RegistarAerolinea.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/proyecto/RegistarAeropuerto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/proyecto/RegistarAeropuerto.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/proyecto/RegistarVuelo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/proyecto/RegistarVuelo.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/proyecto/RegistrarAvion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/proyecto/RegistrarAvion.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/AceptarVueloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/AceptarVueloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/AeropuertoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/AeropuertoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/AvionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/AvionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/PasajeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/PasajeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/PasajeroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/PasajeroController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/UsuarioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/VueloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Controllers/VueloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Rest/AerolineaRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Rest/AerolineaRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/Rest/UsuarioRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/Rest/UsuarioRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/proyecto/SceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/proyecto/SceneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/proyecto/AeropuertoPaginaPrincipalFresco.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/proyecto/AeropuertoPaginaPrincipalFresco.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/proyecto/CambiarContra.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/proyecto/CambiarContra.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/proyecto/LogIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/proyecto/LogIn.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/proyecto/RegistarVuelo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/proyecto/RegistarVuelo.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/proyecto/SignUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/proyecto/SignUp.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +117,7 @@
       <workItem from="1700138718335" duration="14165000" />
       <workItem from="1700319731792" duration="16802000" />
       <workItem from="1700401459746" duration="67000" />
-      <workItem from="1700401550219" duration="17577000" />
+      <workItem from="1700401550219" duration="18384000" />
     </task>
     <task id="LOCAL-00001" summary="rest y dto Usuario">
       <created>1697727726115</created>
@@ -312,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700341334435</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="FINAL Commit">
+      <created>1700443201971</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1700443201971</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -352,7 +315,8 @@
     <MESSAGE value="Nueva pagina aeropuerto&#10;aceptar y rechazar vuelos&#10;siempre hay al menos un admin" />
     <MESSAGE value="Set puertas (faltan checks)" />
     <MESSAGE value="ADD: asignar puertas, reservar vuelos, counter de pasajeros en vuelo" />
-    <option name="LAST_COMMIT_MESSAGE" value="ADD: asignar puertas, reservar vuelos, counter de pasajeros en vuelo" />
+    <MESSAGE value="FINAL Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="FINAL Commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
